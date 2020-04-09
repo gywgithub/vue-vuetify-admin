@@ -1,6 +1,7 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
+    <h2 @click="onClick()"> {{ title }} </h2>
     <p>
       For a guide and recipes on how to configure / customize this project,<br>
       check out the
@@ -39,6 +40,10 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
 @Component
 export default class HelloWorld extends Vue {
   @Prop() private msg!: string;
+  // title: string = 'TypeScript';
+  // onClick(): void {
+  //   console.log('onClick');
+  // }
 }
 </script>
 
