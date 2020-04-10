@@ -10,9 +10,10 @@ import vueAxios from 'vue-axios';
 Vue.config.productionTip = false;
 
 if (process.env.NODE_ENV === 'development') {
-  // require('./mock/index'); // tslint:disable-line
+  require('./mock/index'); // tslint:disable-line
   // import './mock/mock'
   // import mock = require('../mock/mock');
+  // require('@/mock');
 }
 
 Vue.use(vueAxios, axios);

@@ -34,6 +34,7 @@
     "axios": "^0.19.2",
     "chai": "^4.1.2",
     "cz-conventional-changelog": "^3.1.0",
+    "mockjs": "^1.1.0",
     "sass": "^1.19.0",
     "sass-loader": "^8.0.0",
     "typescript": "^3.4.3",

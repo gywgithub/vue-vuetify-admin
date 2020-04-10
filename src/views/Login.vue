@@ -121,17 +121,30 @@ import { Component, Vue } from 'vue-property-decorator';
     };
   },
   methods: {
-    login() {
-      console.info('login');
-      // this.axios.post('/api/v1/login').then((res: object) => {
-      //   console.info(res);
-      // });
-      this.$router.push('home');
+    login(): void {
+      console.info('login extends');
+      this.axios.post('/api/v1/login', {
+        username: this.$data.username,
+        password: this.$data.password,
+      }).then((res: object) => {
+        console.info(res);
+        this.$router.push('home');
+      });
     },
   },
   components: {},
 })
-export default class Home extends Vue {}
+export default class Home extends Vue {
+  // private username: string = '';
+  // private login(): void {
+  //   console.info('login extends');
+  //   console.info(this.username);
+  //   this.axios.post('/api/v1/login').then((res: object) => {
+  //     console.info(res);
+  //     this.$router.push('home');
+  //   });
+  // }
+}
 </script>
 <style lang="scss" scoped>
 .main {
