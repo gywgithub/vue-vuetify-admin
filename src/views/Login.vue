@@ -123,6 +123,10 @@ import { Component, Vue } from 'vue-property-decorator';
   methods: {
     login() {
       console.info('login');
+      // this.axios.post('/api/v1/login').then((res: object) => {
+      //   console.info(res);
+      // });
+      this.$router.push('home');
     },
   },
   components: {},
