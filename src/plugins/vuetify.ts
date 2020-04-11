@@ -1,12 +1,12 @@
 // src/plugins/vuetify.js
 
-import Vue from 'vue';
-import Vuetify from 'vuetify';
-import 'vuetify/dist/vuetify.min.css';
+import Vue from 'vue'
+import Vuetify from 'vuetify'
+import 'vuetify/dist/vuetify.min.css'
 
-import colors from 'vuetify/lib/util/colors';
+import colors from 'vuetify/lib/util/colors'
 
-Vue.use(Vuetify);
+Vue.use(Vuetify)
 
 const opts = {
   theme: {
@@ -19,14 +19,14 @@ const opts = {
         error: '#f44336',
         warning: '#ff5722',
         info: '#607d8b',
-        success: '#4caf50',
+        success: '#4caf50'
       },
       dark: {
-        primary: colors.blue.darken1,
-      },
-    },
-  },
-};
+        primary: colors.blue.darken1
+      }
+    }
+  }
+}
 
-export default new Vuetify(opts);
+export default new Vuetify(opts)
 // export default new Vuetify();

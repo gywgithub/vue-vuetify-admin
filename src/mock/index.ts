@@ -1,15 +1,15 @@
-import Mock from 'mockjs';
-const Random = Mock.Random;
+import Mock from 'mockjs'
+const Random = Mock.Random
 
 Mock.setup({
-  timeout: '100-500',
-});
+  timeout: '100-500'
+})
 
 // user avatar
 // const avatar: any = Random.image('200x200', '#ecc247', '#fff', 'png', 'A');
-console.info('mock ts');
+console.info('mock ts')
 Mock.mock('/api/v1/login', 'post', (option: any) => {
-  console.info(option);
+  console.info(option)
   return {
     status: true,
     data: {
@@ -19,9 +19,9 @@ Mock.mock('/api/v1/login', 'post', (option: any) => {
       // avatar: avatar,
       nickname: 'ADMIN',
       role_id: 1,
-      role_name: '管理员',
-    },
-  };
-});
+      role_name: '管理员'
+    }
+  }
+})
 
-export default Mock;
+export default Mock

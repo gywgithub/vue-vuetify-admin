@@ -97,53 +97,35 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Vue } from 'vue-property-decorator'
 
 @Component({
-  data() {
-    return {
-      username: '',
-      password: '',
-      show: false,
-      valid: true,
-      showMessage: false,
-      message: '账号或密码不正确,请重新输入',
-      rules: {
-        username: {
-          required: (value: any) => !!value || '用户名不能为空',
-        },
-        password: {
-          required: (value: any) => !!value || '密码不能为空',
-          min: (v: any) => v.length >= 8 || '密码最少8个字符',
-        },
-      },
-      dark: false,
-    };
-  },
-  methods: {
-    login(): void {
-      console.info('login extends');
-      this.axios.post('/api/v1/login', {
-        username: this.$data.username,
-        password: this.$data.password,
-      }).then((res: object) => {
-        console.info(res);
-        this.$router.push('home');
-      });
-    },
-  },
-  components: {},
+  components: {}
 })
 export default class Home extends Vue {
-  // private username: string = '';
-  // private login(): void {
-  //   console.info('login extends');
-  //   console.info(this.username);
-  //   this.axios.post('/api/v1/login').then((res: object) => {
-  //     console.info(res);
-  //     this.$router.push('home');
-  //   });
-  // }
+  private username: string = ''
+  private dark: boolean = false
+  private password: string = ''
+  private valid: boolean = true
+  private message: string = '账号或密码不正确,请重新输入'
+  private showMessage: boolean = false
+  private rules: object = {
+    username: {
+      required: (value: any) => !!value || '用户名不能为空',
+    },
+    password: {
+      required: (value: any) => !!value || '密码不能为空',
+      min: (v: any) => v.length >= 8 || '密码最少8个字符',
+    },
+  }
+  private login(): void {
+    console.info('login extends')
+    console.info(this.username)
+    this.axios.post('/api/v1/login').then((res: object) => {
+      console.info(res)
+      this.$router.push('home')
+    })
+  }
 }
 </script>
 <style lang="scss" scoped>

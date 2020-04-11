@@ -15,6 +15,16 @@
     "object-literal-sort-keys": false,
     "ordered-imports": false,
     "quotemark": [true, "single"],
-    "no-console": [true, "log", "error"]
+    "no-console": [true, "log", "error"],
+    "semicolon": [true, "never", "ignore-interfaces"],
+    "trailing-comma": [true, {
+      "multiline": {
+        "objects": "ignore",
+        "arrays": "never",
+        "functions": "never",
+        "typeLiterals": "ignore"
+      },
+      "esSpecCompliant": true
+    }]
   }
 }
