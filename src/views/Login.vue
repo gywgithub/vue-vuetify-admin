@@ -102,7 +102,7 @@ import { Component, Vue } from 'vue-property-decorator'
 @Component({
   components: {}
 })
-export default class Home extends Vue {
+export default class Login extends Vue {
   private username: string = ''
   private dark: boolean = false
   private password: string = ''

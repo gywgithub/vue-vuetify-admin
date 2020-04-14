@@ -88,14 +88,20 @@ export default class Home extends Vue {
     {
       icon: 'mdi-alpha-b-box-outline',
       title: 'Introduction',
-      path: '/examples/introduction',
+      path: '/introduction',
       appendIcon: null,
       active: true
     },
     {
+      icon: 'mdi-alpha-u-box-outline',
+      title: 'Users',
+      path: '/home/users',
+      appendIcon: null,
+    },
+    {
       icon: 'mdi-alpha-b-box-outline',
       title: 'Basic',
-      children: [{ title: 'HelloWorld', path: '/examples/helloworld' }],
+      children: [{ title: 'HelloWorld', path: '/basic' }],
       appendIcon: 'mdi-chevron-down'
     }
   ]
@@ -136,6 +142,9 @@ export default class Home extends Vue {
   private itemClick(item: any, key: string) {
     this.subItemActive = -1
     sessionStorage.setItem('itemActive', key)
+    if (item.path !== '') {
+      this.$router.push(item.path)
+    }
   }
 
   private subItemClick(item: any, key: string) {
