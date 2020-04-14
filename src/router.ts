@@ -26,6 +26,11 @@ export default new Router({
       ]
     },
     {
+      path: '*',
+      name: 'notfound',
+      component: () => import('./views/NotFound.vue')
+    },
+    {
       path: '/about',
       name: 'about',
       // route level code-splitting
