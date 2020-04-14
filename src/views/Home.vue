@@ -72,6 +72,7 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
+import jsonConfig from '../../package.json'
 
 @Component({
   components: {}
@@ -107,6 +108,7 @@ export default class Home extends Vue {
   ]
 
   private created() {
+    this.version = jsonConfig.version
     if (
       localStorage.getItem('themeDark') &&
       localStorage.getItem('themeDark') === 'true'
