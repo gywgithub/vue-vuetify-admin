@@ -41,7 +41,8 @@
         </div>
       </div>
     </v-card>
-    <!-- <div v-if="users.length > 0">
+    <div v-if="users.length > 0">
+      <v-card>
       <v-simple-table>
         <template v-slot:default>
           <thead>
@@ -51,7 +52,6 @@
               <th>头像</th>
               <th>姓名</th>
               <th>邮箱</th>
-              <th>权限</th>
               <th>创建时间</th>
               <th>操作</th>
             </tr>
@@ -65,12 +65,11 @@
                   <img :src="val.avatar" alt="avatar" />
                 </v-avatar>
                 <v-avatar size="36" v-else>
-                  <img src="/admin/img/avatar.png" alt="avatar" />
+                  <img src="/img/avatar.png" alt="avatar" />
                 </v-avatar>
               </td>
               <td class="text-align-left">{{ val.nickname }}</td>
               <td class="text-align-left">{{ val.email }}</td>
-              <td class="text-align-left">{{ val.permission_name }}</td>
               <td class="text-align-left">{{ val.created_at }}</td>
               <td class="text-align-left">
                 <v-btn text icon @click="editUser(val)">
@@ -84,8 +83,9 @@
           </tbody>
         </template>
       </v-simple-table>
-    </div> -->
-    <!-- <div v-else class="nothing">
+      </v-card>
+    </div>
+    <div v-else class="nothing">
       <div class="margin-20">
         <v-icon color="#dbdbdb" size="100">mdi-account-outline</v-icon>
       </div>暂无用户数据, 您可以创建一个用户
@@ -94,13 +94,7 @@
     <v-dialog v-model="dialog" max-width="450">
       <v-card>
         <v-card-title class="headline">提示</v-card-title>
-        <v-card-text class="subtitle-1 text-align-left">确定要删除用户吗? <span v-show="selectedUser.permission === 1">由于您删除的是管理员, 为防止意外, 请在输入框中输入&nbsp;<span class="user-font">{{selectedUser.username}}</span>&nbsp;以继续操作, 或取消当前操作. </span>
-            <v-text-field v-model="usernameSecond" v-show="selectedUser.permission === 1" class="text-height"
-            label="管理员用户名"
-            solo
-            dense
-          ></v-text-field>
-        </v-card-text>
+        <v-card-text class="subtitle-1 text-align-left">确定要删除用户吗? </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
           <v-btn text @click="dialog = false">取消</v-btn>
@@ -129,7 +123,7 @@
         </v-toolbar>
         <UserInfo ref="userComp" v-if="dialogUser" />
       </v-card>
-    </v-dialog> -->
+    </v-dialog>
   </div>
 </template>
 
@@ -145,13 +139,39 @@ export default class Users extends Vue {
   private filterKey: string = ''
   private filterValue: string = ''
   private pageNum: number = 1
+
   private page: number = 1
   private limit: number = 50
   private countStart: number = 0
   private countEnd: number = 0
+
   private userCount: number = 0
   private lastPageDisabled: boolean = true
   private nextPageDisabled: boolean = true
+  private users: any[] = []
+
+  private dialogUser: boolean = false
+  private dialogUserTitle: string = '新增用户'
+  private dialog: boolean = false
+
+  private mounted() {
+    console.info('mounted')
+    this.getUsers()
+  }
+
+  private getUsers() {
+    const filter: object = {
+      page: 1,
+      limit: 50
+    }
+    this.axios.get('/api/v1/users/profile', {
+      params: filter
+    }).then((res: any) => {
+      if (res && res.data.status && res.data.data.users.length > 0) {
+        this.users = res.data.data.users
+      }
+    })
+  }
 
   private addUser() {
     console.info('addUser')
@@ -166,6 +186,22 @@ export default class Users extends Vue {
 
   private nextPage() {
     console.info('nextPage')
+  }
+
+  private closeDialogUser() {
+    console.info('closeDialogUser')
+  }
+
+  private deleteUser() {
+    console.info('deleteUser')
+  }
+
+  private editUser() {
+    console.info('eidtUser')
+  }
+
+  private save() {
+    console.info('save')
   }
 }
 </script>

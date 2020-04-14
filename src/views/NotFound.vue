@@ -5,7 +5,6 @@
       <br />
       <div class="container">
         <div class="message-position">没有找到您要查找的页面, 请确保地址正确并且页面未移动</div>
-        <!-- <hr /> -->
         <br />
         <a href="javascript:history.back()">上一页</a>
       </div>

@@ -54,9 +54,7 @@
         </v-btn>
       </v-app-bar>
       <v-content>
-        <v-container>
-          <router-view></router-view>
-        </v-container>
+        <router-view></router-view>
       </v-content>
       <v-dialog v-model="dialog" width="500">
         <v-card>
