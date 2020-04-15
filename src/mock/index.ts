@@ -7,8 +7,8 @@ Mock.setup({
 
 // user data
 const arr = Mock.mock({
-  'array|3-100': [{
-    uid: '@natural(1, 999)',
+  'array|3-20': [{
+    user_id: '@natural(1, 999)',
     username: '@word',
     avatar: '',
     email: '12345678@qq.com',
@@ -19,17 +19,21 @@ const arr = Mock.mock({
   }]
 }).array
 
+// let usersArr = JSON.parse(JSON.stringify(arr))
+let usersArr = arr
+console.info('userArr init: ', usersArr)
+
 // get user
 Mock.mock(RegExp('/api/v1/users/profile' + '.*'), 'get', (option: any) => {
   console.info(option)
   const query = option.url.split('?')[1]
   const page = Number(getQeuryVariable(query, 'page'))
   const limit = Number(getQeuryVariable(query, 'limit'))
-  let usersArr = JSON.parse(JSON.stringify(arr))
+  console.info('limit: ', limit)
 
-  const uid = getQeuryVariable(query, 'uid')
-  if (uid) {
-    usersArr = usersArr.filter((user: any) => user.uid.indexOf(uid) > 0)
+  const userId = getQeuryVariable(query, 'user_id')
+  if (userId) {
+    usersArr = usersArr.filter((user: any) => user.user_id.indexOf(userId) > 0)
     console.info(usersArr)
   }
 
@@ -48,11 +52,13 @@ Mock.mock(RegExp('/api/v1/users/profile' + '.*'), 'get', (option: any) => {
   }
   console.info('start: ', start)
   console.info('end: ', end)
-  const userList = usersArr.splice(start, limit)
+  const arrList = JSON.parse(JSON.stringify(usersArr))
+  const userList = arrList.splice(start, limit)
   console.info(userList)
   const n = count / limit
   const pageNum = Math.ceil(n)
   console.info('pageNum: ', pageNum)
+  console.info('usersArr: ', usersArr)
   return {
     status: true,
     data: {
@@ -63,6 +69,31 @@ Mock.mock(RegExp('/api/v1/users/profile' + '.*'), 'get', (option: any) => {
       page_limit: limit
     }
   }
+})
+
+// delete user
+Mock.mock(RegExp('/api/v1/users/' + '.*'), 'delete', (option: any) => {
+  console.info(option)
+  const arrSplit = option.url.split('/')
+  const userId = Number(arrSplit[arrSplit.length - 1])
+  console.info('userid: ', userId)
+  let i: number = -1
+  usersArr.filter((item: any, index: number) => {
+    if (item.user_id === userId) {
+      console.info(index)
+      i = index
+      return false
+    }
+  })
+  console.info(usersArr)
+  if (i !== -1) {
+    usersArr.splice(i, 1)
+    console.info('usersArr splice')
+    console.info(usersArr)
+  } else {
+    console.warn('data not found')
+  }
+  return { status: true }
 })
 
 // user avatar

@@ -58,7 +58,7 @@
           </thead>
           <tbody>
             <tr v-for="(val, key) in users" :key="key">
-              <td class="text-align-left">{{ val.uid }}</td>
+              <td class="text-align-left">{{ val.user_id }}</td>
               <td class="text-align-left">{{ val.username }}</td>
               <td class="text-align-left">
                 <v-avatar size="36" v-if="val.avatar">
@@ -153,6 +153,7 @@ export default class Users extends Vue {
   private dialogUser: boolean = false
   private dialogUserTitle: string = '新增用户'
   private dialog: boolean = false
+  private userInfo: any = {}
 
   private mounted() {
     console.info('mounted')
@@ -192,8 +193,27 @@ export default class Users extends Vue {
     console.info('closeDialogUser')
   }
 
+  private deleteClick(item: object) {
+    this.dialog = true
+    this.userInfo = item
+    console.info(item)
+  }
+
   private deleteUser() {
     console.info('deleteUser')
+    const userId: number = this.userInfo.user_id
+    this.axios({
+      url: '/api/v1/users/' + userId,
+      method: 'DELETE'
+    }).then((res: any) => {
+      if (res.status) {
+        console.info('delete user success, id: ' + userId)
+        this.dialog = false
+        this.getUsers()
+      } else {
+        console.error('delete user error') // tslint:disable-line
+      }
+    })
   }
 
   private editUser() {
