@@ -5,12 +5,15 @@ Mock.setup({
   timeout: '100-500'
 })
 
+// avatar img
+const avatarData: string = Random.image('200x200', '#ecc247', '#fff', 'png', 'A')
+
 // user data
 const arr = Mock.mock({
-  'array|3-20': [{
+  'array|3-120': [{
     user_id: '@natural(1, 999)',
     username: '@word',
-    avatar: '',
+    avatar: avatarData,
     email: '12345678@qq.com',
     permission: '@natural(1, 4)',
     permission_name: '普通用户_' + '@word',
@@ -19,9 +22,7 @@ const arr = Mock.mock({
   }]
 }).array
 
-// let usersArr = JSON.parse(JSON.stringify(arr))
 let usersArr = arr
-console.info('userArr init: ', usersArr)
 
 // get user
 Mock.mock(RegExp('/api/v1/users/profile' + '.*'), 'get', (option: any) => {
@@ -96,9 +97,6 @@ Mock.mock(RegExp('/api/v1/users/' + '.*'), 'delete', (option: any) => {
   return { status: true }
 })
 
-// user avatar
-// const avatar: string = Random.image('200x200', '#ecc247', '#fff', 'png', 'A')
-console.info('mock ts')
 Mock.mock('/api/v1/login', 'post', (option: any) => {
   console.info(option)
   return {
@@ -107,7 +105,7 @@ Mock.mock('/api/v1/login', 'post', (option: any) => {
       user_id: 1,
       username: 'admin',
       email: 'admin@xxx.com',
-      avatar: '',
+      avatar: '/img/avatar.png',
       nickname: 'ADMIN',
       role_id: 1,
       role_name: '管理员'
@@ -127,6 +125,5 @@ function getQeuryVariable(query: string, variable: string) {
   }
   return false
 }
-
 
 export default Mock

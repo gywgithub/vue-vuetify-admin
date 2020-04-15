@@ -1,12 +1,13 @@
 <template>
-  <div class="main" v-on:keyup.enter="login">
+  <div class="main" v-on:keyup.enter="signIn">
     <v-container fluid fill-height>
       <v-layout align-center justify-center>
         <v-flex xs12 sm8 md4>
           <v-card class="elevation-10 z-index-2 card-width">
-            <v-toolbar color="primary" dark flat>
-              <v-toolbar-title>LOGIN</v-toolbar-title>
-            </v-toolbar>
+            <div class="img-container">
+              <img src="/img/logo.png" class="vue-logo" />
+              <img src="/img/v-alt.svg" class="vuetify-logo" />
+            </div>
             <v-card-text class="card-text-padding">
               <v-form ref="form" v-model="valid">
                 <v-text-field
@@ -15,39 +16,50 @@
                   counter
                   maxlength="25"
                   hint
-                  label="用户名"
+                  label="username"
                 ></v-text-field>
                 <v-text-field
                   v-model="password"
                   :rules="[rules.password.required, rules.password.min]"
                   type="password"
                   name="password"
-                  label="密码"
+                  label="password"
                   maxlength="25"
                   counter
                 ></v-text-field>
-                <div class="min-height-40">
-                  <v-alert
-                    type="error"
-                    outlined
-                    dense
-                    close-text="Close Alert"
-                    dismissible
-                    v-show="showMessage"
-                    v-model="showMessage"
-                    class="alert-container"
-                  >{{message}}</v-alert>
-                </div>
+                <v-alert
+                  type="error"
+                  outlined
+                  dense
+                  close-text="Close Alert"
+                  dismissible
+                  v-show="showMessage"
+                  v-model="showMessage"
+                  class="alert-container"
+                >{{message}}</v-alert>
+                <v-checkbox dense v-model="checkbox" label="remember me"></v-checkbox>
+                <v-btn
+                  color="secondary"
+                  @click="signIn"
+                  class="submit-button"
+                >&nbsp;&nbsp;&nbsp;&nbsp;SignIn&nbsp;&nbsp;&nbsp;&nbsp;</v-btn>
               </v-form>
             </v-card-text>
             <v-card-actions class="card-actions-padding">
+              <v-btn icon color="primary" title="sign in">
+                <v-icon>mdi-wechat</v-icon>
+              </v-btn>
+              <v-btn icon color="primary" title="sign in">
+                <v-icon>mdi-github</v-icon>
+              </v-btn>
+              <!-- <v-icon color="primary">mdi-sina-weibo</v-icon> -->
+              <!-- <v-icon color="primary">mdi-facebook</v-icon> -->
+              <!-- <v-icon color="primary">mdi-twitter</v-icon> -->
+              <!-- <v-icon color="primary">mdi-qqchat</v-icon> -->
               <v-spacer></v-spacer>
-              <v-btn
-                color="secondary"
-                large
-                @click="login"
-                class="submit-button"
-              >&nbsp;&nbsp;&nbsp;&nbsp;登&nbsp;录&nbsp;&nbsp;&nbsp;&nbsp;</v-btn>
+              <v-btn icon color="primary" title="sign up">
+                <v-icon>mdi-account-plus-outline</v-icon>
+              </v-btn>
             </v-card-actions>
           </v-card>
         </v-flex>
@@ -92,7 +104,6 @@
       </svg>
     </div>
     <div class="svg-container" v-else></div>
-    <!-- <Alert class="z-index-999" /> -->
   </div>
 </template>
 
@@ -102,29 +113,40 @@ import { Component, Vue } from 'vue-property-decorator'
 @Component({
   components: {}
 })
-export default class Login extends Vue {
+export default class SignIn extends Vue {
   private username: string = ''
   private dark: boolean = false
   private password: string = ''
   private valid: boolean = true
-  private message: string = '账号或密码不正确,请重新输入'
+  private checkbox: boolean = false
+  private message: string = 'Wrong user name or password.'
   private showMessage: boolean = false
+
   private rules: object = {
     username: {
-      required: (value: any) => !!value || '用户名不能为空',
+      required: (value: any) => !!value || 'Username cannot be empty'
     },
     password: {
-      required: (value: any) => !!value || '密码不能为空',
-      min: (v: any) => v.length >= 8 || '密码最少8个字符',
-    },
+      required: (value: any) => !!value || 'Password cannot be empty',
+      min: (v: any) => v.length >= 8 || 'Password at least 8 characters'
+    }
   }
-  private login(): void {
-    console.info('login extends')
+  private signIn(): void {
+    console.info('signIn extends')
     console.info(this.username)
     this.axios.post('/api/v1/login').then((res: object) => {
       console.info(res)
       this.$router.push('home')
     })
+  }
+  private wechartSignIn() {
+    console.info('wechart signin')
+  }
+  private githubSignIn() {
+    console.info('github sign in')
+  }
+  private signUp() {
+    console.info('signup')
   }
 }
 </script>
@@ -133,17 +155,32 @@ export default class Login extends Vue {
   height: 100%;
 }
 
-.min-height-40 {
-  min-height: 40px;
+.img-container {
+  position: relative;
+  height: 150px;
+}
+
+.vue-logo {
+  width: 60px;
+  position:absolute;
+  left: calc(50% - 6px);
+  top: 96px;
+}
+
+.vuetify-logo {
+  width: 100px;
+  position: absolute;
+  left: calc(50% - 64px);
+  top: 40px;
 }
 
 .card-actions-padding {
-  padding: 0px 40px 30px 20px;
+  padding: 20px 40px 30px 40px;
 }
 
 .submit-button {
   font-size: 1.1em;
-  margin-top: -10px;
+  width: 100%;
 }
 
 .card-text-padding {
