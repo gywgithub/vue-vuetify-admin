@@ -10,8 +10,8 @@
     </v-toolbar>
     <div class="text-align-center">
       <div class="img-container">
-        <img src="/img/logo.png" class="vue-logo" />
-        <img src="/img/v-alt.svg" class="vuetify-logo" />
+        <img src="../assets/img/logo.png" class="vue-logo" />
+        <img src="../assets/img/v-alt.svg" class="vuetify-logo" />
       </div>
     </div>
   </div>

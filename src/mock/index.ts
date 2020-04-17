@@ -105,7 +105,7 @@ Mock.mock('/api/v1/login', 'post', (option: any) => {
       user_id: 1,
       username: 'admin',
       email: 'admin@xxx.com',
-      avatar: '/img/avatar.png',
+      avatar: '../assets/img/avatar.png',
       nickname: 'ADMIN',
       role_id: 1,
       role_name: '管理员'

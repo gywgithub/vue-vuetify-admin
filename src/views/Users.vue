@@ -65,7 +65,7 @@
                   <img :src="val.avatar" alt="avatar" />
                 </v-avatar>
                 <v-avatar size="36" v-else>
-                  <img src="/img/avatar.png" alt="avatar" />
+                  <img src="../assets/img/avatar.png" alt="avatar" />
                 </v-avatar>
               </td>
               <td class="text-align-left">{{ val.nickname }}</td>
