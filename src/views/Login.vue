@@ -5,8 +5,10 @@
         <v-flex xs12 sm8 md4>
           <v-card class="elevation-10 z-index-2 card-width">
             <div class="img-container">
-              <img src="/img/logo.png" class="vue-logo" />
-              <img src="/img/v-alt.svg" class="vuetify-logo" />
+              <!-- <img src="/img/logo.png" class="vue-logo" />
+              <img src="/img/v-alt.svg" class="vuetify-logo" /> -->
+              <img src="../assets/logo.png" class="vue-logo" />
+              <img src="../assets/v-alt.svg" class="vuetify-logo" />
             </div>
             <v-card-text class="card-text-padding">
               <v-form ref="form" v-model="valid">
