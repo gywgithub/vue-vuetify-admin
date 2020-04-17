@@ -57,7 +57,7 @@
               <!-- <v-icon color="primary">mdi-twitter</v-icon> -->
               <!-- <v-icon color="primary">mdi-qqchat</v-icon> -->
               <v-spacer></v-spacer>
-              <v-btn icon color="primary" title="sign up">
+              <v-btn icon color="primary" title="sign up" @click="signUp">
                 <v-icon>mdi-account-plus-outline</v-icon>
               </v-btn>
             </v-card-actions>
@@ -147,6 +147,7 @@ export default class SignIn extends Vue {
   }
   private signUp() {
     console.info('signup')
+    this.$router.push('join')
   }
 }
 </script>

@@ -31,4 +31,8 @@
 .margin-20 {
   margin: 20px;
 }
+
+.text-align-center {
+  text-align: center;
+}
 </style>
