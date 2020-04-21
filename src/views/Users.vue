@@ -129,9 +129,11 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-
+import UserInfo from '@/components/UserInfo.vue'
 @Component({
-  components: {}
+  components: {
+    UserInfo
+  }
 })
 
 export default class Users extends Vue {
@@ -176,6 +178,7 @@ export default class Users extends Vue {
 
   private addUser() {
     console.info('addUser')
+    this.dialogUser = true
   }
   private enter() {
     console.info('enter')
@@ -218,6 +221,7 @@ export default class Users extends Vue {
 
   private editUser() {
     console.info('eidtUser')
+    this.dialogUser = true
   }
 
   private save() {
