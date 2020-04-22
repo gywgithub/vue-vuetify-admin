@@ -132,12 +132,15 @@ export default class SignIn extends Vue {
     }
   }
   private signIn(): void {
-    console.info('signIn extends')
-    console.info(this.username)
-    this.axios.post('/api/v1/login').then((res: object) => {
-      console.info(res)
-      this.$router.push('home')
-    })
+    if ((this.$refs.form as Vue & { validate: () => boolean}).validate()) {
+      console.info('validate true')
+      this.axios.post('/api/v1/login').then((res: object) => {
+        console.info(res)
+        this.$router.push('home')
+      })
+    } else {
+      console.info('validate false')
+    }
   }
   private wechartSignIn() {
     console.info('wechart signin')

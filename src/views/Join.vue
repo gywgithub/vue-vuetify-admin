@@ -54,12 +54,6 @@
           required
         ></v-checkbox>
 
-        <!-- <v-btn :disabled="!valid" color="success" class="mr-4" @click="validate">Validate</v-btn>
-
-        <v-btn color="error" class="mr-4" @click="reset">Reset Form</v-btn>
-
-        <v-btn color="warning" @click="resetValidation">Reset Validation</v-btn>-->
-
         <v-btn color="primary" @click="submit">Submit</v-btn>
       </v-form>
     </div>
@@ -109,24 +103,11 @@ export default class SignUp extends Vue {
 
   private submit() {
     console.info(this.$refs.form)
-    // tslint:disable-next-line
-    // if (this.$refs.form.validate()) {
-    //   console.info('submit form')
-    // } else {
-    //   console.info('f')
-    // }
-  }
-
-  private validate() {
-    // this.$refs.form.validate() // tslint:disabled-line
-  }
-
-  private reset() {
-    // this.$refs.form.reset() // tslint:disable-line
-  }
-
-  private resetValidation() {
-    // this.$refs.form.resetValidation()
+    if ((this.$refs.form as Vue & { validate: () => boolean}).validate()) {
+      console.info('submit form')
+    } else {
+      console.info('validate false')
+    }
   }
 }
 </script>
