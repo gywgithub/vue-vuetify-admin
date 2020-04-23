@@ -97,6 +97,12 @@ Mock.mock(RegExp('/api/v1/users/' + '.*'), 'delete', (option: any) => {
   return { status: true }
 })
 
+// add user
+Mock.mock('/api/v1/users', 'post', (option: any) => {
+  console.info(option)
+  return { status: true, data: {} }
+})
+
 Mock.mock('/api/v1/login', 'post', (option: any) => {
   console.info(option)
   return {

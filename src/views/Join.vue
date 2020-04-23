@@ -8,15 +8,13 @@
       <v-spacer></v-spacer>
       <v-btn text @click="login">LOGIN</v-btn>
     </v-app-bar>
-    <div class="text-align-center margin-top-80">
-      <v-avatar size="100" class="cursor-pointer" v-ripple>
-        <img src="../assets/img/avatar.png" alt="avatar" class="avatar" />
-      </v-avatar>
-    </div>
-    <div class="d-flex justify-center">
+    <div class="d-flex justify-center text-align-center margin-top-80">
       <v-form ref="form" v-model="valid" class="form">
+        <v-avatar size="100" class="cursor-pointer" v-ripple>
+          <img src="../assets/img/avatar.png" alt="avatar" class="avatar" />
+        </v-avatar>
         <v-text-field
-          v-model="name"
+          v-model="username"
           :counter="25"
           maxlength="25"
           :rules="nameRules"
@@ -39,6 +37,8 @@
           :append-icon="showConfirmPassword ? 'mdi-eye' : 'mdi-eye-off'"
           :rules="confirmPasswordRules"
           :type="showConfirmPassword ? 'text' : 'password'"
+          :error="confirmError"
+          :error-messages="confirmErrorMessage"
           label="Confirm password"
           hint="At least 8 characters"
           maxlength="25"
@@ -54,7 +54,7 @@
           required
         ></v-checkbox>
 
-        <v-btn color="primary" @click="submit">Submit</v-btn>
+        <v-btn color="primary" @click="submit" class="btn-submit">Submit</v-btn>
       </v-form>
     </div>
   </div>
@@ -68,6 +68,7 @@ import { Component, Vue } from 'vue-property-decorator'
 export default class SignUp extends Vue {
   private username: string = ''
   private nickName: string = ''
+  private avatar: string = '../assets/img/avatar.png'
   private password: string = ''
   private passwordRules: any = [
     (v: any) => !!v || 'Password is required',
@@ -78,18 +79,19 @@ export default class SignUp extends Vue {
     (v: any) => !!v || 'Password is required',
     (v: any) => (v && v.length >= 8) || 'Min 8 characters'
   ]
+  private confirmError: boolean = false
+  private confirmErrorMessage: string = ''
   private showPassword: boolean = false
   private showConfirmPassword: boolean = false
   private valid: boolean = true
-  private name: string = ''
   private nameRules: any = [
     (v: any) => !!v || 'Name is required',
-    (v: any) => (v && v.length <= 10) || 'Name must be less than 10 characters'
+    (v: any) => (v && v.length <= 25) || 'Name must be less than 25 characters'
   ]
   private email: string = ''
   private emailRules: any = [
     (v: any) => !!v || 'E-mail is required',
-    (v: any) => /.+@.+\..|/.test(v) || 'E-mail must be valid'
+    (v: any) => /.+@.+\..+/.test(v) || 'E-mail must be valid'
   ]
   private checkbox: boolean = false
 
@@ -104,7 +106,29 @@ export default class SignUp extends Vue {
   private submit() {
     console.info(this.$refs.form)
     if ((this.$refs.form as Vue & { validate: () => boolean}).validate()) {
-      console.info('submit form')
+      if (this.password === this.confirmPassword) {
+        this.confirmErrorMessage = ''
+        this.confirmError = false
+        console.info('submit form')
+        let obj: object = {}
+        obj = {
+          username: this.username,
+          password: this.password,
+          email: this.email,
+          nickname: this.nickName,
+          avatar: this.avatar
+        }
+        this.axios({
+          method: 'POST',
+          url: '/api/v1/users',
+          data: obj
+        }).then((res: any) => {
+          console.info(res)
+        })
+      } else {
+        this.confirmError = true
+        this.confirmErrorMessage = 'Two password entries are inconsistent'
+      }
     } else {
       console.info('validate false')
     }
@@ -146,5 +170,9 @@ export default class SignUp extends Vue {
   transition-property: all;
   transition-duration: 59s;
   transition-timing-function: cubic-bezier(0.34, 0, 0.84, 1);
+}
+
+.btn-submit {
+  width: 100%;
 }
 </style>

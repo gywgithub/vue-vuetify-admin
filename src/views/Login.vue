@@ -114,9 +114,9 @@ import { Component, Vue } from 'vue-property-decorator'
   components: {}
 })
 export default class SignIn extends Vue {
-  private username: string = ''
+  private username: string = 'admin'
   private dark: boolean = false
-  private password: string = ''
+  private password: string = '12345678'
   private valid: boolean = true
   private checkbox: boolean = false
   private message: string = 'Wrong user name or password.'
