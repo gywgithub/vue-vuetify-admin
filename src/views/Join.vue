@@ -124,6 +124,12 @@ export default class SignUp extends Vue {
           data: obj
         }).then((res: any) => {
           console.info(res)
+          if (res.status) {
+            console.info('success')
+            this.$router.push('login')
+          } else {
+            console.warn('network exception')
+          }
         })
       } else {
         this.confirmError = true

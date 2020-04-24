@@ -2,7 +2,7 @@ import Mock from 'mockjs'
 const Random = Mock.Random
 
 Mock.setup({
-  timeout: '100-500'
+  timeout: '500-2000'
 })
 
 // avatar img
@@ -100,7 +100,15 @@ Mock.mock(RegExp('/api/v1/users/' + '.*'), 'delete', (option: any) => {
 // add user
 Mock.mock('/api/v1/users', 'post', (option: any) => {
   console.info(option)
-  return { status: true, data: {} }
+  const id: number = Random.natural(10000, 9999999)
+  let obj: any = {}
+  obj = JSON.parse(option.body)
+  obj.user_id = id
+  console.info('obj: ', obj)
+
+  usersArr.push(obj)
+
+  return { status: true, data: obj }
 })
 
 Mock.mock('/api/v1/login', 'post', (option: any) => {

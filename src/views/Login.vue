@@ -104,14 +104,18 @@
       </svg>
     </div>
     <div class="svg-container" v-else></div>
+    <Alert class="alert-conponet-position"></Alert>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
+import Alert from '@/components/Alert.vue'
 
 @Component({
-  components: {}
+  components: {
+    Alert
+  }
 })
 export default class SignIn extends Vue {
   private username: string = 'admin'

@@ -39,4 +39,12 @@
 .cursor-pointer {
   cursor: pointer;
 }
+
+.alert-conponet-position {
+  position: fixed;
+  z-index: 999999;
+  top: 60px;
+  left: 0;
+  right: 0;
+}
 </style>
