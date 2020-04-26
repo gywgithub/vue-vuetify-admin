@@ -52,6 +52,36 @@
         <v-btn icon @click="dialog = true">
           <v-icon size="28">mdi-information-outline</v-icon>
         </v-btn>
+        <v-menu transition="slide-x-transition" bottom right offset-y>
+          <template v-slot:activator="{ on }">
+            <v-btn icon v-on="on">
+              <v-avatar size="32">
+                <img :src="userInfo.avatar" :alt="userInfo.nickname" />
+              </v-avatar>
+            </v-btn>
+          </template>
+
+          <v-list class="user-list" flat>
+            <v-list-item-group color="primary">
+              <v-list-item @click="usernameClick(userInfo)">
+                <v-list-item-action>
+                  <v-icon>mdi-account-outline</v-icon>
+                </v-list-item-action>
+                <v-list-item-content>
+                  <v-list-item-title>{{userInfo.username}}</v-list-item-title>
+                </v-list-item-content>
+              </v-list-item>
+              <v-list-item @click.stop="modalDialog = true">
+                <v-list-item-action>
+                  <v-icon>mdi-logout</v-icon>
+                </v-list-item-action>
+                <v-list-item-content>
+                  <v-list-item-title>sign out</v-list-item-title>
+                </v-list-item-content>
+              </v-list-item>
+            </v-list-item-group>
+          </v-list>
+        </v-menu>
       </v-app-bar>
       <v-content>
         <router-view></router-view>
@@ -62,6 +92,17 @@
           <v-card-text>Version: v{{version}}</v-card-text>
           <v-card-text>Author: YuanWei Guo</v-card-text>
           <v-card-text>Email: qingyi_w@outlook.com</v-card-text>
+        </v-card>
+      </v-dialog>
+      <v-dialog v-model="modalDialog" max-width="290">
+        <v-card>
+          <v-card-title class="headline">Tips</v-card-title>
+          <v-card-text class="subtitle-1 text-align-left">Are you sure you want to log out?</v-card-text>
+          <v-card-actions>
+            <v-spacer></v-spacer>
+            <v-btn color="primary" text @click="modalDialog = false">cannel</v-btn>
+            <v-btn color="error" text @click="logout">sure</v-btn>
+          </v-card-actions>
         </v-card>
       </v-dialog>
     </v-app>
@@ -78,6 +119,7 @@ import jsonConfig from '../../package.json'
 export default class Home extends Vue {
   private version: string = '0.1.0'
   private dialog: boolean = false
+  private modalDialog: boolean = false
   private dark: boolean = false
   private drawer: any = null
 
@@ -104,6 +146,10 @@ export default class Home extends Vue {
       appendIcon: 'mdi-chevron-down'
     }
   ]
+  private userInfo: any = {
+    username: 'username',
+    avatar: '/img/avatar.png'
+  }
 
   private created() {
     this.version = jsonConfig.version
@@ -130,6 +176,20 @@ export default class Home extends Vue {
     }
   }
 
+  private mounted() {
+    console.info(this.userInfo)
+    console.info(sessionStorage.getItem('userInfo'))
+    console.info(typeof sessionStorage.getItem('userInfo'))
+    // const o: any = JSON.parse(String(sessionStorage.getItem('userInfo')))
+    if (sessionStorage.getItem('userInfo') && sessionStorage.getItem('userInfo') !== '') {
+      this.userInfo = JSON.parse(String(sessionStorage.getItem('userInfo')))
+    }
+    console.info('33')
+    console.info(this.userInfo)
+    console.info(typeof this.userInfo)
+    // this.userInfo.avatar = '/img/avatar.png'
+  }
+
   private beforeDestroy() {
     sessionStorage.removeItem('subItemActive')
     sessionStorage.removeItem('itemActive')
@@ -137,6 +197,10 @@ export default class Home extends Vue {
 
   private openTab() {
     window.open('https://github.com/gywgithub/vue-vuetify-admin', '_blank')
+  }
+
+  private usernameClick() {
+    console.info('')
   }
 
   private itemClick(item: any, key: string) {
@@ -160,6 +224,12 @@ export default class Home extends Vue {
     this.dark = !this.dark
     localStorage.setItem('themeDark', String(this.dark))
     this.$vuetify.theme.dark = this.dark
+  }
+
+  private logout() {
+    sessionStorage.clear()
+    localStorage.clear()
+    this.$router.push('login')
   }
 }
 </script>

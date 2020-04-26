@@ -118,9 +118,9 @@ import Alert from '@/components/Alert.vue'
   }
 })
 export default class SignIn extends Vue {
-  private username: string = 'admin'
+  private username: string = ''
   private dark: boolean = false
-  private password: string = '12345678'
+  private password: string = ''
   private valid: boolean = true
   private checkbox: boolean = false
   private message: string = 'Wrong user name or password.'
@@ -138,9 +138,26 @@ export default class SignIn extends Vue {
   private signIn(): void {
     if ((this.$refs.form as Vue & { validate: () => boolean}).validate()) {
       console.info('validate true')
-      this.axios.post('/api/v1/login').then((res: object) => {
+      this.axios({
+        url: '/api/v1/login',
+        method: 'POST',
+        data: {
+          username: this.username,
+          password: this.password
+        }
+      }).then((res: any) => {
         console.info(res)
-        this.$router.push('home')
+        if (res.data.status === true) {
+          const userInfo = res.data.data
+          console.info(userInfo)
+          if (this.checkbox) {
+            localStorage.setItem('userInfo', userInfo)
+          }
+          sessionStorage.setItem('userInfo', JSON.stringify(userInfo))
+          this.$router.push('home')
+        } else {
+          console.warn('username or password incorrect')
+        }
       })
     } else {
       console.info('validate false')

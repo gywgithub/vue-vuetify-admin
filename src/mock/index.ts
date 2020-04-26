@@ -15,6 +15,7 @@ const arr = Mock.mock({
     username: '@word',
     avatar: avatarData,
     email: '12345678@qq.com',
+    password: '12345678',
     permission: '@natural(1, 4)',
     permission_name: '普通用户_' + '@word',
     created_at: '@datetime',
@@ -22,7 +23,17 @@ const arr = Mock.mock({
   }]
 }).array
 
-let usersArr = arr
+let usersArr: any = arr
+usersArr.push({
+  user_id: 1,
+  username: 'admin',
+  password: 'admin123',
+  email: 'admin@xxx.com',
+  avatar: '/img/avatar.png',
+  nickname: 'ADMIN',
+  role_id: 1,
+  role_name: '管理员'
+})
 
 // get user
 Mock.mock(RegExp('/api/v1/users/profile' + '.*'), 'get', (option: any) => {
@@ -113,17 +124,24 @@ Mock.mock('/api/v1/users', 'post', (option: any) => {
 
 Mock.mock('/api/v1/login', 'post', (option: any) => {
   console.info(option)
-  return {
-    status: true,
-    data: {
-      user_id: 1,
-      username: 'admin',
-      email: 'admin@xxx.com',
-      avatar: '../assets/img/avatar.png',
-      nickname: 'ADMIN',
-      role_id: 1,
-      role_name: '管理员'
+  const obj: any = JSON.parse(option.body)
+  console.info('usersArr: ', usersArr)
+  let userIndex: number = -1
+  usersArr.forEach((item: any, index: number) => {
+    if (item.username === obj.username) {
+      userIndex = index
+      return false
     }
+  })
+  console.info('userIndex: ', userIndex)
+  console.info(usersArr[userIndex])
+  if (usersArr[userIndex].password === obj.password) {
+    return {
+      status: true,
+      data: usersArr[userIndex]
+    }
+  } else {
+    return { status: false }
   }
 })
 
