@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div @keyup.enter="submit">
     <v-app-bar fixed color="primary" dark>
       <v-btn icon @click="back">
         <v-icon>mdi-arrow-left</v-icon>
@@ -53,7 +53,6 @@
           label="Do you agree?"
           required
         ></v-checkbox>
-
         <v-btn color="primary" @click="submit" class="btn-submit">Submit</v-btn>
       </v-form>
     </div>
@@ -180,5 +179,6 @@ export default class SignUp extends Vue {
 
 .btn-submit {
   width: 100%;
+  margin-top: 10px;
 }
 </style>

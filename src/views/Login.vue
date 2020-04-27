@@ -46,10 +46,10 @@
               </v-form>
             </v-card-text>
             <v-card-actions class="card-actions-padding">
-              <v-btn icon color="primary" title="sign in">
+              <v-btn icon color="primary" title="wechat sign in">
                 <v-icon>mdi-wechat</v-icon>
               </v-btn>
-              <v-btn icon color="primary" title="sign in">
+              <v-btn icon color="primary" title="github sign in">
                 <v-icon>mdi-github</v-icon>
               </v-btn>
               <!-- <v-icon color="primary">mdi-sina-weibo</v-icon> -->

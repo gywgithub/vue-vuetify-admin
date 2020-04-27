@@ -177,17 +177,9 @@ export default class Home extends Vue {
   }
 
   private mounted() {
-    console.info(this.userInfo)
-    console.info(sessionStorage.getItem('userInfo'))
-    console.info(typeof sessionStorage.getItem('userInfo'))
-    // const o: any = JSON.parse(String(sessionStorage.getItem('userInfo')))
     if (sessionStorage.getItem('userInfo') && sessionStorage.getItem('userInfo') !== '') {
       this.userInfo = JSON.parse(String(sessionStorage.getItem('userInfo')))
     }
-    console.info('33')
-    console.info(this.userInfo)
-    console.info(typeof this.userInfo)
-    // this.userInfo.avatar = '/img/avatar.png'
   }
 
   private beforeDestroy() {
