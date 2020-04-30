@@ -7,14 +7,27 @@
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
+import store from '@/store'
+
 @Component({
   components: {}
 })
 export default class Alert extends Vue {
-  private alertBorder: string = 'left'
-  private alertType: string = 'info'
-  private alertMessage: string = ''
-  private alertShow: boolean = false
+  get alertShow() {
+    return store.state.alert.showAlert
+  }
+
+  get alertType() {
+    return store.state.alert.alertType
+  }
+
+  get alertMessage() {
+    return store.state.alert.alertMessage
+  }
+
+  get alertBorder() {
+    return store.state.alert.alertBorder
+  }
 }
 </script>
 <style lang="scss">

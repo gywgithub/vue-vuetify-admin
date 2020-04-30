@@ -1,11 +1,13 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-// import { AlertModule } from './modules/alert'
+import Alert from './modules/alert'
 
 Vue.use(Vuex)
 
-export interface IRootState {
-  // alert: AlertModule
-}
+const store = new Vuex.Store({
+  modules: {
+    alert: Alert
+  }
+})
 
-export default new Vuex.Store<IRootState>({})
+export default store

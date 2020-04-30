@@ -104,17 +104,15 @@
       </svg>
     </div>
     <div class="svg-container" v-else></div>
-    <Alert class="alert-conponet-position"></Alert>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import Alert from '@/components/Alert.vue'
+import store from '@/store'
 
 @Component({
   components: {
-    Alert
   }
 })
 export default class SignIn extends Vue {
@@ -135,8 +133,9 @@ export default class SignIn extends Vue {
       min: (v: any) => v.length >= 8 || 'Password at least 8 characters'
     }
   }
+
   private signIn(): void {
-    if ((this.$refs.form as Vue & { validate: () => boolean}).validate()) {
+    if ((this.$refs.form as Vue & { validate: () => boolean }).validate()) {
       console.info('validate true')
       this.axios({
         url: '/api/v1/login',
@@ -148,15 +147,24 @@ export default class SignIn extends Vue {
       }).then((res: any) => {
         console.info(res)
         if (res.data.status === true) {
+          this.showMessage = false
           const userInfo = res.data.data
           console.info(userInfo)
           if (this.checkbox) {
             localStorage.setItem('userInfo', userInfo)
           }
           sessionStorage.setItem('userInfo', JSON.stringify(userInfo))
-          this.$router.push('home')
+          store.dispatch('updateShowAlert', {
+            showAlert: true,
+            alertMessage: 'login success',
+            alertType: 'success'
+          })
+          setTimeout(() => {
+            this.$router.push('home')
+          }, 2000)
         } else {
           console.warn('username or password incorrect')
+          this.showMessage = true
         }
       })
     } else {
@@ -187,7 +195,7 @@ export default class SignIn extends Vue {
 
 .vue-logo {
   width: 60px;
-  position:absolute;
+  position: absolute;
   left: calc(50% - 6px);
   top: 96px;
 }

@@ -2,10 +2,21 @@
   <div id="app">
     <v-app>
       <router-view/>
+      <Alert class="alert-conponet-position"></Alert>
     </v-app>
   </div>
 </template>
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator'
+import Alert from '@/components/Alert.vue'
 
+@Component({
+  components: {
+    Alert
+  }
+})
+export default class extends Vue {}
+</script>
 <style lang="scss">
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
