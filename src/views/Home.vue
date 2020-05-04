@@ -52,11 +52,16 @@
         <v-btn icon @click="dialog = true">
           <v-icon size="28">mdi-information-outline</v-icon>
         </v-btn>
+        <!-- <v-btn icon>
+          <v-avatar size="32">
+            <img :src="userInfo.avatar" :alt="userInfo.nickname" />
+          </v-avatar>
+        </v-btn> -->
         <v-menu transition="slide-x-transition" bottom right offset-y>
           <template v-slot:activator="{ on }">
             <v-btn icon v-on="on">
               <v-avatar size="32">
-                <img :src="userInfo.avatar" :alt="userInfo.nickname" />
+                <img :src="`${publicPath}` + userInfo.avatar" :alt="userInfo.nickname" />
               </v-avatar>
             </v-btn>
           </template>
@@ -117,6 +122,7 @@ import jsonConfig from '../../package.json'
   components: {}
 })
 export default class Home extends Vue {
+  private publicPath: string = process.env.BASE_URL
   private version: string = '0.1.0'
   private dialog: boolean = false
   private modalDialog: boolean = false
@@ -148,10 +154,11 @@ export default class Home extends Vue {
   ]
   private userInfo: any = {
     username: 'username',
-    avatar: '/img/avatar.png'
+    avatar: 'img/avatar.png'
   }
 
   private created() {
+    console.info(this.publicPath)
     this.version = jsonConfig.version
     if (
       localStorage.getItem('themeDark') &&

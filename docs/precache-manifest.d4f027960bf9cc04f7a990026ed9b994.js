@@ -4,12 +4,12 @@ self.__precacheManifest = [
     "url": "/vue-vuetify-admin/js/about.ff103ffd.js"
   },
   {
-    "revision": "b7994464e9dc04366fe2",
-    "url": "/vue-vuetify-admin/css/app.2dbbc3e4.css"
+    "revision": "c3dd6e93008c2ac67336",
+    "url": "/vue-vuetify-admin/css/app.9c4769e6.css"
   },
   {
-    "revision": "b7994464e9dc04366fe2",
-    "url": "/vue-vuetify-admin/js/app.b21ebd5a.js"
+    "revision": "c3dd6e93008c2ac67336",
+    "url": "/vue-vuetify-admin/js/app.47cdbd2c.js"
   },
   {
     "revision": "ded74fd47bf1fa6c053a",
@@ -64,7 +64,7 @@ self.__precacheManifest = [
     "url": "/vue-vuetify-admin/img/v-alt.668cf772.svg"
   },
   {
-    "revision": "a1aed959befada29b7ac822a55149747",
+    "revision": "26ddf474fe6f6d75762c3d597b0dd8f4",
     "url": "/vue-vuetify-admin/index.html"
   },
   {

@@ -29,7 +29,7 @@ usersArr.push({
   username: 'admin',
   password: 'admin123',
   email: 'admin@xxx.com',
-  avatar: '/img/avatar.png',
+  avatar: 'img/avatar.png',
   nickname: 'ADMIN',
   role_id: 1,
   role_name: '管理员'
