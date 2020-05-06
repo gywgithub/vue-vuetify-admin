@@ -11,7 +11,7 @@
     <div class="d-flex justify-center text-align-center margin-top-80">
       <v-form ref="form" v-model="valid" class="form">
         <v-avatar size="100" class="cursor-pointer" v-ripple>
-          <img src="../assets/img/avatar.png" alt="avatar" class="avatar" />
+          <img :src="`${publicPath}` + avatar" alt="avatar" class="avatar" />
         </v-avatar>
         <v-text-field
           v-model="username"
@@ -53,9 +53,21 @@
           label="Do you agree?"
           required
         ></v-checkbox>
-        <v-btn color="primary" @click="submit" class="btn-submit">Submit</v-btn>
+        <v-btn color="primary" @click="submit" class="btn-submit" :disabled="btnDisabled">Submit</v-btn>
       </v-form>
     </div>
+    <v-dialog v-model="dialog" persistent width="400">
+      <v-card>
+        <v-card-title class="headline">Tips</v-card-title>
+        <v-card-text>
+          <span class="light-blue--text subtitle-1">Successfully registered.</span> Automatically jump to the login page after <span class="blue--text subtitle-1">{{num}}s</span>
+        </v-card-text>
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn text color="primary" @click="login">Go Sign In</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
   </div>
 </template>
 <script lang="ts">
@@ -65,9 +77,10 @@ import { Component, Vue } from 'vue-property-decorator'
   components: {}
 })
 export default class SignUp extends Vue {
+  private publicPath: string = process.env.BASE_URL
   private username: string = ''
   private nickName: string = ''
-  private avatar: string = '../assets/img/avatar.png'
+  private avatar: string = 'img/avatar.png'
   private password: string = ''
   private passwordRules: any = [
     (v: any) => !!v || 'Password is required',
@@ -93,6 +106,16 @@ export default class SignUp extends Vue {
     (v: any) => /.+@.+\..+/.test(v) || 'E-mail must be valid'
   ]
   private checkbox: boolean = false
+  private dialog: boolean = false
+  private num: number = 4
+  private setIntervalId: number = 0
+  private btnDisabled: boolean = false
+
+  private beforeDestroy() {
+    if (this.setIntervalId !== 0) {
+      clearInterval(this.setIntervalId)
+    }
+  }
 
   private back() {
     this.$router.go(-1)
@@ -106,6 +129,7 @@ export default class SignUp extends Vue {
     console.info(this.$refs.form)
     if ((this.$refs.form as Vue & { validate: () => boolean}).validate()) {
       if (this.password === this.confirmPassword) {
+        this.btnDisabled = true
         this.confirmErrorMessage = ''
         this.confirmError = false
         console.info('submit form')
@@ -125,10 +149,17 @@ export default class SignUp extends Vue {
           console.info(res)
           if (res.status) {
             console.info('success')
-            this.$router.push('login')
+            this.dialog = true
+            this.setIntervalId = setInterval(() => {
+              this.num--
+              if (this.num === 0) {
+                this.$router.push('login')
+              }
+            }, 1000)
           } else {
             console.warn('network exception')
           }
+          this.btnDisabled = false
         })
       } else {
         this.confirmError = true
