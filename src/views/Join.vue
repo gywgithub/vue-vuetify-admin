@@ -53,7 +53,7 @@
           label="Do you agree?"
           required
         ></v-checkbox>
-        <v-btn color="primary" @click="submit" class="btn-submit" :disabled="btnDisabled">Submit</v-btn>
+        <v-btn color="primary" @click="submit" class="btn-submit" :disabled="btnDisabled" :loading="btnLoading">Submit</v-btn>
       </v-form>
     </div>
     <v-dialog v-model="dialog" persistent width="400">
@@ -110,6 +110,7 @@ export default class SignUp extends Vue {
   private num: number = 4
   private setIntervalId: number = 0
   private btnDisabled: boolean = false
+  private btnLoading: boolean = false
 
   private beforeDestroy() {
     if (this.setIntervalId !== 0) {
@@ -130,6 +131,8 @@ export default class SignUp extends Vue {
     if ((this.$refs.form as Vue & { validate: () => boolean}).validate()) {
       if (this.password === this.confirmPassword) {
         this.btnDisabled = true
+        this.btnLoading = true
+
         this.confirmErrorMessage = ''
         this.confirmError = false
         console.info('submit form')
@@ -141,6 +144,7 @@ export default class SignUp extends Vue {
           nickname: this.nickName,
           avatar: this.avatar
         }
+
         this.axios({
           method: 'POST',
           url: '/api/v1/users',
@@ -153,7 +157,7 @@ export default class SignUp extends Vue {
             this.setIntervalId = setInterval(() => {
               this.num--
               if (this.num === 0) {
-                this.$router.push('login')
+                this.login()
               }
             }, 1000)
           } else {

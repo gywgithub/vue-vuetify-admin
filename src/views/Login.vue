@@ -42,6 +42,8 @@
                   color="secondary"
                   @click="signIn"
                   class="submit-button"
+                  :disabled="btnDisabled"
+                  :loading="btnLoading"
                 >&nbsp;&nbsp;&nbsp;&nbsp;SignIn&nbsp;&nbsp;&nbsp;&nbsp;</v-btn>
               </v-form>
             </v-card-text>
@@ -123,7 +125,6 @@ export default class SignIn extends Vue {
   private checkbox: boolean = false
   private message: string = 'Wrong user name or password.'
   private showMessage: boolean = false
-
   private rules: object = {
     username: {
       required: (value: any) => !!value || 'Username cannot be empty'
@@ -133,10 +134,15 @@ export default class SignIn extends Vue {
       min: (v: any) => v.length >= 8 || 'Password at least 8 characters'
     }
   }
+  private btnDisabled: boolean = false
+  private btnLoading: boolean = false
 
   private signIn(): void {
+    console.info('signIn')
     if ((this.$refs.form as Vue & { validate: () => boolean }).validate()) {
       console.info('validate true')
+      this.btnDisabled = true
+      this.btnLoading = true
       this.axios({
         url: '/api/v1/login',
         method: 'POST',
@@ -159,9 +165,7 @@ export default class SignIn extends Vue {
             alertMessage: 'login success',
             alertType: 'success'
           })
-          setTimeout(() => {
-            this.$router.push('home')
-          }, 2000)
+          this.$router.push('home')
         } else {
           console.warn('username or password incorrect')
           this.showMessage = true
