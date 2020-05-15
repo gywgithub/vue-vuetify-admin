@@ -4,28 +4,28 @@ self.__precacheManifest = [
     "url": "/vue-vuetify-admin/js/about.ff103ffd.js"
   },
   {
-    "revision": "c3dd6e93008c2ac67336",
-    "url": "/vue-vuetify-admin/css/app.9c4769e6.css"
+    "revision": "a0934230846e3fee51f6",
+    "url": "/vue-vuetify-admin/css/app.3756dbd9.css"
   },
   {
-    "revision": "c3dd6e93008c2ac67336",
-    "url": "/vue-vuetify-admin/js/app.47cdbd2c.js"
+    "revision": "a0934230846e3fee51f6",
+    "url": "/vue-vuetify-admin/js/app.347f7cfb.js"
   },
   {
-    "revision": "ded74fd47bf1fa6c053a",
-    "url": "/vue-vuetify-admin/css/chunk-4e68d531.2cd423c4.css"
+    "revision": "6c1d147c563704e28b8a",
+    "url": "/vue-vuetify-admin/css/chunk-5f3e4d67.ac03a1ec.css"
   },
   {
-    "revision": "ded74fd47bf1fa6c053a",
-    "url": "/vue-vuetify-admin/js/chunk-4e68d531.408dfc54.js"
+    "revision": "6c1d147c563704e28b8a",
+    "url": "/vue-vuetify-admin/js/chunk-5f3e4d67.1eeed508.js"
   },
   {
-    "revision": "52e3550380ded6bd2854",
-    "url": "/vue-vuetify-admin/css/chunk-5e1841c0.3ea8a59a.css"
+    "revision": "39bdd17647ba55028e82",
+    "url": "/vue-vuetify-admin/css/chunk-612bd262.a2ff4e18.css"
   },
   {
-    "revision": "52e3550380ded6bd2854",
-    "url": "/vue-vuetify-admin/js/chunk-5e1841c0.9b99a9ff.js"
+    "revision": "39bdd17647ba55028e82",
+    "url": "/vue-vuetify-admin/js/chunk-612bd262.61fc233f.js"
   },
   {
     "revision": "55d4d3bab431c89b4f4c",
@@ -36,12 +36,12 @@ self.__precacheManifest = [
     "url": "/vue-vuetify-admin/js/chunk-6a355e80.755fb4ae.js"
   },
   {
-    "revision": "4e9f7c9336e3fb4e9d96",
-    "url": "/vue-vuetify-admin/css/chunk-f9c7f058.da929144.css"
+    "revision": "15d3bd791af05c1d43ee",
+    "url": "/vue-vuetify-admin/css/chunk-87c3cf88.3ea8a59a.css"
   },
   {
-    "revision": "4e9f7c9336e3fb4e9d96",
-    "url": "/vue-vuetify-admin/js/chunk-f9c7f058.9a327254.js"
+    "revision": "15d3bd791af05c1d43ee",
+    "url": "/vue-vuetify-admin/js/chunk-87c3cf88.ee68b8e0.js"
   },
   {
     "revision": "75fb3209aec8e057d551",
@@ -64,7 +64,7 @@ self.__precacheManifest = [
     "url": "/vue-vuetify-admin/img/v-alt.668cf772.svg"
   },
   {
-    "revision": "26ddf474fe6f6d75762c3d597b0dd8f4",
+    "revision": "614f36609da956178995d094aa66f792",
     "url": "/vue-vuetify-admin/index.html"
   },
   {
