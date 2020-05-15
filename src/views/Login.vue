@@ -2,8 +2,8 @@
   <div class="main" v-on:keyup.enter="signIn">
     <v-container fluid fill-height>
       <v-layout align-center justify-center>
-        <v-flex xs12 sm8 md4>
-          <v-card class="elevation-10 z-index-2 card-width">
+        <v-flex xs12 sm8 md4 lg3>
+          <v-card class="z-index-2">
             <div class="img-container">
               <img src="../assets/img/logo.png" class="vue-logo" />
               <img src="../assets/img/v-alt.svg" class="vuetify-logo" />
@@ -48,10 +48,10 @@
               </v-form>
             </v-card-text>
             <v-card-actions class="card-actions-padding">
-              <v-btn icon color="primary" title="wechat sign in">
+              <v-btn icon color="primary" title="wechat sign in" @click="wechartSignIn">
                 <v-icon>mdi-wechat</v-icon>
               </v-btn>
-              <v-btn icon color="primary" title="github sign in">
+              <v-btn icon color="primary" title="github sign in" @click="githubSignIn">
                 <v-icon>mdi-github</v-icon>
               </v-btn>
               <!-- <v-icon color="primary">mdi-sina-weibo</v-icon> -->
@@ -114,8 +114,7 @@ import { Component, Vue } from 'vue-property-decorator'
 import store from '@/store'
 
 @Component({
-  components: {
-  }
+  components: {}
 })
 export default class SignIn extends Vue {
   private username: string = ''
@@ -177,9 +176,19 @@ export default class SignIn extends Vue {
   }
   private wechartSignIn() {
     console.info('wechart signin')
+    store.dispatch('updateShowAlert', {
+      showAlert: true,
+      alertMessage: 'The function is temporarily not supported',
+      alertType: 'info'
+    })
   }
   private githubSignIn() {
     console.info('github sign in')
+    store.dispatch('updateShowAlert', {
+      showAlert: true,
+      alertMessage: 'The function is temporarily not supported',
+      alertType: 'info'
+    })
   }
   private signUp() {
     console.info('signup')
@@ -252,11 +261,6 @@ export default class SignIn extends Vue {
   bottom: 0;
   left: 0;
   z-index: -1;
-}
-
-.card-width {
-  max-width: 480px;
-  margin: auto;
 }
 </style>
 

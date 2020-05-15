@@ -52,11 +52,6 @@
         <v-btn icon @click="dialog = true">
           <v-icon size="28">mdi-information-outline</v-icon>
         </v-btn>
-        <!-- <v-btn icon>
-          <v-avatar size="32">
-            <img :src="userInfo.avatar" :alt="userInfo.nickname" />
-          </v-avatar>
-        </v-btn> -->
         <v-menu transition="slide-x-transition" bottom right offset-y>
           <template v-slot:activator="{ on }">
             <v-btn icon v-on="on">
@@ -143,7 +138,7 @@ export default class Home extends Vue {
       icon: 'mdi-alpha-u-box-outline',
       title: 'Users',
       path: '/home/users',
-      appendIcon: null,
+      appendIcon: null
     },
     {
       icon: 'mdi-alpha-b-box-outline',
@@ -158,7 +153,6 @@ export default class Home extends Vue {
   }
 
   private created() {
-    console.info(this.publicPath)
     this.version = jsonConfig.version
     if (
       localStorage.getItem('themeDark') &&
@@ -184,7 +178,10 @@ export default class Home extends Vue {
   }
 
   private mounted() {
-    if (sessionStorage.getItem('userInfo') && sessionStorage.getItem('userInfo') !== '') {
+    if (
+      sessionStorage.getItem('userInfo') &&
+      sessionStorage.getItem('userInfo') !== ''
+    ) {
       this.userInfo = JSON.parse(String(sessionStorage.getItem('userInfo')))
     }
   }
@@ -237,11 +234,13 @@ export default class Home extends Vue {
   display: flex;
   padding: 40px 20px;
 }
+
 .logo-img {
   width: 45%;
   object-fit: contain;
   margin: 0 5px;
 }
+
 .img-d3-padding {
   padding: 4px !important;
 }

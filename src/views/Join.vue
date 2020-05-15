@@ -8,59 +8,76 @@
       <v-spacer></v-spacer>
       <v-btn text @click="login">LOGIN</v-btn>
     </v-app-bar>
-    <div class="d-flex justify-center text-align-center margin-top-80">
-      <v-form ref="form" v-model="valid" class="form">
-        <v-avatar size="100" class="cursor-pointer" v-ripple>
-          <img :src="`${publicPath}` + avatar" alt="avatar" class="avatar" />
-        </v-avatar>
-        <v-text-field
-          v-model="username"
-          :counter="25"
-          maxlength="25"
-          :rules="nameRules"
-          label="Username"
-          required
-        ></v-text-field>
-        <v-text-field
-          v-model="password"
-          :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
-          :rules="passwordRules"
-          :type="showPassword ? 'text' : 'password'"
-          label="Password"
-          hint="At least 8 characters"
-          maxlength="25"
-          :counter="25"
-          @click:append="showPassword = !showPassword"
-        ></v-text-field>
-        <v-text-field
-          v-model="confirmPassword"
-          :append-icon="showConfirmPassword ? 'mdi-eye' : 'mdi-eye-off'"
-          :rules="confirmPasswordRules"
-          :type="showConfirmPassword ? 'text' : 'password'"
-          :error="confirmError"
-          :error-messages="confirmErrorMessage"
-          label="Confirm password"
-          hint="At least 8 characters"
-          maxlength="25"
-          :counter="25"
-          @click:append="showConfirmPassword = !showConfirmPassword"
-        ></v-text-field>
-        <v-text-field v-model="email" :rules="emailRules" label="Email" required maxlength="50"></v-text-field>
-        <v-text-field v-model="nickName" :counter="25" maxlength="25" label="Nickname"></v-text-field>
-        <v-checkbox
-          v-model="checkbox"
-          :rules="[v => !!v || 'You must agree to continue!']"
-          label="Do you agree?"
-          required
-        ></v-checkbox>
-        <v-btn color="primary" @click="submit" class="btn-submit" :disabled="btnDisabled" :loading="btnLoading">Submit</v-btn>
-      </v-form>
-    </div>
+    <v-container fluid fill-height>
+      <v-layout align-center justify-center>
+        <v-flex xs12 sm8 md4 lg3>
+          <v-form ref="form" v-model="valid" class="text-align-center margin-top-80">
+            <v-avatar size="100" class="cursor-pointer" v-ripple>
+              <img :src="`${publicPath}` + avatar" alt="avatar" class="avatar" />
+            </v-avatar>
+            <v-text-field
+              v-model="username"
+              :counter="25"
+              maxlength="25"
+              :rules="nameRules"
+              label="Username"
+              required
+            ></v-text-field>
+            <v-text-field
+              v-model="password"
+              :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
+              :rules="passwordRules"
+              :type="showPassword ? 'text' : 'password'"
+              label="Password"
+              hint="At least 8 characters"
+              maxlength="25"
+              :counter="25"
+              @click:append="showPassword = !showPassword"
+            ></v-text-field>
+            <v-text-field
+              v-model="confirmPassword"
+              :append-icon="showConfirmPassword ? 'mdi-eye' : 'mdi-eye-off'"
+              :rules="confirmPasswordRules"
+              :type="showConfirmPassword ? 'text' : 'password'"
+              :error="confirmError"
+              :error-messages="confirmErrorMessage"
+              label="Confirm password"
+              hint="At least 8 characters"
+              maxlength="25"
+              :counter="25"
+              @click:append="showConfirmPassword = !showConfirmPassword"
+            ></v-text-field>
+            <v-text-field
+              v-model="email"
+              :rules="emailRules"
+              label="Email"
+              required
+              maxlength="50"
+            ></v-text-field>
+            <v-text-field v-model="nickName" :counter="25" maxlength="25" label="Nickname"></v-text-field>
+            <v-checkbox
+              v-model="checkbox"
+              :rules="[v => !!v || 'You must agree to continue!']"
+              label="Do you agree?"
+              required
+            ></v-checkbox>
+            <v-btn
+              color="primary"
+              @click="submit"
+              class="btn-submit"
+              :disabled="btnDisabled"
+              :loading="btnLoading"
+            >Submit</v-btn>
+          </v-form>
+        </v-flex>
+      </v-layout>
+    </v-container>
     <v-dialog v-model="dialog" persistent width="400">
       <v-card>
         <v-card-title class="headline">Tips</v-card-title>
         <v-card-text>
-          <span class="light-blue--text subtitle-1">Successfully registered.</span> Automatically jump to the login page after <span class="blue--text subtitle-1">{{num}}s</span>
+          <span class="light-blue--text subtitle-1">Successfully registered.</span> Automatically jump to the login page after
+          <span class="blue--text subtitle-1">{{num}}s</span>
         </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
@@ -128,7 +145,7 @@ export default class SignUp extends Vue {
 
   private submit() {
     console.info(this.$refs.form)
-    if ((this.$refs.form as Vue & { validate: () => boolean}).validate()) {
+    if ((this.$refs.form as Vue & { validate: () => boolean }).validate()) {
       if (this.password === this.confirmPassword) {
         this.btnDisabled = true
         this.btnLoading = true
@@ -178,11 +195,6 @@ export default class SignUp extends Vue {
 <style lang="scss" scoped>
 .margin-top-80 {
   margin-top: 80px;
-}
-
-.form {
-  width: 30%;
-  min-width: 320px;
 }
 
 .img-container {
