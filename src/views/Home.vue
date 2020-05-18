@@ -130,7 +130,7 @@ export default class Home extends Vue {
     {
       icon: 'mdi-alpha-b-box-outline',
       title: 'Introduction',
-      path: '/introduction',
+      path: '/home/introduction',
       appendIcon: null,
       active: true
     },
@@ -161,8 +161,8 @@ export default class Home extends Vue {
       this.$vuetify.theme.dark = true
       this.dark = true
     }
-    if (this.$route.path === '/examples') {
-      this.$router.push('/examples/helloworld').catch(err => {}) // tslint:disable-line
+    if (this.$route.path === '/home') {
+      this.$router.push('/home/introduction').catch(err => {}) // tslint:disable-line
     } else {
       this.$router.push(this.$route.path).catch(err => {}) // tslint:disable-line
 

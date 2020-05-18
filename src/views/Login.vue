@@ -2,7 +2,7 @@
   <div class="main" v-on:keyup.enter="signIn">
     <v-container fluid fill-height>
       <v-layout align-center justify-center>
-        <v-flex xs12 sm8 md4 lg3>
+        <v-flex xs12 sm6 md4 lg3>
           <v-card class="z-index-2">
             <div class="img-container">
               <img src="../assets/img/logo.png" class="vue-logo" />
@@ -106,6 +106,28 @@
       </svg>
     </div>
     <div class="svg-container" v-else></div>
+    <div class="text-center">
+      <v-btn dark color="secondary" fixed bottom right fab @click="sheet = !sheet">
+        <v-icon>mdi-chat-alert-outline</v-icon>
+      </v-btn>
+      <v-bottom-sheet v-model="sheet">
+        <v-sheet height="220px" class="text-center">
+          <div class="py-3 text-left" style="padding:20px;">
+            <div class="body-1">DEFAULT USER</div>
+            <div>username: <span class="subtitle-2 red--text text--lighten-1">admin</span></div>
+            <div>password: <span class="subtitle-2 red--text text--lighten-1">admin123</span></div>
+            <div class="body-1">OR</div>
+            You can register a new user
+          </div>
+          <v-btn
+            class="mt-6"
+            text
+            color="red"
+            @click="sheet = !sheet"
+          >close</v-btn>
+        </v-sheet>
+      </v-bottom-sheet>
+    </div>
   </div>
 </template>
 
@@ -122,7 +144,7 @@ export default class SignIn extends Vue {
   private password: string = ''
   private valid: boolean = true
   private checkbox: boolean = false
-  private message: string = 'Wrong user name or password.'
+  private message: string = 'Wrong user name or password'
   private showMessage: boolean = false
   private rules: object = {
     username: {
@@ -135,6 +157,13 @@ export default class SignIn extends Vue {
   }
   private btnDisabled: boolean = false
   private btnLoading: boolean = false
+  private sheet: boolean = true
+
+  private mounted(): void {
+    setTimeout(() => {
+      this.sheet = false
+    }, 3000)
+  }
 
   private signIn(): void {
     console.info('signIn')
@@ -263,4 +292,3 @@ export default class SignIn extends Vue {
   z-index: -1;
 }
 </style>
-

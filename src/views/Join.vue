@@ -10,7 +10,7 @@
     </v-app-bar>
     <v-container fluid fill-height>
       <v-layout align-center justify-center>
-        <v-flex xs12 sm8 md4 lg3>
+        <v-flex xs12 sm6 md4 lg3>
           <v-form ref="form" v-model="valid" class="text-align-center margin-top-80">
             <v-avatar size="100" class="cursor-pointer" v-ripple>
               <img :src="`${publicPath}` + avatar" alt="avatar" class="avatar" />
