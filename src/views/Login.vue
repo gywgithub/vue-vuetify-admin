@@ -4,10 +4,7 @@
       <v-layout align-center justify-center>
         <v-flex xs12 sm6 md4 lg3>
           <v-card class="z-index-2">
-            <div class="img-container">
-              <img src="../assets/img/logo.png" class="vue-logo" />
-              <img src="../assets/img/v-alt.svg" class="vuetify-logo" />
-            </div>
+            <LogoImage />
             <v-card-text class="card-text-padding">
               <v-form ref="form" v-model="valid">
                 <v-text-field
@@ -134,9 +131,12 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 import store from '@/store'
+import LogoImage from '@/components/LogoImage.vue'
 
 @Component({
-  components: {}
+  components: {
+    LogoImage
+  }
 })
 export default class SignIn extends Vue {
   private username: string = ''
@@ -157,12 +157,16 @@ export default class SignIn extends Vue {
   }
   private btnDisabled: boolean = false
   private btnLoading: boolean = false
-  private sheet: boolean = true
+  private sheet: boolean = false
 
   private mounted(): void {
-    setTimeout(() => {
-      this.sheet = false
-    }, 3000)
+    if (sessionStorage.getItem('sheetFlag') !== '1') {
+      this.sheet = true
+      sessionStorage.setItem('sheetFlag', '1')
+      setTimeout(() => {
+        this.sheet = false
+      }, 3000)
+    }
   }
 
   private signIn(): void {
@@ -228,25 +232,6 @@ export default class SignIn extends Vue {
 <style lang="scss" scoped>
 .main {
   height: 100%;
-}
-
-.img-container {
-  position: relative;
-  height: 150px;
-}
-
-.vue-logo {
-  width: 60px;
-  position: absolute;
-  left: calc(50% - 6px);
-  top: 96px;
-}
-
-.vuetify-logo {
-  width: 100px;
-  position: absolute;
-  left: calc(50% - 64px);
-  top: 40px;
 }
 
 .card-actions-padding {

@@ -54,7 +54,7 @@ export default class extends Vue {}
 .alert-conponet-position {
   position: fixed;
   z-index: 999999;
-  top: 60px;
+  top: 80px;
   left: 0;
   right: 0;
 }

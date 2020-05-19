@@ -39,7 +39,7 @@
       <v-app-bar :clipped-left="$vuetify.breakpoint.lgAndUp" app color="primary" dark>
         <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
         <v-toolbar-title style="width: 300px" class="ml-0 pl-4">
-          <span class="hidden-sm-and-down">Vue TypeScript</span>
+          <span class="hidden-sm-and-down">Vue Vuetify Admin</span>
         </v-toolbar-title>
         <v-spacer />
         <v-btn icon @click="changeTheme">
@@ -88,7 +88,7 @@
       </v-content>
       <v-dialog v-model="dialog" width="500">
         <v-card>
-          <v-card-title primary-title>Vue TypeScript</v-card-title>
+          <v-card-title primary-title>Vue Vuetify Admin</v-card-title>
           <v-card-text>Version: v{{version}}</v-card-text>
           <v-card-text>Author: YuanWei Guo</v-card-text>
           <v-card-text>Email: qingyi_w@outlook.com</v-card-text>
@@ -225,7 +225,7 @@ export default class Home extends Vue {
   private logout() {
     sessionStorage.clear()
     localStorage.clear()
-    this.$router.push('login')
+    this.$router.push({ path: '/login'})
   }
 }
 </script>
