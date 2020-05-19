@@ -10,7 +10,7 @@ const avatarData: string = Random.image('200x200', '#ecc247', '#fff', 'png', 'A'
 
 // user data
 const arr = Mock.mock({
-  'array|3-120': [{
+  'array|10-120': [{
     user_id: '@natural(1, 999)',
     username: '@word',
     avatar: avatarData,
@@ -36,12 +36,12 @@ usersArr.push({
 })
 
 // get user
-Mock.mock(RegExp('/api/v1/users/profile' + '.*'), 'get', (option: any) => {
+Mock.mock(RegExp('/api/v1/users' + '.*'), 'get', (option: any) => {
   console.info(option)
   const query = option.url.split('?')[1]
-  const page = Number(getQeuryVariable(query, 'page'))
-  const limit = Number(getQeuryVariable(query, 'limit'))
-  console.info('limit: ', limit)
+  const pageIndex = Number(getQeuryVariable(query, 'pageIndex'))
+  const pageNum = Number(getQeuryVariable(query, 'pageNum'))
+  console.info('pageNum: ', pageNum)
 
   const userId = getQeuryVariable(query, 'user_id')
   if (userId) {
@@ -53,32 +53,31 @@ Mock.mock(RegExp('/api/v1/users/profile' + '.*'), 'get', (option: any) => {
   console.info('count: ', count)
   let start = 0
   let end = 49
-  if (page !== 1) {
-    start = Number(limit * page) - Number(limit)
-    end = Number(limit * page) - 1
+  if (pageIndex !== 1) {
+    start = Number(pageNum * pageIndex) - Number(pageNum)
+    end = Number(pageNum * pageIndex) - 1
     if (end > count) {
       end = count
     }
   } else {
-    end = limit - 1
+    end = pageNum - 1
   }
   console.info('start: ', start)
   console.info('end: ', end)
   const arrList = JSON.parse(JSON.stringify(usersArr))
-  const userList = arrList.splice(start, limit)
+  const userList = arrList.splice(start, pageNum)
   console.info(userList)
-  const n = count / limit
-  const pageNum = Math.ceil(n)
-  console.info('pageNum: ', pageNum)
+  const n = count / pageNum
+  const pageSum = Math.ceil(n)
+  console.info('pageSum: ', pageSum)
   console.info('usersArr: ', usersArr)
   return {
     status: true,
     data: {
       users: userList,
-      user_count: count,
-      page_num: pageNum,
-      current_page: page,
-      page_limit: limit
+      page_sum: pageSum,
+      page_index: pageIndex,
+      total: count
     }
   }
 })

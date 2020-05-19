@@ -128,7 +128,7 @@ export default class Home extends Vue {
   private subItemActive: number = 0
   private items: any[] = [
     {
-      icon: 'mdi-alpha-b-box-outline',
+      icon: 'mdi-alpha-i-box-outline',
       title: 'Introduction',
       path: '/home/introduction',
       appendIcon: null,

@@ -4,13 +4,13 @@
       <div class="d-flex justify-space-between div-margin">
         <div>
           <v-btn @click="addUser" color="secondary">
-            <v-icon left>mdi-account-plus-outline</v-icon>新增用户
+            <v-icon left>mdi-account-plus-outline</v-icon>Add User
           </v-btn>
         </div>
         <div class="search-component">
           <v-select
             :items="selectItems"
-            label="查询条件"
+            label="Filter"
             solo
             dense
             class="select-size"
@@ -18,7 +18,7 @@
             clearable
           ></v-select>&nbsp;&nbsp;
           <v-text-field
-            label="搜索"
+            label="Search"
             solo
             dense
             class="search-text-size"
@@ -29,12 +29,12 @@
           ></v-text-field>
         </div>
         <div>
-          <span v-show="false">每页 {{limit}} 条, 当前第 {{page}} 页, 共 {{pageNum}} 页</span>&nbsp;
-          <span class="body-2">第 {{countStart}} - {{countEnd}} 行,&nbsp; 共 {{userCount}} 行</span>
+          <span v-show="false">page_sum: {{pageSum}} , page_index: {{pageIndex}} , page_num: {{pageNum}} ,</span>&nbsp;
+          <span class="body-2">{{countStart}} - {{countEnd}},&nbsp; total: {{total}}</span>
           &nbsp;
           <v-btn icon @click="lastPage" :disabled="lastPageDisabled">
             <v-icon>mdi-chevron-left</v-icon>
-          </v-btn>
+          </v-btn>&nbsp;
           <v-btn icon @click="nextPage" :disabled="nextPageDisabled">
             <v-icon>mdi-chevron-right</v-icon>
           </v-btn>
@@ -47,13 +47,13 @@
         <template v-slot:default>
           <thead>
             <tr>
-              <th>编号</th>
-              <th>用户名</th>
-              <th>头像</th>
-              <th>姓名</th>
-              <th>邮箱</th>
-              <th>创建时间</th>
-              <th>操作</th>
+              <th>user_id</th>
+              <th>username</th>
+              <th>avatar</th>
+              <th>nickname</th>
+              <th>email</th>
+              <th>created_at</th>
+              <th>options</th>
             </tr>
           </thead>
           <tbody>
@@ -88,17 +88,17 @@
     <div v-else class="nothing">
       <div class="margin-20">
         <v-icon color="#dbdbdb" size="100">mdi-account-outline</v-icon>
-      </div>暂无用户数据, 您可以创建一个用户
+      </div>No user data, you can create a user.
     </div>
 
     <v-dialog v-model="dialog" max-width="450">
       <v-card>
-        <v-card-title class="headline">提示</v-card-title>
-        <v-card-text class="subtitle-1 text-align-left">确定要删除用户吗? </v-card-text>
+        <v-card-title class="headline">Tips</v-card-title>
+        <v-card-text class="subtitle-1 text-align-left">Are you sure you want to delete the user? </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn text @click="dialog = false">取消</v-btn>
-          <v-btn color="red" text @click="deleteUser()">确定</v-btn>
+          <v-btn text @click="dialog = false">cancel</v-btn>
+          <v-btn color="red" text @click="deleteUser()">sure</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -118,7 +118,7 @@
           <v-toolbar-title>{{dialogUserTitle}}</v-toolbar-title>
           <v-spacer></v-spacer>
           <v-toolbar-items>
-            <v-btn dark text @click="save">保存</v-btn>
+            <v-btn dark text @click="save">save</v-btn>
           </v-toolbar-items>
         </v-toolbar>
         <UserInfo ref="userComp" v-if="dialogUser" />
@@ -140,20 +140,20 @@ export default class Users extends Vue {
   private selectItems: any[] = []
   private filterKey: string = ''
   private filterValue: string = ''
-  private pageNum: number = 1
+  private pageNum: number = 20
 
-  private page: number = 1
-  private limit: number = 50
+  private pageSum: number = 0
+  private pageIndex: number = 1
   private countStart: number = 0
   private countEnd: number = 0
 
-  private userCount: number = 0
+  private total: number = 0
   private lastPageDisabled: boolean = true
   private nextPageDisabled: boolean = true
   private users: any[] = []
 
   private dialogUser: boolean = false
-  private dialogUserTitle: string = '新增用户'
+  private dialogUserTitle: string = 'Add User'
   private dialog: boolean = false
   private userInfo: any = {}
 
@@ -164,14 +164,35 @@ export default class Users extends Vue {
 
   private getUsers() {
     const filter: object = {
-      page: 1,
-      limit: 50
+      pageIndex: this.pageIndex,
+      pageNum: this.pageNum
     }
-    this.axios.get('/api/v1/users/profile', {
+    this.axios.get('/api/v1/users', {
       params: filter
     }).then((res: any) => {
+      console.info(res.data)
       if (res && res.data.status && res.data.data.users.length > 0) {
-        this.users = res.data.data.users
+        const data: any = res.data.data
+        this.users = data.users
+        this.pageSum = data.page_sum
+        this.pageIndex = data.page_index
+        this.total = data.total
+
+        if (this.pageIndex === data.page_sum) {
+          this.nextPageDisabled = true
+        } else {
+          if (data.page_sum > 1) {
+            this.nextPageDisabled = false
+          }
+        }
+
+        if (this.pageIndex === 1) {
+          this.countStart = 1
+          this.countEnd = 0 + this.users.length
+        } else {
+          this.countStart = (this.pageIndex - 1) * this.pageNum + 1
+          this.countEnd = this.countStart + this.users.length - 1
+        }
       }
     })
   }
@@ -180,16 +201,30 @@ export default class Users extends Vue {
     console.info('addUser')
     this.dialogUser = true
   }
+
   private enter() {
     console.info('enter')
+    this.pageIndex = 1
+    this.getUsers()
   }
 
   private lastPage() {
     console.info('lastPage')
+    this.pageIndex--
+    if (this.pageIndex === 1) {
+      this.lastPageDisabled = true
+    }
+    this.getUsers()
   }
 
   private nextPage() {
     console.info('nextPage')
+    this.pageIndex++
+    if (this.pageIndex === this.pageSum) {
+      this.nextPageDisabled = true
+    }
+    this.lastPageDisabled = false
+    this.getUsers()
   }
 
   private closeDialogUser() {
