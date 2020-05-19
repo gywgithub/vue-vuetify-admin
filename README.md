@@ -1,5 +1,7 @@
 # vue-vuetify-admin
 
+vue-vuetify-admin is background management system based on Vue, Typescript and Vuetify.
+
 ## Project setup
 ```
 npm install
