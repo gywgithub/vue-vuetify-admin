@@ -23,7 +23,7 @@ const arr = Mock.mock({
   }]
 }).array
 
-let usersArr: any = arr
+const usersArr: any = arr
 usersArr.push({
   user_id: 1,
   username: 'admin',
@@ -37,40 +37,28 @@ usersArr.push({
 
 // get user
 Mock.mock(RegExp('/api/v1/users' + '.*'), 'get', (option: any) => {
-  console.info(option)
   const query = option.url.split('?')[1]
   const pageIndex = Number(getQeuryVariable(query, 'pageIndex'))
   const pageNum = Number(getQeuryVariable(query, 'pageNum'))
-  console.info('pageNum: ', pageNum)
+  const filterKey = getQeuryVariable(query, 'filterKey')
+  const filterValue = getQeuryVariable(query, 'filterValue')
 
-  const userId = getQeuryVariable(query, 'user_id')
-  if (userId) {
-    usersArr = usersArr.filter((user: any) => user.user_id.indexOf(userId) > 0)
-    console.info(usersArr)
+  let dataList = []
+  if (filterKey && filterValue) {
+    dataList = usersArr.filter((user: any) => user[filterKey].toString().indexOf(filterValue) !== -1)
+  } else {
+    dataList = usersArr
   }
 
-  const count = usersArr.length
-  console.info('count: ', count)
+  const count = dataList.length
   let start = 0
-  let end = 49
   if (pageIndex !== 1) {
     start = Number(pageNum * pageIndex) - Number(pageNum)
-    end = Number(pageNum * pageIndex) - 1
-    if (end > count) {
-      end = count
-    }
-  } else {
-    end = pageNum - 1
   }
-  console.info('start: ', start)
-  console.info('end: ', end)
-  const arrList = JSON.parse(JSON.stringify(usersArr))
-  const userList = arrList.splice(start, pageNum)
-  console.info(userList)
+
+  const userList = JSON.parse(JSON.stringify(dataList)).splice(start, pageNum)
   const n = count / pageNum
   const pageSum = Math.ceil(n)
-  console.info('pageSum: ', pageSum)
-  console.info('usersArr: ', usersArr)
   return {
     status: true,
     data: {
