@@ -106,7 +106,10 @@ export default class SignUp extends Vue {
   private confirmPassword: string = ''
   private confirmPasswordRules: any = [
     (v: any) => !!v || 'Password is required',
-    (v: any) => (v && v.length >= 8) || 'Min 8 characters'
+    (v: any) => (v && v.length >= 8) || 'Min 8 characters',
+    (v: any) =>
+      /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(v) ||
+      'The password must contain at least one letter and one number'
   ]
   private confirmError: boolean = false
   private confirmErrorMessage: string = ''
@@ -119,8 +122,8 @@ export default class SignUp extends Vue {
   ]
   private email: string = ''
   private emailRules: any = [
-    (v: any) => !!v || 'E-mail is required',
-    (v: any) => /.+@.+\..+/.test(v) || 'E-mail must be valid'
+    (v: any) => !!v || 'Email is required',
+    (v: any) => /.+@.+\..+/.test(v) || 'Email format is invalid'
   ]
   private checkbox: boolean = false
   private dialog: boolean = false
@@ -195,33 +198,6 @@ export default class SignUp extends Vue {
 <style lang="scss" scoped>
 .margin-top-80 {
   margin-top: 80px;
-}
-
-.img-container {
-  position: relative;
-  height: 150px;
-}
-
-.vue-logo {
-  width: 60px;
-  position: absolute;
-  left: calc(50% - 6px);
-  top: 96px;
-}
-
-.vuetify-logo {
-  width: 100px;
-  position: absolute;
-  left: calc(50% - 64px);
-  top: 40px;
-}
-
-.avatar:hover {
-  transform: rotate(666turn);
-  transition-delay: 1s;
-  transition-property: all;
-  transition-duration: 59s;
-  transition-timing-function: cubic-bezier(0.34, 0, 0.84, 1);
 }
 
 .btn-submit {

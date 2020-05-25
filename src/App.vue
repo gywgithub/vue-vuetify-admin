@@ -58,4 +58,12 @@ export default class extends Vue {}
   left: 0;
   right: 0;
 }
+
+.avatar:hover {
+  transform: rotate(666turn);
+  transition-delay: 1s;
+  transition-property: all;
+  transition-duration: 59s;
+  transition-timing-function: cubic-bezier(0.34, 0, 0.84, 1);
+}
 </style>

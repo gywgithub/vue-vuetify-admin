@@ -149,10 +149,15 @@ export default class Home extends Vue {
   ]
   private userInfo: any = {
     username: 'username',
-    avatar: 'img/avatar.png'
+    avatar: '/img/avatar.png'
   }
 
   private created() {
+    if (this.publicPath === '/') {
+      this.publicPath = ''
+    } else {
+      this.publicPath = '/vue-vuetify-admin'
+    }
     this.version = jsonConfig.version
     if (
       localStorage.getItem('themeDark') &&
