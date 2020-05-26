@@ -121,7 +121,7 @@
           <v-spacer></v-spacer>
           <!-- <v-toolbar-items>
             <v-btn dark text @click="save">save</v-btn>
-          </v-toolbar-items> -->
+          </v-toolbar-items>-->
         </v-toolbar>
         <!-- <UserInfo ref="userComp" v-if="dialogUser" /> -->
         <v-container fluid fill-height>
@@ -129,33 +129,36 @@
             <v-flex xs12 sm8 md4>
               <!-- userinfo component -->
               <v-hover v-slot:default="{hover}">
-                <!-- <v-card class="mx-auto img-card text-center" v-if="userInfo.avatar" :elevation="hover ? 6 : 2">
-                  
-                </v-card> -->
-                <v-card class="mx-auto img-card text-center cursor-pointer" :elevation="hover ? 6 : 2">
-                  <img :src="userInfo.avatar" alt="avatar" v-if="userInfo.avatar" class="img-size avatar" @click="changeFile()" />
+                <v-card
+                  class="mx-auto img-card text-center cursor-pointer"
+                  :elevation="hover ? 6 : 2"
+                >
+                  <img
+                    :src="userInfo.avatar"
+                    alt="avatar"
+                    v-if="userInfo.avatar"
+                    class="img-size avatar"
+                    @click="changeFile()"
+                  />
                   <img
                     v-else
                     src="../assets/img/avatar.png"
                     alt="avatar"
-                    class="img-size avatar" 
+                    class="img-size avatar"
                     @click="changeFile()"
                   />
                 </v-card>
-                <!-- <v-card class="mx-auto img-card text-center" :elevation="hover ? 6 : 2">
-                  <v-avatar>
-                    <img
-                      src="https://cdn.vuetifyjs.com/images/john.jpg"
-                      alt="John" class="img-size"
-                    >
-                  </v-avatar>
-                </v-card> -->
               </v-hover>
               <div v-show="false">
-                <input ref="fileInput" type="file" @change="fileChange()" />
+                <input ref="fileInput" type="file" @change="fileChange()" accept="image/*" />
               </div>
               <v-form ref="form" v-model="valid" lazy-validation>
-                <v-text-field v-model="userInfo.user_id" v-show="userInfo.user_id" label="编号" disabled></v-text-field>
+                <v-text-field
+                  v-model="userInfo.user_id"
+                  v-show="userInfo.user_id"
+                  label="编号"
+                  disabled
+                ></v-text-field>
                 <v-text-field
                   v-model="userInfo.username"
                   counter="25"
@@ -189,14 +192,6 @@
                   :rules="nicknameRules"
                 ></v-text-field>
 
-                <!-- <v-select
-                  v-model="userInfo.permission"
-                  :items="itemsPermission"
-                  label="权限*"
-                  :rules="permissionRules"
-                  required
-                ></v-select> -->
-
                 <v-text-field
                   v-model="userInfo.email"
                   :rules="emailRules"
@@ -209,7 +204,12 @@
                   :messages="emailErrorsMsg"
                 ></v-text-field>
 
-                <v-text-field v-model="userInfo.created_at" label="created_at" v-if="userInfo.created_at" disabled></v-text-field>
+                <v-text-field
+                  v-model="userInfo.created_at"
+                  label="created_at"
+                  v-if="userInfo.created_at"
+                  disabled
+                ></v-text-field>
 
                 <v-btn
                   color="primary"
@@ -269,12 +269,6 @@ export default class Users extends Vue {
   private emailErrorsMsg: string = ''
   private oldInfo: any = {}
   private showPassword: boolean = false
-  // private itemsPermission: any = [
-  //   { text: '管理员', value: 1 },
-  //   { text: '后台用户', value: 2 }
-  // ]
-  // private genders: any = ['男', '女', '保密']
-  // private editStatus: number = 0
   private emailRules: any = [
     (v: any) => !!v || 'Email is required',
     (v: any) => /.+@.+\..+/.test(v) || 'Email format is invalid'
@@ -289,8 +283,6 @@ export default class Users extends Vue {
       /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(v) ||
       'The password must contain at least one letter and one number'
   ]
-  // private permissionRules: any = [(v: any) => !!v || '权限不能为空']
-  // private disabled: boolean = true
   private btnDisabled: boolean = false
   private btnLoading: boolean = false
 
@@ -348,19 +340,18 @@ export default class Users extends Vue {
     }
   }
   private async submit() {
-    if (
-      this.formValidate() &&
-      !this.nameError &&
-      !this.emailError
-    ) {
+    if (this.formValidate() && !this.nameError && !this.emailError) {
+      this.btnDisabled = true
+      this.btnLoading = true
       const info = JSON.parse(JSON.stringify(this.userInfo))
-      const imageUrl = info.avatar
-      // if (this.file) {
-      //   const res = await this.uploadFile()
-      //   if (res) {
-      //     imageUrl = res
-      //   }
-      // }
+      let imageUrl = info.avatar
+      if (this.file) {
+        const res = await this.uploadFile()
+        if (res) {
+          imageUrl = res
+        }
+      }
+      console.info('image url: ', imageUrl)
       info.avatar = imageUrl
       if (this.dialogUserTitle === 'Add User') {
         // add user
@@ -368,63 +359,39 @@ export default class Users extends Vue {
           url: '/api/v1/users',
           method: 'POST',
           data: info
+        }).then((res: any) => {
+          if (res.data.status) {
+            console.info('success')
+            this.btnDisabled = false
+            this.btnLoading = false
+            this.dialogUser = false
+            store.dispatch('updateShowAlert', {
+              showAlert: true,
+              alertMessage: 'add user success',
+              alertType: 'success'
+            })
+            this.getUsers()
+          } else {
+            store.dispatch('updateShowAlert', {
+              showAlert: true,
+              alertMessage: 'add user error',
+              alertType: 'error'
+            })
+          }
         })
-          .then((res: any) => {
-            if (res.data.status) {
-              // this.updateDialogUser(false)
-              // this.$refs.form.reset()
-              // this.userInfo.avatar = null
-              console.info('success')
-              this.dialogUser = false
-              this.formReset()
-              store.dispatch('updateShowAlert', {
-                showAlert: true,
-                alertMessage: 'add user success',
-                alertType: 'success'
-              })
-              this.getUsers()
-            } else {
-              store.dispatch('updateShowAlert', {
-                showAlert: true,
-                alertMessage: 'add user error',
-                alertType: 'error'
-              })
-            }
-          })
       } else {
         // edit user
         this.axios({
           url: '/api/v1/users/' + this.userInfo.uid,
           method: 'PUT',
           data: info
+        }).then((res: any) => {
+          if (res.data.status) {
+            this.userInfo.avatar = null
+            this.getUsers()
+          } else {
+          }
         })
-          .then((res: any) => {
-            if (res.data.status) {
-              // this.updateDialogUser(false)
-              // this.$refs.form.reset()
-              this.userInfo.avatar = null
-              this.getUsers()
-              // this.setAlert({
-              //   type: 'info',
-              //   time: 3000,
-              //   message: '编辑成功!'
-              // })
-            } else {
-              // this.setAlert({
-              //   type: 'error',
-              //   time: 3000,
-              //   message: '编辑失败!'
-              // })
-            }
-          })
-          .catch((err: any) => {
-            // console.error(err)
-            // this.setAlert({
-            //   type: 'error',
-            //   time: 3000,
-            //   message: '网络异常!'
-            // })
-          })
       }
     } else {
       console.error('validate false') // tslint:disable-line
@@ -436,41 +403,22 @@ export default class Users extends Vue {
     const fileName = this.file.name
     const ficonstype = this.file.type.split('/')[1]
     const result: any = await this.axios({
-      url: '/api/v1/avatar/' + this.userInfo.uid,
+      url: '/api/v1/get_upload_url',
       data: {
         filename: fileName,
-        file_type: ficonstype,
         upload_method: 'post'
       },
-      method: 'post'
+      method: 'get'
     })
       .then((res: any) => {
         return res
-      })
-      .catch((err: any) => {
-        // console.error(err)
       })
 
     // post upload file
     const formData = new FormData()
     formData.append('file', this.file)
-    formData.append('key', result.data.data.result.fields.key)
-    formData.append(
-      'x-amz-algorithm',
-      result.data.data.result.fields['x-amz-algorithm']
-    )
-    formData.append(
-      'x-amz-credential',
-      result.data.data.result.fields['x-amz-credential']
-    )
-    formData.append('x-amz-date', result.data.data.result.fields['x-amz-date'])
-    formData.append('policy', result.data.data.result.fields.policy)
-    formData.append(
-      'x-amz-signature',
-      result.data.data.result.fields['x-amz-signature']
-    )
-
-    await fetch(result.data.data.result.url, {
+    console.info(result.data.data.url)
+    await fetch(result.data.data.url, {
       method: 'POST',
       body: formData
     })
@@ -482,11 +430,10 @@ export default class Users extends Vue {
         return err
       })
 
-    return result.data.data.get_url
+    return result.data.data.file_address
   }
 
   private formReset() {
-    // this.$refs.form.reset()
     (this.$refs.form as Vue & { reset(): () => void }).reset()
   }
 
@@ -504,8 +451,7 @@ export default class Users extends Vue {
     }
   }
   private changeFile() {
-    // this.$refs.fileInput.click()
-    (this.$refs.fileInput as Vue & {click: () => void}).click()
+    (this.$refs.fileInput as Vue & { click: () => void }).click()
   }
 
   private getUsers() {
@@ -548,10 +494,12 @@ export default class Users extends Vue {
   }
 
   private addUser() {
-    console.info('addUser')
-    this.userInfo = {}
     this.dialogUserTitle = 'Add User'
     this.dialogUser = true
+    this.userInfo = {}
+    setTimeout(() => {
+      this.formReset()
+    }, 50)
   }
 
   private enter() {

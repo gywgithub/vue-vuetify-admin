@@ -5,6 +5,9 @@ Mock.setup({
   timeout: '500-2000'
 })
 
+// file server url
+const fileServerUrl: string = 'http://127.0.0.1:3000'
+
 // avatar img
 const avatarData: string = Random.image('200x200', '#ecc247', '#fff', 'png', 'A')
 
@@ -14,58 +17,43 @@ const arr = Mock.mock({
     user_id: '@natural(1, 999)',
     username: '@word',
     avatar: avatarData,
-    email: '12345678@qq.com',
-    password: '12345678',
-    // permission: '@natural(1, 4)',
-    // permission_name: '普通用户_' + '@word',
+    email: '@word' + '@qq.com',
+    password: '12345678a',
     created_at: '@datetime',
     nickname: 'nickname-' + '@word'
   }]
 }).array
 
 const usersArr: any = arr
-// usersArr.push({
-//   user_id: 1,
-//   username: 'admin',
-//   password: 'admin123',
-//   email: 'admin@xxx.com',
-//   avatar: '/img/avatar.png',
-//   nickname: 'ADMIN',
-//   // role_id: 1,
-//   // role_name: '管理员',
-//   created_at: '2100-01-01 01:01:01'
-// })
-
-// usersArr.splice(0, 1, {
-//   user_id: 1,
-//   username: 'admin',
-//   password: 'admin123',
-//   email: 'admin@xxx.com',
-//   avatar: '/img/avatar.png',
-//   nickname: 'ADMIN',
-//   // role_id: 1,
-//   // role_name: '管理员',
-//   created_at: '2100-01-01 01:01:01'
-// })
 
 usersArr.unshift({
   user_id: 1,
   username: 'admin',
   password: 'admin123',
-  email: 'admin@xxx.com',
+  email: 'admin@qq.com',
   avatar: '/img/avatar.png',
   nickname: 'ADMIN',
-  created_at: '2100-01-01 01:01:01'
+  created_at: Mock.mock('@now')
+})
+
+// get upload url
+Mock.mock('/api/v1/get_upload_url', 'get', (option: any) => {
+  console.info(option)
+  const filename = JSON.parse(option.body).filename
+  return {
+    status: true,
+    data: {
+      url: fileServerUrl + '/file_upload',
+      file_address: fileServerUrl + '/images/' + filename
+    }
+  }
 })
 
 // get username
 Mock.mock(RegExp('/api/v1/get/username' + '.*'), 'get', (option: any) => {
-  console.info(option)
   const arrSplit = option.url.split('/')
   const username = arrSplit[arrSplit.length - 1]
-  console.info(username)
   const filterArr = usersArr.filter((u: any) => u.username === username)
-  console.info(filterArr)
   if (filterArr.length > 0) {
     return {
       status: false
@@ -79,12 +67,9 @@ Mock.mock(RegExp('/api/v1/get/username' + '.*'), 'get', (option: any) => {
 
 // get email
 Mock.mock(RegExp('/api/v1/get/email' + '.*'), 'get', (option: any) => {
-  console.info(option)
   const arrSplit = option.url.split('/')
   const email = arrSplit[arrSplit.length - 1]
-  console.info(email)
   const filterArr = usersArr.filter((u: any) => u.email === email)
-  console.info(filterArr)
   if (filterArr.length > 0) {
     return {
       status: false
@@ -164,7 +149,7 @@ Mock.mock('/api/v1/users', 'post', (option: any) => {
   obj = JSON.parse(option.body)
   obj.user_id = id
   console.info('obj: ', obj)
-  obj.created_at = new Date()
+  obj.created_at = Mock.mock('@now')
   console.info(usersArr)
   usersArr.unshift(obj)
   console.info(usersArr)
