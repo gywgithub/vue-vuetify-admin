@@ -344,15 +344,16 @@ export default class Users extends Vue {
       this.btnDisabled = true
       this.btnLoading = true
       const info = JSON.parse(JSON.stringify(this.userInfo))
-      let imageUrl = info.avatar
+      console.info('this.userInfo: ', this.userInfo)
       if (this.file) {
         const res = await this.uploadFile()
         if (res) {
-          imageUrl = res
+          info.avatar = res
         }
+      } else {
+        info.avatar = '/img/avatar.png'
       }
-      console.info('image url: ', imageUrl)
-      info.avatar = imageUrl
+      console.info('info submit: ', info)
       if (this.dialogUserTitle === 'Add User') {
         // add user
         this.axios({
@@ -382,14 +383,31 @@ export default class Users extends Vue {
       } else {
         // edit user
         this.axios({
-          url: '/api/v1/users/' + this.userInfo.uid,
+          url: '/api/v1/users',
           method: 'PUT',
-          data: info
+          data: {
+            user_id: this.userInfo.user_id,
+            user_info: info
+          }
         }).then((res: any) => {
           if (res.data.status) {
-            this.userInfo.avatar = null
+            // this.userInfo.avatar = null
+            this.btnDisabled = false
+            this.btnLoading = false
+            this.dialogUser = false
+            store.dispatch('updateShowAlert', {
+              showAlert: true,
+              alertMessage: 'add user success',
+              alertType: 'success'
+            })
             this.getUsers()
           } else {
+            console.info('error')
+            store.dispatch('updateShowAlert', {
+              showAlert: true,
+              alertMessage: 'edit user error',
+              alertType: 'error'
+            })
           }
         })
       }
@@ -489,6 +507,11 @@ export default class Users extends Vue {
             this.countStart = (this.pageIndex - 1) * this.pageNum + 1
             this.countEnd = this.countStart + this.users.length - 1
           }
+        } else {
+          this.users = []
+          this.pageSum = 0
+          this.pageIndex = 0
+          this.total = 0
         }
       })
   }

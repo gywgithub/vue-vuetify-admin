@@ -13,7 +13,7 @@ const avatarData: string = Random.image('200x200', '#ecc247', '#fff', 'png', 'A'
 
 // user data
 const arr = Mock.mock({
-  'array|10-120': [{
+  'array|10-12': [{
     user_id: '@natural(1, 999)',
     username: '@word',
     avatar: avatarData,
@@ -38,7 +38,6 @@ usersArr.unshift({
 
 // get upload url
 Mock.mock('/api/v1/get_upload_url', 'get', (option: any) => {
-  console.info(option)
   const filename = JSON.parse(option.body).filename
   return {
     status: true,
@@ -118,23 +117,17 @@ Mock.mock(RegExp('/api/v1/users' + '.*'), 'get', (option: any) => {
 
 // delete user
 Mock.mock(RegExp('/api/v1/users/' + '.*'), 'delete', (option: any) => {
-  console.info(option)
   const arrSplit = option.url.split('/')
   const userId = Number(arrSplit[arrSplit.length - 1])
-  console.info('userid: ', userId)
   let i: number = -1
   usersArr.filter((item: any, index: number) => {
     if (item.user_id === userId) {
-      console.info(index)
       i = index
       return false
     }
   })
-  console.info(usersArr)
   if (i !== -1) {
     usersArr.splice(i, 1)
-    console.info('usersArr splice')
-    console.info(usersArr)
   } else {
     console.warn('data not found')
   }
@@ -143,22 +136,32 @@ Mock.mock(RegExp('/api/v1/users/' + '.*'), 'delete', (option: any) => {
 
 // add user
 Mock.mock('/api/v1/users', 'post', (option: any) => {
-  console.info(option)
   const id: number = Random.natural(10000, 9999999)
   let obj: any = {}
   obj = JSON.parse(option.body)
   obj.user_id = id
-  console.info('obj: ', obj)
   obj.created_at = Mock.mock('@now')
-  console.info(usersArr)
   usersArr.unshift(obj)
-  console.info(usersArr)
-  console.info('obj222: ', obj)
   return { status: true, data: obj }
 })
 
+// edit user
+Mock.mock('/api/v1/users', 'put', (option: any) => {
+  let obj: any = {}
+  obj = JSON.parse(option.body)
+  const userId = obj.user_id
+  const userInfo = obj.user_info
+  let userIndex: number = -1
+  usersArr.forEach((v: any, k: number) => {
+    if (v.user_id === userId) {
+      userIndex = k
+    }
+  })
+  usersArr.splice(userIndex, 1, userInfo)
+  return { status: true }
+})
+
 Mock.mock('/api/v1/login', 'post', (option: any) => {
-  console.info(option)
   const obj: any = JSON.parse(option.body)
   let userIndex: number = -1
   usersArr.forEach((item: any, index: number) => {

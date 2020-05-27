@@ -4,12 +4,12 @@ self.__precacheManifest = [
     "url": "/vue-vuetify-admin/js/about.ff103ffd.js"
   },
   {
-    "revision": "614c9c25cd578ec0fc62",
-    "url": "/vue-vuetify-admin/css/app.3df29e0b.css"
+    "revision": "00fab5ae7230083ff576",
+    "url": "/vue-vuetify-admin/css/app.44833388.css"
   },
   {
-    "revision": "614c9c25cd578ec0fc62",
-    "url": "/vue-vuetify-admin/js/app.88ca96dd.js"
+    "revision": "00fab5ae7230083ff576",
+    "url": "/vue-vuetify-admin/js/app.8b7e4055.js"
   },
   {
     "revision": "8a95ac080d9aac992d68",
@@ -20,12 +20,20 @@ self.__precacheManifest = [
     "url": "/vue-vuetify-admin/js/chunk-42312f64.bb09e98f.js"
   },
   {
-    "revision": "5c081773c7f6bb6a78a5",
-    "url": "/vue-vuetify-admin/css/chunk-5b1a047d.cc54b347.css"
+    "revision": "eca46fb8e2cac47453a0",
+    "url": "/vue-vuetify-admin/css/chunk-5efabaae.fc61e634.css"
   },
   {
-    "revision": "5c081773c7f6bb6a78a5",
-    "url": "/vue-vuetify-admin/js/chunk-5b1a047d.6a9a7fba.js"
+    "revision": "eca46fb8e2cac47453a0",
+    "url": "/vue-vuetify-admin/js/chunk-5efabaae.e2c17b34.js"
+  },
+  {
+    "revision": "016dd306b0b83cf44c2e",
+    "url": "/vue-vuetify-admin/css/chunk-6ce2e208.ef396624.css"
+  },
+  {
+    "revision": "016dd306b0b83cf44c2e",
+    "url": "/vue-vuetify-admin/js/chunk-6ce2e208.792e51a1.js"
   },
   {
     "revision": "cebaab24e576af3171cc",
@@ -34,14 +42,6 @@ self.__precacheManifest = [
   {
     "revision": "cebaab24e576af3171cc",
     "url": "/vue-vuetify-admin/js/chunk-6d5df83e.55c52281.js"
-  },
-  {
-    "revision": "9f64330e98ed15efea11",
-    "url": "/vue-vuetify-admin/css/chunk-73cfc57a.105747d7.css"
-  },
-  {
-    "revision": "9f64330e98ed15efea11",
-    "url": "/vue-vuetify-admin/js/chunk-73cfc57a.f619820d.js"
   },
   {
     "revision": "15d3bd791af05c1d43ee",
@@ -72,7 +72,7 @@ self.__precacheManifest = [
     "url": "/vue-vuetify-admin/img/v-alt.668cf772.svg"
   },
   {
-    "revision": "a438192e1a62bb79b672216877474a26",
+    "revision": "a8b8eaabcc5c94acc9366702785a181a",
     "url": "/vue-vuetify-admin/index.html"
   },
   {
