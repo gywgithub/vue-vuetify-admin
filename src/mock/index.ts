@@ -13,7 +13,7 @@ const avatarData: string = Random.image('200x200', '#ecc247', '#fff', 'png', 'A'
 
 // user data
 const arr = Mock.mock({
-  'array|10-12': [{
+  'array|10-120': [{
     user_id: '@natural(1, 999)',
     username: '@word',
     avatar: avatarData,

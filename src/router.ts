@@ -27,6 +27,33 @@ export default new Router({
           path: '/home/introduction',
           name: 'introduction',
           component: () => import('./components/Introduction.vue')
+        },
+        {
+          path: '/home/d3',
+          name: 'd3',
+          component: () => import('./components/D3.vue')
+        },
+        {
+          path: '/home/quill',
+          name: 'quill',
+          component: () => import('./components/Quill.vue')
+        }
+      ]
+    },
+    {
+      path: '/basic',
+      name: 'basic',
+      component: Home,
+      children: [
+        {
+          path: '/basic/hello',
+          name: 'hello',
+          component: () => import('./components/Hello.vue')
+        },
+        {
+          path: '/basic/hello2',
+          name: 'hello2',
+          component: () => import('./components/Hello2.vue')
         }
       ]
     },

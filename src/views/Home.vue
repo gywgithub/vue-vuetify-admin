@@ -141,9 +141,21 @@ export default class Home extends Vue {
       appendIcon: null
     },
     {
+      icon: 'mdi-alpha-d-box-outline',
+      title: 'D3',
+      path: '/home/d3',
+      appendIcon: null
+    },
+    {
+      icon: 'mdi-alpha-q-box-outline',
+      title: 'Quill',
+      path: '/home/quill',
+      appendIcon: null
+    },
+    {
       icon: 'mdi-alpha-b-box-outline',
       title: 'Basic',
-      children: [{ title: 'HelloWorld', path: '/basic' }],
+      children: [{ title: 'HelloWorld', path: '/basic/hello' }, { title: 'HelloWorld2', path: '/basic/hello2' }],
       appendIcon: 'mdi-chevron-down'
     }
   ]
