@@ -58,6 +58,67 @@ export default new Router({
       ]
     },
     {
+      path: '/icons',
+      name: 'icons',
+      component: Home,
+      children: [
+        {
+          path: '/icons/iconfont',
+          name: 'iconfont',
+          component: () => import('./components/Hello.vue')
+        },
+        {
+          path: '/icons/materialdesignicons',
+          name: 'materialdesignicons',
+          component: () => import('./components/Icons/MaterialDesignIcons.vue')
+        }
+      ]
+    },
+    {
+      path: '/charts',
+      name: 'charts',
+      component: Home,
+      children: [
+        {
+          path: '/charts/line',
+          name: 'line',
+          component: () => import('./components/Hello.vue')
+        },
+        {
+          path: '/basic/bar',
+          name: 'bar',
+          component: () => import('./components/Hello2.vue')
+        },
+        {
+          path: '/basic/pie',
+          name: 'pie',
+          component: () => import('./components/Hello2.vue')
+        }
+      ]
+    },
+    {
+      path: '/zoom',
+      name: 'zoom',
+      component: Home,
+      children: [
+        {
+          path: '/zoom/openlayer',
+          name: 'openlayer',
+          component: () => import('./components/Hello.vue')
+        },
+        {
+          path: '/basic/openseadragon',
+          name: 'openseadragon',
+          component: () => import('./components/Hello2.vue')
+        },
+        {
+          path: '/basic/leaflet',
+          name: 'leaflet',
+          component: () => import('./components/Hello2.vue')
+        }
+      ]
+    },
+    {
       path: '*',
       name: 'notfound',
       component: () => import('./views/NotFound.vue')

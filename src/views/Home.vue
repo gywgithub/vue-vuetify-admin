@@ -153,9 +153,51 @@ export default class Home extends Vue {
       appendIcon: null
     },
     {
+      icon: 'mdi-alpha-i-box-outline',
+      title: 'Icons',
+      children: [
+        { title: 'iconfont', path: '/basic/hello' },
+        { title: 'materialdesignicons', path: '/icons/materialdesignicons' }
+      ],
+      appendIcon: 'mdi-chevron-down'
+    },
+    {
+      icon: 'mdi-alpha-c-box-outline',
+      title: 'Charts',
+      children: [
+        { title: 'line', path: '/basic/hello' },
+        { title: 'bar', path: '/basic/hello2' },
+        { title: 'pie', path: '/basic/hello2' }
+      ],
+      appendIcon: 'mdi-chevron-down'
+    },
+    {
+      icon: 'mdi-alpha-b-box-outline',
+      title: '3D',
+      children: [
+        { title: '3D-1', path: '/basic/hello' },
+        { title: '3D-2', path: '/basic/hello2' },
+        { title: 'kekule.js', path: '/basic/hello2' }
+      ],
+      appendIcon: 'mdi-chevron-down'
+    },
+    {
+      icon: 'mdi-alpha-z-box-outline',
+      title: 'zoom',
+      children: [
+        { title: 'openlayer', path: '/basic/hello' },
+        { title: 'openseadragon', path: '/basic/hello2' },
+        { title: 'leaflet', path: '/basic/hello2' }
+      ],
+      appendIcon: 'mdi-chevron-down'
+    },
+    {
       icon: 'mdi-alpha-b-box-outline',
       title: 'Basic',
-      children: [{ title: 'HelloWorld', path: '/basic/hello' }, { title: 'HelloWorld2', path: '/basic/hello2' }],
+      children: [
+        { title: 'HelloWorld', path: '/basic/hello' },
+        { title: 'HelloWorld2', path: '/basic/hello2' }
+      ],
       appendIcon: 'mdi-chevron-down'
     }
   ]
@@ -242,7 +284,7 @@ export default class Home extends Vue {
   private logout() {
     sessionStorage.clear()
     localStorage.clear()
-    this.$router.push({ path: '/login'})
+    this.$router.push({ path: '/login' })
   }
 }
 </script>

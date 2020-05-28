@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="img-container">
+    <div class="img-container avatar">
       <img src="../assets/img/logo.png" class="vue-logo" />
       <img src="../assets/img/v-alt.svg" class="vuetify-logo" />
     </div>
