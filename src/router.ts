@@ -65,7 +65,7 @@ export default new Router({
         {
           path: '/icons/iconfont',
           name: 'iconfont',
-          component: () => import('./components/Hello.vue')
+          component: () => import('./components/Icons/IconFont.vue')
         },
         {
           path: '/icons/materialdesignicons',

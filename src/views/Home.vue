@@ -156,7 +156,7 @@ export default class Home extends Vue {
       icon: 'mdi-alpha-i-box-outline',
       title: 'Icons',
       children: [
-        { title: 'iconfont', path: '/basic/hello' },
+        { title: 'iconfont', path: '/icons/iconfont' },
         { title: 'materialdesignicons', path: '/icons/materialdesignicons' }
       ],
       appendIcon: 'mdi-chevron-down'
