@@ -80,9 +80,9 @@ export default new Router({
       component: Home,
       children: [
         {
-          path: '/charts/line',
-          name: 'line',
-          component: () => import('./components/Hello.vue')
+          path: '/charts/echarts',
+          name: 'echarts',
+          component: () => import('./components/Charts/ECharts.vue')
         },
         {
           path: '/basic/bar',

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="img-container avatar">
+    <div class="avatar img-container">
       <img src="../assets/img/logo.png" class="vue-logo" />
       <img src="../assets/img/v-alt.svg" class="vuetify-logo" />
     </div>
@@ -11,13 +11,14 @@ import { Component, Vue } from 'vue-property-decorator'
 @Component({
   components: {}
 })
-export default class LogoImage extends Vue {
-}
+export default class LogoImage extends Vue {}
 </script>
 <style scoped lang="scss">
 .img-container {
+  width: 200px;
+  height: 180px;
+  margin: auto;
   position: relative;
-  height: 150px;
 }
 
 .vue-logo {

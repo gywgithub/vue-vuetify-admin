@@ -165,7 +165,7 @@ export default class Home extends Vue {
       icon: 'mdi-alpha-c-box-outline',
       title: 'Charts',
       children: [
-        { title: 'line', path: '/basic/hello' },
+        { title: 'ECharts', path: '/charts/echarts' },
         { title: 'bar', path: '/basic/hello2' },
         { title: 'pie', path: '/basic/hello2' }
       ],
