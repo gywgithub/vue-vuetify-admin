@@ -11,29 +11,25 @@ import * as echarts from 'echarts'
 })
 export default class ECharts extends Vue {
   private mounted() {
-    console.info('mounted')
-    console.info(echarts)
-    console.info(this.$refs.main)
     const mainEle = this.$refs.main as HTMLDivElement
     const myChart = echarts.init(mainEle)
     myChart.setOption({
       title: {
-        text: 'ECharts 入门示例'
+        text: 'ECharts Bar'
       },
       tooltip: {},
       xAxis: {
-        data: ['衬衫', '羊毛衫', '雪纺衫', '裤子', '高跟鞋', '袜子']
+        data: ['Shirt', 'Woolen Sweater', 'Chiffon Shirt', 'Trousers', 'High-Heeled Shoes', 'Socks']
       },
       yAxis: {},
       series: [
         {
-          name: '销量',
+          name: 'Sales Volume',
           type: 'bar',
           data: [5, 20, 36, 10, 10, 20]
         }
       ]
     })
-    console.info(myChart)
   }
 }
 </script>

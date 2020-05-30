@@ -1,10 +1,10 @@
 <template>
-  <div>
-    <div class="ma-4">
+  <div class="ma-4">
+    <div>
       <div class="display-3">icon font</div>
       <a href="https://www.iconfont.cn" target="_blank">https://www.iconfont.cn</a>
     </div>
-    <v-card class="ma-4">
+    <v-card>
       <v-card-title>Multicolor Icons</v-card-title>
       <v-card-text>
         <v-tooltip bottom v-for="(item, k) in multicolorIcons" :key="k">
@@ -17,7 +17,7 @@
         </v-tooltip>
       </v-card-text>
     </v-card>
-    <v-card class="ma-4">
+    <v-card>
       <v-card-title>Custom Color Icons</v-card-title>
       <v-card-text>
         <v-tooltip bottom v-for="(item, k) in colorIcons" :key="k">
@@ -30,7 +30,7 @@
         </v-tooltip>
       </v-card-text>
     </v-card>
-    <v-card class="ma-4">
+    <v-card>
       <v-card-title>Monochrome Icons</v-card-title>
       <v-card-subtitle><a href="https://www.iconfont.cn/collections/detail?spm=a313x.7781069.1998910419.d9df05512&cid=16957" target="_blank">https://www.iconfont.cn/collections/detail?spm=a313x.7781069.1998910419.d9df05512&cid=16957</a></v-card-subtitle>
       <v-card-text>

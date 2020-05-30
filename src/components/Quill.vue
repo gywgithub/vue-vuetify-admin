@@ -10,7 +10,7 @@
       </v-chip>
     </p>
     <video controls>
-      <source src="/video/quill.webm" type="video/webm" />Sorry, your browser doesn't support embedded videos
+      <source :src="`${publicPath}video/quill.webm`" type="video/webm" />Sorry, your browser doesn't support embedded videos
     </video>
   </div>
 </template>
@@ -20,6 +20,7 @@ import { Component, Vue } from 'vue-property-decorator'
   components: {}
 })
 export default class ComponentTemplate extends Vue {
+  private publicPath: string = process.env.BASE_URL
   private btnGithubClick() {
     window.open('https://github.com/gywgithub/vue-quill-drag-drop', '_blank')
   }
