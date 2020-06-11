@@ -1,5 +1,5 @@
 <template>
-  <div class="text-center headline main">
+  <div class="text-center headline">
     <LogoImage />
     <div class="content">
       <p>
@@ -35,7 +35,4 @@ export default class Introduction extends Vue {
 }
 </script>
 <style lang="scss" scoped>
-.content {
-  margin-top: 20px;
-}
 </style>

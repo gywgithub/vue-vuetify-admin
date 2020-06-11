@@ -1,11 +1,12 @@
 <template>
   <div>
-    <div id="chartbar1" style="width:800px;height:500px;"></div>
-    <div id="chartbar2" style="width:800px;height:500px;"></div>
-    <div id="chartLine1" style="width:800px;height:500px;"></div>
-    <div id="chartLine2" style="width:800px;height:500px;"></div>
-    <div id="chartPie1" style="width:800px;height:500px;"></div>
-    <div id="chartScatter1" style="width:800px;height:500px;"></div>
+    <v-row>
+      <v-col cols="12" xs="12" sm="6" md="4" xl="3" v-for="(v, k) in divList" :key="k">
+        <v-card class="card-size pa-2">
+          <div :id="v" class="chart-size"></div>
+        </v-card>
+      </v-col>
+    </v-row>
   </div>
 </template>
 <script lang="ts">
@@ -15,30 +16,40 @@ import * as echarts from 'echarts'
   components: {}
 })
 export default class ECharts extends Vue {
+  private divList: string[] = [
+    'chartbar1',
+    'chartbar2',
+    'chartLine1',
+    'chartLine2',
+    'chartPie1',
+    'chartScatter1'
+  ]
   private mounted() {
     const chartBar1 = echarts.init(
       document.getElementById('chartbar1') as HTMLDivElement
     )
     const chartBar1Option = {
-      tooltip: {},
-      xAxis: {
-        data: [
-          'Shirt',
-          'Woolen Sweater',
-          'Chiffon Shirt',
-          'Trousers',
-          'High-Heeled Shoes',
-          'Socks'
+      baseOption: {
+        tooltip: {},
+        xAxis: {
+          data: [
+            'Shirt',
+            'Woolen Sweater',
+            'Chiffon Shirt',
+            'Trousers',
+            'High-Heeled Shoes',
+            'Socks'
+          ]
+        },
+        yAxis: {},
+        series: [
+          {
+            name: 'Sales Volume',
+            type: 'bar',
+            data: [5, 20, 36, 10, 10, 20]
+          }
         ]
-      },
-      yAxis: {},
-      series: [
-        {
-          name: 'Sales Volume',
-          type: 'bar',
-          data: [5, 20, 36, 10, 10, 20]
-        }
-      ]
+      }
     }
     chartBar1.setOption(chartBar1Option)
 
@@ -71,8 +82,9 @@ export default class ECharts extends Vue {
         { type: 'bar', xAxisIndex: 1, yAxisIndex: 1 }
       ]
     }
+    let chartBar2: any = null
     setTimeout(() => {
-      const chartBar2 = echarts.init(
+      chartBar2 = echarts.init(
         document.getElementById('chartbar2') as HTMLDivElement
       )
       chartBar2.setOption(chartBar2Option)
@@ -93,8 +105,9 @@ export default class ECharts extends Vue {
         }
       ]
     }
+    let chartLine1: any = null
     setTimeout(() => {
-      const chartLine1 = echarts.init(
+      chartLine1 = echarts.init(
         document.getElementById('chartLine1') as HTMLDivElement
       )
       chartLine1.setOption(chartLine1Option)
@@ -111,7 +124,13 @@ export default class ECharts extends Vue {
         }
       },
       legend: {
-        data: ['Email marketing', 'Alliance advertising', 'Video advertising', 'Direct access', 'Search Engines']
+        data: [
+          'Email marketing',
+          'Alliance advertising',
+          'Video advertising',
+          'Direct access',
+          'Search Engines'
+        ]
       },
       grid: {
         left: '3%',
@@ -123,7 +142,15 @@ export default class ECharts extends Vue {
         {
           type: 'category',
           boundaryGap: false,
-          data: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+          data: [
+            'Monday',
+            'Tuesday',
+            'Wednesday',
+            'Thursday',
+            'Friday',
+            'Saturday',
+            'Sunday'
+          ]
         }
       ],
       yAxis: [
@@ -175,8 +202,9 @@ export default class ECharts extends Vue {
         }
       ]
     }
+    let chartLine2: any = null
     setTimeout(() => {
-      const chartLine2 = echarts.init(
+      chartLine2 = echarts.init(
         document.getElementById('chartLine2') as HTMLDivElement
       )
       chartLine2.setOption(chartLine2Option)
@@ -221,35 +249,10 @@ export default class ECharts extends Vue {
       },
       series: [
         {
-          name: 'Radius mode',
-          type: 'pie',
-          radius: [20, 110],
-          center: ['25%', '50%'],
-          roseType: 'radius',
-          label: {
-            show: false
-          },
-          emphasis: {
-            label: {
-              show: true
-            }
-          },
-          data: [
-            { value: 10, name: 'rose1' },
-            { value: 5, name: 'rose2' },
-            { value: 15, name: 'rose3' },
-            { value: 25, name: 'rose4' },
-            { value: 20, name: 'rose5' },
-            { value: 35, name: 'rose6' },
-            { value: 30, name: 'rose7' },
-            { value: 40, name: 'rose8' }
-          ]
-        },
-        {
           name: 'Area pattern',
           type: 'pie',
-          radius: [30, 110],
-          center: ['75%', '50%'],
+          radius: [10, 80],
+          center: ['50%', '50%'],
           roseType: 'area',
           data: [
             { value: 10, name: 'rose1' },
@@ -264,8 +267,9 @@ export default class ECharts extends Vue {
         }
       ]
     }
+    let chartPie1: any = null
     setTimeout(() => {
-      const chartPie1 = echarts.init(
+      chartPie1 = echarts.init(
         document.getElementById('chartPie1') as HTMLDivElement
       )
       chartPie1.setOption(chartPie1Option)
@@ -368,7 +372,7 @@ export default class ECharts extends Vue {
           itemStyle: {
             shadowBlur: 10,
             shadowColor: 'rgba(120, 36, 50, 0.5)',
-            shadowOffsetY: 5,
+            shadowOffsetY: 5
             // color: new echarts.graphic.RadialGradient(0.4, 0.3, 1, [
             //   {
             //     offset: 0,
@@ -400,7 +404,7 @@ export default class ECharts extends Vue {
           itemStyle: {
             shadowBlur: 10,
             shadowColor: 'rgba(25, 100, 150, 0.5)',
-            shadowOffsetY: 5,
+            shadowOffsetY: 5
             // color: new echarts.graphic.RadialGradient(0.4, 0.3, 1, [
             //   {
             //     offset: 0,
@@ -415,13 +419,35 @@ export default class ECharts extends Vue {
         }
       ]
     }
+    let chartScatter1: any = null
     setTimeout(() => {
-      const chartScatter1 = echarts.init(
+      chartScatter1 = echarts.init(
         document.getElementById('chartScatter1') as HTMLDivElement
       )
       chartScatter1.setOption(chartScatter1Option)
-    })
+    }, 500)
+
+    setTimeout(() => {
+      window.onresize = () => {
+        chartBar1.resize()
+        chartBar2.resize()
+        chartLine1.resize()
+        chartLine2.resize()
+        chartPie1.resize()
+        chartScatter1.resize()
+      }
+    }, 1000)
   }
 }
 </script>
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.card-size {
+  width: 100%;
+  height: 400px;
+}
+
+.chart-size {
+  width: 100%;
+  height: 100%;
+}
+</style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="main">
+  <div>
     <v-card>
       <div class="d-flex justify-space-between div-margin">
         <div>

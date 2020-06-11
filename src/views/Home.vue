@@ -84,7 +84,9 @@
         </v-menu>
       </v-app-bar>
       <v-content>
-        <router-view></router-view>
+        <v-container fluid>
+          <router-view></router-view>
+        </v-container>
       </v-content>
       <v-dialog v-model="dialog" width="500">
         <v-card>

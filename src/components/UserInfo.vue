@@ -1,5 +1,5 @@
 <template>
-  <div class="main">
+  <div>
     <v-container fluid fill-height>
       <v-layout align-center justify-center>
         <v-flex xs12 sm8 md4>
@@ -385,10 +385,6 @@ export default class UserInfo extends Vue {
 // }
 </script>
 <style scoped lang="scss">
-.main {
-  padding: 20px 40px;
-}
-
 .action-container {
   text-align: right;
   margin-top: 20px;

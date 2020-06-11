@@ -24,10 +24,6 @@ export default class extends Vue {}
   -moz-osx-font-smoothing: grayscale;
 }
 
-.main {
-  padding: 10px;
-}
-
 .nothing {
   margin-top: 25vh;
   color: #80868b;
@@ -65,5 +61,12 @@ export default class extends Vue {}
   transition-property: all;
   transition-duration: 59s;
   transition-timing-function: cubic-bezier(0.34, 0, 0.84, 1);
+}
+
+video {
+  width: 80%;
+  margin: auto;
+  border: 2px solid #eee;
+  border-radius: 4px;
 }
 </style>

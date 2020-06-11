@@ -1,6 +1,6 @@
 <template>
-  <div class="main">
-    <div class="display-3">Vue Quill Drag Drop</div>
+  <div class="text-center">
+    <div class="display-3 ma-4">Vue Quill Drag Drop</div>
     <p>
       <v-chip class="ma-2" color="primary" outlined @click="btnGithubClick">
         <v-icon left>mdi-github</v-icon>Github
@@ -30,18 +30,4 @@ export default class ComponentTemplate extends Vue {
 }
 </script>
 <style scoped lang="scss">
-.main {
-  text-align: center;
-}
-
-video {
-  width: 80%;
-  margin: auto;
-  border: 2px solid #eee;
-  border-radius: 4px;
-}
-
-.display-3 {
-  margin: 20px;
-}
 </style>
