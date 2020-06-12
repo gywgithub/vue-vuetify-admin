@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-card>
-      <div class="d-flex justify-space-between div-margin">
+      <div class="d-flex justify-space-between mb-2 pa-2">
         <div>
           <v-btn @click="addUser" color="secondary">
             <v-icon left>mdi-account-plus-outline</v-icon>Add User
@@ -593,26 +593,17 @@ export default class Users extends Vue {
   height: 40px;
   width: 80px;
 }
-.div-margin {
-  margin: 0 0 10px 0;
-  padding: 10px;
-}
+
 .search-component {
   width: 50%;
   display: flex;
 }
+
 .search-text-size {
   height: 40px;
   width: 60%;
 }
-.user-font {
-  color: red;
-  background-color: #ffdbdb;
-}
-.text-height {
-  margin-top: 5px;
-  height: 40px;
-}
+
 .img-card {
   width: 100px;
   height: 100px;

@@ -168,8 +168,8 @@ export default class Home extends Vue {
       title: 'Charts',
       children: [
         { title: 'ECharts', path: '/charts/echarts' },
-        { title: 'bar', path: '/basic/hello2' },
-        { title: 'pie', path: '/basic/hello2' }
+        { title: 'Vega', path: '/basic/hello2' },
+        { title: 'D3', path: '/basic/hello2' }
       ],
       appendIcon: 'mdi-chevron-down'
     },
@@ -199,6 +199,15 @@ export default class Home extends Vue {
       children: [
         { title: 'HelloWorld', path: '/basic/hello' },
         { title: 'HelloWorld2', path: '/basic/hello2' }
+      ],
+      appendIcon: 'mdi-chevron-down'
+    },
+    {
+      icon: 'mdi-alpha-b-box-outline',
+      title: 'Schema',
+      children: [
+        { title: 'JSON Schema', path: '/basic/hello' },
+        { title: 'Vue Schema', path: '/basic/hello' }
       ],
       appendIcon: 'mdi-chevron-down'
     }

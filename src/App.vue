@@ -39,10 +39,6 @@ export default class extends Vue {}
   margin: 20px;
 }
 
-.text-align-center {
-  text-align: center;
-}
-
 .cursor-pointer {
   cursor: pointer;
 }
