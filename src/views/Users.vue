@@ -88,7 +88,7 @@
       </v-card>
     </div>
     <div v-else class="nothing">
-      <div class="margin-20">
+      <div class="ma-5">
         <v-icon color="#dbdbdb" size="100">mdi-account-outline</v-icon>
       </div>No user data, you can create a user.
     </div>
@@ -119,15 +119,10 @@
           </v-btn>
           <v-toolbar-title>{{dialogUserTitle}}</v-toolbar-title>
           <v-spacer></v-spacer>
-          <!-- <v-toolbar-items>
-            <v-btn dark text @click="save">save</v-btn>
-          </v-toolbar-items>-->
         </v-toolbar>
-        <!-- <UserInfo ref="userComp" v-if="dialogUser" /> -->
         <v-container fluid fill-height>
           <v-layout align-center justify-center>
             <v-flex xs12 sm8 md4>
-              <!-- userinfo component -->
               <v-hover v-slot:default="{hover}">
                 <v-card
                   class="mx-auto img-card text-center cursor-pointer"
@@ -229,13 +224,9 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import UserInfo from '@/components/UserInfo.vue'
 import store from '@/store'
 
 @Component({
-  components: {
-    UserInfo
-  }
 })
 export default class Users extends Vue {
   private publicPath: string = process.env.BASE_URL

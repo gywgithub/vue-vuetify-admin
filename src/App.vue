@@ -2,7 +2,7 @@
   <div id="app">
     <v-app>
       <router-view/>
-      <Alert class="alert-conponet-position"></Alert>
+      <Alert class="alert-component-position"></Alert>
     </v-app>
   </div>
 </template>
@@ -35,15 +35,11 @@ export default class extends Vue {}
   text-align: center;
 }
 
-.margin-20 {
-  margin: 20px;
-}
-
 .cursor-pointer {
   cursor: pointer;
 }
 
-.alert-conponet-position {
+.alert-component-position {
   position: fixed;
   z-index: 999999;
   top: 80px;
