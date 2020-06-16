@@ -382,7 +382,6 @@ export default class Users extends Vue {
           }
         }).then((res: any) => {
           if (res.data.status) {
-            // this.userInfo.avatar = null
             this.btnDisabled = false
             this.btnLoading = false
             this.dialogUser = false

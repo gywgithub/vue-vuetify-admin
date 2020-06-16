@@ -41,6 +41,9 @@
     "sass": "^1.19.0",
     "sass-loader": "^8.0.0",
     "typescript": "^3.4.3",
+    "vega": "^5.13.0",
+    "vega-embed": "^4.2.5",
+    "vega-lite": "^3.4.0",
     "vue-axios": "^2.1.5",
     "vue-template-compiler": "^2.6.10",
     "vuetify": "^2.2.21"

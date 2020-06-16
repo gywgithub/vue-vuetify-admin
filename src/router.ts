@@ -85,14 +85,14 @@ export default new Router({
           component: () => import('./components/Charts/ECharts.vue')
         },
         {
-          path: '/basic/bar',
-          name: 'bar',
-          component: () => import('./components/Hello2.vue')
+          path: '/charts/vega',
+          name: 'vega',
+          component: () => import('./components/Charts/Vega.vue')
         },
         {
-          path: '/basic/pie',
-          name: 'pie',
-          component: () => import('./components/Hello2.vue')
+          path: '/charts/d3',
+          name: 'd3',
+          component: () => import('./components/Charts/D3.vue')
         }
       ]
     },
