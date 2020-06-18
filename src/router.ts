@@ -85,14 +85,14 @@ export default new Router({
           component: () => import('./components/Charts/ECharts.vue')
         },
         {
-          path: '/charts/vega',
-          name: 'vega',
-          component: () => import('./components/Charts/Vega.vue')
+          path: '/charts/vega-charts',
+          name: 'vega-charts',
+          component: () => import('./components/Charts/VegaCharts.vue')
         },
         {
-          path: '/charts/d3',
-          name: 'd3',
-          component: () => import('./components/Charts/D3.vue')
+          path: '/charts/d3-charts',
+          name: 'd3-charts',
+          component: () => import('./components/Charts/D3Charts.vue')
         }
       ]
     },

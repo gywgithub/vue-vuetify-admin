@@ -168,8 +168,8 @@ export default class Home extends Vue {
       title: 'Charts',
       children: [
         { title: 'ECharts', path: '/charts/echarts' },
-        { title: 'Vega', path: '/charts/vega' },
-        { title: 'D3', path: '/charts/d3' }
+        { title: 'Vega Charts', path: '/charts/vega-charts' },
+        { title: 'D3 Charts', path: '/charts/d3-charts' }
       ],
       appendIcon: 'mdi-chevron-down'
     },
