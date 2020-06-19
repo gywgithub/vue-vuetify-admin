@@ -4,7 +4,7 @@ import Home from './views/Home.vue'
 
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
   mode: 'hash',
   base: '/',
   routes: [
@@ -143,3 +143,20 @@ export default new Router({
     }
   ]
 })
+
+router.beforeEach((to: any, from, next) => {
+  sessionStorage.setItem('pathName', to.name)
+  if (to.name === 'login' || to.name === 'join') {
+    next()
+  } else {
+    if (sessionStorage.getItem('userInfo')) {
+      next()
+    } else {
+      next({
+        path: '/login'
+      })
+    }
+  }
+})
+
+export default router
