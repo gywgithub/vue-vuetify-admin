@@ -72,8 +72,14 @@
                   </v-avatar>
                 </td>
                 <td class="text-center">
-                  <v-avatar size="36" v-if="val.avatar">
+                  <v-avatar size="36" v-if="val.avatar && val.avatar.indexOf('http://') !== -1">
                     <img :src="val.avatar" alt="avatar" />
+                  </v-avatar>
+                  <v-avatar size="36" v-else-if="val.avatar">
+                    <img :src="`${publicPath}` + val.avatar" alt="avatar" />
+                  </v-avatar>
+                  <v-avatar size="36" v-else>
+                    <img src="../assets/img/avatar.png" alt="avatar" />
                   </v-avatar>
                 </td>
                 <td class="text-align-left">{{ val.nickname }}</td>
