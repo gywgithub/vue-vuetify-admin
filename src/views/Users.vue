@@ -52,6 +52,7 @@
                 <th>user_id</th>
                 <th>username</th>
                 <th>avatar</th>
+                <th>avatar_test</th>
                 <th>nickname</th>
                 <th>email</th>
                 <th>created_at</th>
@@ -68,6 +69,11 @@
                   </v-avatar>
                   <v-avatar size="36" v-else>
                     <img src="../assets/img/avatar.png" alt="avatar" />
+                  </v-avatar>
+                </td>
+                <td class="text-center">
+                  <v-avatar size="36" v-if="val.avatar">
+                    <img :src="val.avatar" alt="avatar" />
                   </v-avatar>
                 </td>
                 <td class="text-align-left">{{ val.nickname }}</td>
@@ -287,6 +293,7 @@ export default class Users extends Vue {
 
   private mounted() {
     console.info('mounted')
+    console.info(this.publicPath)
     this.getUsers()
   }
 
