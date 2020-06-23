@@ -6,9 +6,11 @@
       </v-btn>
       <v-toolbar-title>Sign Up</v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn text @click="login">LOGIN</v-btn>
+      <v-btn icon @click="login" title="sign in">
+        <v-icon>mdi-login-variant</v-icon>
+      </v-btn>
     </v-app-bar>
-    <v-container fluid fill-height>
+    <v-container fluid fill-height class="px-4">
       <v-layout align-center justify-center>
         <v-flex xs12 sm6 md4 lg3>
           <v-form ref="form" v-model="valid" class="text-center margin-top-80">

@@ -2,7 +2,7 @@
   <div id="app">
     <v-app>
       <router-view/>
-      <Alert class="alert-component-position"></Alert>
+      <Alert class="alert-component-position mx-2"></Alert>
     </v-app>
   </div>
 </template>

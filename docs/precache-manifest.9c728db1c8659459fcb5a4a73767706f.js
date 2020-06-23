@@ -4,12 +4,12 @@ self.__precacheManifest = [
     "url": "/vue-vuetify-admin/js/about.1465c70c.js"
   },
   {
-    "revision": "2977cf44707c9132160e",
-    "url": "/vue-vuetify-admin/css/app.02db22d0.css"
+    "revision": "9604b8d793876357da50",
+    "url": "/vue-vuetify-admin/css/app.311298e6.css"
   },
   {
-    "revision": "2977cf44707c9132160e",
-    "url": "/vue-vuetify-admin/js/app.a110d85f.js"
+    "revision": "9604b8d793876357da50",
+    "url": "/vue-vuetify-admin/js/app.cbd68b62.js"
   },
   {
     "revision": "3db5d233f56de83f8782",
@@ -84,6 +84,14 @@ self.__precacheManifest = [
     "url": "/vue-vuetify-admin/js/chunk-95b23c16.af64c14e.js"
   },
   {
+    "revision": "32c44184732178a32e5a",
+    "url": "/vue-vuetify-admin/css/chunk-a56d9480.0b26e157.css"
+  },
+  {
+    "revision": "32c44184732178a32e5a",
+    "url": "/vue-vuetify-admin/js/chunk-a56d9480.1136e2da.js"
+  },
+  {
     "revision": "c772907e40cd7afbc139",
     "url": "/vue-vuetify-admin/css/chunk-a6358860.21ac63db.css"
   },
@@ -100,20 +108,12 @@ self.__precacheManifest = [
     "url": "/vue-vuetify-admin/js/chunk-b47b4a38.f12bb4e4.js"
   },
   {
-    "revision": "142939b334024a62a3b6",
-    "url": "/vue-vuetify-admin/css/chunk-c9fd95f2.6965282e.css"
+    "revision": "5b2949d8e71ccdbf3b6a",
+    "url": "/vue-vuetify-admin/css/chunk-f2759192.8cead368.css"
   },
   {
-    "revision": "142939b334024a62a3b6",
-    "url": "/vue-vuetify-admin/js/chunk-c9fd95f2.23154fdf.js"
-  },
-  {
-    "revision": "a4ce9389f0a9fbc7b53e",
-    "url": "/vue-vuetify-admin/css/chunk-d5bb27d2.5e913f7e.css"
-  },
-  {
-    "revision": "a4ce9389f0a9fbc7b53e",
-    "url": "/vue-vuetify-admin/js/chunk-d5bb27d2.c2b8146e.js"
+    "revision": "5b2949d8e71ccdbf3b6a",
+    "url": "/vue-vuetify-admin/js/chunk-f2759192.f753e569.js"
   },
   {
     "revision": "b8f272696c2584732e92",
@@ -136,7 +136,7 @@ self.__precacheManifest = [
     "url": "/vue-vuetify-admin/img/v-alt.668cf772.svg"
   },
   {
-    "revision": "f3919e5dd6c765fa045a609d76a24cca",
+    "revision": "ffa4fa14f9bdcc4c541c0446896d312d",
     "url": "/vue-vuetify-admin/index.html"
   },
   {

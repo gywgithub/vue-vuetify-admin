@@ -1,34 +1,41 @@
 <template>
   <div>
-    <v-card>
-      <div class="d-flex justify-space-between mb-2 pa-2">
-        <div>
+    <v-card class="px-2 mb-2">
+      <v-row align="center" justify="space-between">
+        <v-col cols="12" xs="12" sm="12" md="6" order-sm="2">
+          <v-row no-gutters>
+            <v-col cols="4">
+              <v-select
+                :items="selectItems"
+                label="Filter"
+                solo
+                dense
+                class="height-40"
+                v-model="filterKey"
+                clearable
+              ></v-select>
+            </v-col>
+            <v-col cols="8">
+              <v-text-field
+                label="Search"
+                solo
+                dense
+                class="height-40 ml-4"
+                v-model="filterValue"
+                append-icon="mdi-magnify"
+                clearable
+                v-on:keyup.enter="enter"
+              ></v-text-field>
+            </v-col>
+          </v-row>
+        </v-col>
+        <v-col cols="4" xs="6" sm="6" md="2" order-sm="2" order-md="1">
           <v-btn @click="addUser" color="secondary">
             <v-icon left>mdi-account-plus-outline</v-icon>Add User
           </v-btn>
-        </div>
-        <div class="search-component">
-          <v-select
-            :items="selectItems"
-            label="Filter"
-            solo
-            dense
-            class="select-size"
-            v-model="filterKey"
-            clearable
-          ></v-select>&nbsp;&nbsp;
-          <v-text-field
-            label="Search"
-            solo
-            dense
-            class="search-text-size"
-            v-model="filterValue"
-            append-icon="mdi-magnify"
-            clearable
-            v-on:keyup.enter="enter"
-          ></v-text-field>
-        </div>
-        <div>
+        </v-col>
+
+        <v-col cols="8" xs="6" sm="6" md="3" order-sm="3" class="text-right">
           <span
             v-show="false"
           >page_sum: {{pageSum}} , page_index: {{pageIndex}} , page_num: {{pageNum}} ,</span>&nbsp;
@@ -40,8 +47,8 @@
           <v-btn icon @click="nextPage" :disabled="nextPageDisabled">
             <v-icon>mdi-chevron-right</v-icon>
           </v-btn>
-        </div>
-      </div>
+        </v-col>
+      </v-row>
     </v-card>
     <div v-if="users.length > 0">
       <v-card>
@@ -229,8 +236,7 @@
 import { Component, Vue } from 'vue-property-decorator'
 import store from '@/store'
 
-@Component({
-})
+@Component({})
 export default class Users extends Vue {
   private publicPath: string = process.env.BASE_URL
   private selectItems: any[] = [
@@ -421,10 +427,9 @@ export default class Users extends Vue {
         upload_method: 'post'
       },
       method: 'get'
+    }).then((res: any) => {
+      return res
     })
-      .then((res: any) => {
-        return res
-      })
 
     // post upload file
     const formData = new FormData()
@@ -462,6 +467,7 @@ export default class Users extends Vue {
       }
     }
   }
+
   private changeFile() {
     (this.$refs.fileInput as Vue & { click: () => void }).click()
   }
@@ -585,7 +591,12 @@ export default class Users extends Vue {
 <style lang="scss" scoped>
 .select-size {
   height: 40px;
-  width: 80px;
+  width: 100px;
+}
+
+.height-40 {
+  height: 40px !important;
+  // border:1px solid red;
 }
 
 .search-component {
@@ -608,14 +619,6 @@ export default class Users extends Vue {
   height: 100px;
   border-radius: 50% !important;
 }
-
-// .img-size:hover {
-//   transform: rotate(666turn);
-//   transition-delay: 1s;
-//   transition-property: all;
-//   transition-duration: 59s;
-//   transition-timing-function: cubic-bezier(0.34, 0, 0.84, 1);
-// }
 
 .btn-submit {
   width: 100%;

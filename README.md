@@ -2,6 +2,10 @@
 
 vue-vuetify-admin is background management system based on Vue, Typescript and Vuetify.
 
+## Online Preview
+
+https://gywgithub.github.io/vue-vuetify-admin/
+
 ## Project setup
 ```
 npm install
@@ -31,3 +35,7 @@ npm run test:e2e
 ```
 npm run lint
 ```
+
+## License
+
+[MIT License](https://github.com/gywgithub/vue-vuetify-admin/blob/master/LICENSE)

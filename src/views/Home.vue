@@ -73,7 +73,7 @@
               </v-list-item>
               <v-list-item @click.stop="modalDialog = true">
                 <v-list-item-action>
-                  <v-icon>mdi-logout</v-icon>
+                  <v-icon>mdi-logout-variant</v-icon>
                 </v-list-item-action>
                 <v-list-item-content>
                   <v-list-item-title>sign out</v-list-item-title>
@@ -174,16 +174,6 @@ export default class Home extends Vue {
       appendIcon: 'mdi-chevron-down'
     },
     {
-      icon: 'mdi-alpha-b-box-outline',
-      title: '3D',
-      children: [
-        { title: '3D-1', path: '/basic/hello' },
-        { title: '3D-2', path: '/basic/hello2' },
-        { title: 'kekule.js', path: '/basic/hello2' }
-      ],
-      appendIcon: 'mdi-chevron-down'
-    },
-    {
       icon: 'mdi-alpha-z-box-outline',
       title: 'zoom',
       children: [
@@ -194,16 +184,7 @@ export default class Home extends Vue {
       appendIcon: 'mdi-chevron-down'
     },
     {
-      icon: 'mdi-alpha-b-box-outline',
-      title: 'Basic',
-      children: [
-        { title: 'HelloWorld', path: '/basic/hello' },
-        { title: 'HelloWorld2', path: '/basic/hello2' }
-      ],
-      appendIcon: 'mdi-chevron-down'
-    },
-    {
-      icon: 'mdi-alpha-b-box-outline',
+      icon: 'mdi-alpha-s-box-outline',
       title: 'Schema',
       children: [
         { title: 'JSON Schema', path: '/basic/hello' },
