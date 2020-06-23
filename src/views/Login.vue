@@ -111,17 +111,17 @@
         <v-sheet height="220px" class="text-center">
           <div class="py-3 text-left" style="padding:20px;">
             <div class="body-1">DEFAULT USER</div>
-            <div>username: <span class="subtitle-2 red--text text--lighten-1">admin</span></div>
-            <div>password: <span class="subtitle-2 red--text text--lighten-1">admin123</span></div>
-            <div class="body-1">OR</div>
-            You can register a new user
+            <div>
+              username:
+              <span class="subtitle-2 red--text text--lighten-1">admin</span>
+            </div>
+            <div>
+              password:
+              <span class="subtitle-2 red--text text--lighten-1">admin123</span>
+            </div>
+            <div class="body-1">OR</div>You can register a new user
           </div>
-          <v-btn
-            class="mt-6"
-            text
-            color="red"
-            @click="sheet = !sheet"
-          >close</v-btn>
+          <v-btn class="mt-6" text color="red" @click="sheet = !sheet">close</v-btn>
         </v-sheet>
       </v-bottom-sheet>
     </div>
@@ -169,6 +169,19 @@ export default class SignIn extends Vue {
     }
   }
 
+  private created(): void {
+    if (localStorage.getItem('userInfo')) {
+      store.dispatch('updateShowAlert', {
+        showAlert: true,
+        alertMessage: 'Auto login success',
+        alertType: 'success'
+      })
+      console.info(localStorage.getItem('userInfo'))
+      sessionStorage.setItem('userInfo', localStorage.getItem('userInfo') as string)
+      this.$router.push('home')
+    }
+  }
+
   private signIn(): void {
     console.info('signIn')
     if ((this.$refs.form as Vue & { validate: () => boolean }).validate()) {
@@ -194,7 +207,7 @@ export default class SignIn extends Vue {
           sessionStorage.setItem('userInfo', JSON.stringify(userInfo))
           store.dispatch('updateShowAlert', {
             showAlert: true,
-            alertMessage: 'login success',
+            alertMessage: 'Login success',
             alertType: 'success'
           })
           this.$router.push('home')
