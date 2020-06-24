@@ -174,10 +174,10 @@ export default class Home extends Vue {
       appendIcon: 'mdi-chevron-down'
     },
     {
-      icon: 'mdi-alpha-z-box-outline',
-      title: 'zoom',
+      icon: 'mdi-alpha-m-box-outline',
+      title: 'Maps',
       children: [
-        { title: 'openlayer', path: '/basic/hello' },
+        { title: 'openlayers', path: '/maps/openlayers' },
         { title: 'openseadragon', path: '/basic/hello2' },
         { title: 'leaflet', path: '/basic/hello2' }
       ],

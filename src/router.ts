@@ -97,14 +97,14 @@ const router = new Router({
       ]
     },
     {
-      path: '/zoom',
-      name: 'zoom',
+      path: '/maps',
+      name: 'maps',
       component: Home,
       children: [
         {
-          path: '/zoom/openlayer',
-          name: 'openlayer',
-          component: () => import('./components/Hello.vue')
+          path: '/maps/openlayers',
+          name: 'openlayers',
+          component: () => import('./components/Maps/OpenLayers.vue')
         },
         {
           path: '/basic/openseadragon',
