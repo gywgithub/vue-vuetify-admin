@@ -9,9 +9,13 @@
         <v-icon left>mdi-microsoft-internet-explorer</v-icon>Online Preview
       </v-chip>
     </p>
-    <video controls>
-      <source :src="`${publicPath}video/quill.webm`" type="video/webm" />Sorry, your browser doesn't support embedded videos
-    </video>
+    <v-row justify="center">
+      <v-col cols="12" sm="12" md="12" lg="10">
+        <video controls>
+          <source :src="`${publicPath}video/quill.webm`" type="video/webm" />Sorry, your browser doesn't support embedded videos
+        </video>
+      </v-col>
+    </v-row>
   </div>
 </template>
 <script lang="ts">

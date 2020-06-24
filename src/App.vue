@@ -56,9 +56,7 @@ export default class extends Vue {}
 }
 
 video {
-  width: 80%;
-  margin: auto;
-  border: 2px solid #eee;
-  border-radius: 4px;
+  width: 100%;
+  border: 1px solid #eee;
 }
 </style>

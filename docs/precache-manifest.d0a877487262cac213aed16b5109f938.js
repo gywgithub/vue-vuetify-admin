@@ -4,20 +4,12 @@ self.__precacheManifest = [
     "url": "/vue-vuetify-admin/js/about.1465c70c.js"
   },
   {
-    "revision": "9604b8d793876357da50",
-    "url": "/vue-vuetify-admin/css/app.311298e6.css"
+    "revision": "cc4ba402c1605bb0e9d4",
+    "url": "/vue-vuetify-admin/css/app.14f41e94.css"
   },
   {
-    "revision": "9604b8d793876357da50",
-    "url": "/vue-vuetify-admin/js/app.cbd68b62.js"
-  },
-  {
-    "revision": "3db5d233f56de83f8782",
-    "url": "/vue-vuetify-admin/css/chunk-15ca35a0.b5f33af2.css"
-  },
-  {
-    "revision": "3db5d233f56de83f8782",
-    "url": "/vue-vuetify-admin/js/chunk-15ca35a0.ad2840bb.js"
+    "revision": "cc4ba402c1605bb0e9d4",
+    "url": "/vue-vuetify-admin/js/app.6847f5a2.js"
   },
   {
     "revision": "676a158d175fc604b202",
@@ -40,16 +32,32 @@ self.__precacheManifest = [
     "url": "/vue-vuetify-admin/js/chunk-2d0a49fd.af0dc84f.js"
   },
   {
-    "revision": "867af339c231de0f9cd3",
-    "url": "/vue-vuetify-admin/js/chunk-2d0e93b4.0ede5562.js"
+    "revision": "01fb5aa5a0b704d4d1a3",
+    "url": "/vue-vuetify-admin/js/chunk-2d0e93b4.1058af26.js"
   },
   {
-    "revision": "49abf5397e83ce2d0ea4",
-    "url": "/vue-vuetify-admin/js/chunk-2d207aaa.a3ecc36d.js"
+    "revision": "7ee4b30af0c65d16cf7a",
+    "url": "/vue-vuetify-admin/js/chunk-2d207aaa.c3ec5626.js"
   },
   {
     "revision": "1bce7b5c7508caa00207",
     "url": "/vue-vuetify-admin/js/chunk-2d228eee.7b6c4a0b.js"
+  },
+  {
+    "revision": "ce28539f38640c1f8756",
+    "url": "/vue-vuetify-admin/css/chunk-30fb4f44.39a7e64c.css"
+  },
+  {
+    "revision": "ce28539f38640c1f8756",
+    "url": "/vue-vuetify-admin/js/chunk-30fb4f44.a5c1e8b2.js"
+  },
+  {
+    "revision": "eed5c53035105f214cb5",
+    "url": "/vue-vuetify-admin/css/chunk-3a69cc72.2a6ad8b9.css"
+  },
+  {
+    "revision": "eed5c53035105f214cb5",
+    "url": "/vue-vuetify-admin/js/chunk-3a69cc72.b8c1051c.js"
   },
   {
     "revision": "8ad6132ab42412a60f2a",
@@ -64,14 +72,6 @@ self.__precacheManifest = [
     "url": "/vue-vuetify-admin/js/chunk-3f7bc161.5aa6cf54.js"
   },
   {
-    "revision": "60f8dcdc561fd9bfa8b7",
-    "url": "/vue-vuetify-admin/css/chunk-43a7a6b6.9a81327d.css"
-  },
-  {
-    "revision": "60f8dcdc561fd9bfa8b7",
-    "url": "/vue-vuetify-admin/js/chunk-43a7a6b6.6b60324a.js"
-  },
-  {
     "revision": "b2b169ab4fd93ea39b8a",
     "url": "/vue-vuetify-admin/css/chunk-70d495d6.79a0b5e7.css"
   },
@@ -80,16 +80,16 @@ self.__precacheManifest = [
     "url": "/vue-vuetify-admin/js/chunk-70d495d6.9404af57.js"
   },
   {
+    "revision": "ad03d9d8d06bc6fa4314",
+    "url": "/vue-vuetify-admin/css/chunk-743a82c8.1b21730f.css"
+  },
+  {
+    "revision": "ad03d9d8d06bc6fa4314",
+    "url": "/vue-vuetify-admin/js/chunk-743a82c8.5eb80b85.js"
+  },
+  {
     "revision": "66dca847783d4a63c6f1",
     "url": "/vue-vuetify-admin/js/chunk-95b23c16.af64c14e.js"
-  },
-  {
-    "revision": "32c44184732178a32e5a",
-    "url": "/vue-vuetify-admin/css/chunk-a56d9480.0b26e157.css"
-  },
-  {
-    "revision": "32c44184732178a32e5a",
-    "url": "/vue-vuetify-admin/js/chunk-a56d9480.1136e2da.js"
   },
   {
     "revision": "c772907e40cd7afbc139",
@@ -136,7 +136,7 @@ self.__precacheManifest = [
     "url": "/vue-vuetify-admin/img/v-alt.668cf772.svg"
   },
   {
-    "revision": "ffa4fa14f9bdcc4c541c0446896d312d",
+    "revision": "8e577438761ce0ddebbd5188d03b5198",
     "url": "/vue-vuetify-admin/index.html"
   },
   {

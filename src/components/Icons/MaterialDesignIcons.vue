@@ -1,27 +1,27 @@
 <template>
   <div>
-    <div class="ma-4">
+    <div>
       <div class="display-3">material design icons</div>
       <a href="https://materialdesignicons.com" target="_blank">https://materialdesignicons.com</a>
     </div>
-    <v-card class="ma-4">
+    <v-card class="my-2">
       <v-card-title>Custom Color Icons</v-card-title>
       <v-card-text>
         <v-tooltip bottom v-for="(item, k) in colorIcons" :key="k">
           <template v-slot:activator="{ on }">
-            <v-icon large v-on="on" :color="item.color">mdi-{{item.icon}}</v-icon>
+            <v-icon x-large v-on="on" :color="item.color">mdi-{{item.icon}}</v-icon>
           </template>
           <span>{{item.icon}}</span>
         </v-tooltip>
       </v-card-text>
     </v-card>
-    <v-card class="ma-4">
+    <v-card class="my-2">
       <v-card-title>Monochrome Icons</v-card-title>
       <v-card-text>
         <div>
           <v-tooltip bottom v-for="(i, k) in numberIcons" :key="k">
             <template v-slot:activator="{ on }">
-              <v-icon large v-on="on">mdi-{{i}}</v-icon>
+              <v-icon x-large v-on="on">mdi-{{i}}</v-icon>
             </template>
             <span>{{i}}</span>
           </v-tooltip>
@@ -29,7 +29,7 @@
         <div>
           <v-tooltip bottom v-for="(i, k) in numberIcons" :key="k">
             <template v-slot:activator="{ on }">
-              <v-icon large v-on="on">mdi-{{i}}-box-outline</v-icon>
+              <v-icon x-large v-on="on">mdi-{{i}}-box-outline</v-icon>
             </template>
             <span>{{i}}</span>
           </v-tooltip>
@@ -37,7 +37,7 @@
         <div>
           <v-tooltip bottom v-for="(i, k) in numberIcons" :key="k">
             <template v-slot:activator="{ on }">
-              <v-icon large v-on="on">mdi-{{i}}-box</v-icon>
+              <v-icon x-large v-on="on">mdi-{{i}}-box</v-icon>
             </template>
             <span>{{i}}</span>
           </v-tooltip>
@@ -45,7 +45,7 @@
         <div>
           <v-tooltip bottom v-for="(i, k) in numberIcons" :key="k">
             <template v-slot:activator="{ on }">
-              <v-icon large v-on="on">mdi-{{i}}-circle-outline</v-icon>
+              <v-icon x-large v-on="on">mdi-{{i}}-circle-outline</v-icon>
             </template>
             <span>{{i}}</span>
           </v-tooltip>
@@ -53,7 +53,7 @@
         <div>
           <v-tooltip bottom v-for="(i, k) in numberIcons" :key="k">
             <template v-slot:activator="{ on }">
-              <v-icon large v-on="on">mdi-{{i}}-circle</v-icon>
+              <v-icon x-large v-on="on">mdi-{{i}}-circle</v-icon>
             </template>
             <span>{{i}}</span>
           </v-tooltip>
@@ -61,7 +61,7 @@
         <div>
           <v-tooltip bottom v-for="(i, k) in numberIcons" :key="k">
             <template v-slot:activator="{ on }">
-              <v-icon large v-on="on">mdi-{{i}}-box-multiple-outline</v-icon>
+              <v-icon x-large v-on="on">mdi-{{i}}-box-multiple-outline</v-icon>
             </template>
             <span>{{i}}</span>
           </v-tooltip>
@@ -69,7 +69,7 @@
         <div>
           <v-tooltip bottom v-for="(i, k) in numberIcons" :key="k">
             <template v-slot:activator="{ on }">
-              <v-icon large v-on="on">mdi-{{i}}-box-multiple</v-icon>
+              <v-icon x-large v-on="on">mdi-{{i}}-box-multiple</v-icon>
             </template>
             <span>{{i}}</span>
           </v-tooltip>
@@ -162,6 +162,6 @@ export default class MaterialDesignIcons extends Vue {
 i {
   border: 1px solid #eee;
   margin: 10px;
-  padding: 14px;
+  padding: 18px;
 }
 </style>

@@ -256,7 +256,6 @@ export default class Users extends Vue {
   private total: number = 0
   private lastPageDisabled: boolean = true
   private nextPageDisabled: boolean = true
-
   private users: any[] = []
   private dialogUser: boolean = false
   private dialogUserTitle: string = 'Add User'
@@ -295,8 +294,6 @@ export default class Users extends Vue {
   }
 
   private mounted() {
-    console.info('mounted')
-    console.info(this.publicPath)
     this.getUsers()
   }
 
@@ -484,7 +481,6 @@ export default class Users extends Vue {
         params: filter
       })
       .then((res: any) => {
-        console.info(res.data)
         if (res && res.data.status && res.data.data.users.length > 0) {
           const data: any = res.data.data
           this.users = data.users
@@ -596,7 +592,6 @@ export default class Users extends Vue {
 
 .height-40 {
   height: 40px !important;
-  // border:1px solid red;
 }
 
 .search-component {

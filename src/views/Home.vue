@@ -254,7 +254,7 @@ export default class Home extends Vue {
     this.subItemActive = -1
     sessionStorage.setItem('itemActive', key)
     if (item.path !== '') {
-      this.$router.push(item.path)
+      this.$router.push(item.path).catch(err => {}) // tslint:disable-line
     }
   }
 
