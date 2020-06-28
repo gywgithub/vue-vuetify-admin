@@ -137,6 +137,12 @@ export default class Home extends Vue {
       active: true
     },
     {
+      icon: 'mdi-alpha-g-box-outline',
+      title: 'Guide',
+      path: '/home/guide',
+      appendIcon: null
+    },
+    {
       icon: 'mdi-alpha-u-box-outline',
       title: 'Users',
       path: '/home/users',

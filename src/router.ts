@@ -29,6 +29,11 @@ const router = new Router({
           component: () => import('./components/Introduction.vue')
         },
         {
+          path: '/home/guide',
+          name: 'guide',
+          component: () => import('./components/Guide.vue')
+        },
+        {
           path: '/home/d3',
           name: 'd3',
           component: () => import('./components/D3.vue')
