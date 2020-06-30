@@ -112,9 +112,9 @@ const router = new Router({
           component: () => import('./components/Maps/OpenLayers.vue')
         },
         {
-          path: '/basic/openseadragon',
+          path: '/maps/openseadragon',
           name: 'openseadragon',
-          component: () => import('./components/Hello2.vue')
+          component: () => import('./components/Maps/OpenSeadragon.vue')
         },
         {
           path: '/basic/leaflet',

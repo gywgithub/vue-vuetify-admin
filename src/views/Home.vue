@@ -184,7 +184,7 @@ export default class Home extends Vue {
       title: 'Maps',
       children: [
         { title: 'openlayers', path: '/maps/openlayers' },
-        { title: 'openseadragon', path: '/basic/hello2' },
+        { title: 'openseadragon', path: '/maps/openseadragon' },
         { title: 'leaflet', path: '/basic/hello2' }
       ],
       appendIcon: 'mdi-chevron-down'
