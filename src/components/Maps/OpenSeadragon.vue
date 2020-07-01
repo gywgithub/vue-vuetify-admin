@@ -1,26 +1,33 @@
 <template>
   <div>
-    <div>Simple demo page to show a default OpenSeadragon viewer.</div>https://showcase.iiif.io/
     <div id="contentDiv" class="openseadragon1"></div>
-    <div>
-      Canvas Click
-
-      webPoint: {{webPoint}}
-      viewportPoint: {{viewportPoint}}
-      imagePoint: {{imagePoint}}
-    </div>
-    <div>
-      Update Zoom
-
-      Zoom: {{zoom}}
-      Image Zoom: {{imageZoom}}
-    </div>
-    <div>
-      Mouse Move
-
-      Web: {{webPoint}}
-      Viewport: {{viewportPoint}}
-      Image: {{imagePoint}}
+    <v-row>
+      <v-col cols="12" sm="4">
+        <h3>Canvas Click</h3>
+        webPoint: {{webPoint}}
+        <br />
+        viewportPoint: {{viewportPoint}}
+        <br />
+        imagePoint: {{imagePoint}}
+      </v-col>
+      <v-col cols="12" sm="4">
+        <h3>Update Zoom</h3>
+        Zoom: {{zoom}}
+        <br />
+        Image Zoom: {{imageZoom}}
+        <br />
+      </v-col>
+      <v-col cols="12" sm="4">
+        <h3>Mouse Move</h3>
+        Web: {{webPoint}}
+        <br />
+        Viewport: {{viewportPoint}}
+        <br />
+        Image: {{imagePoint}}
+      </v-col>
+    </v-row>
+    <div class="mt-2">
+      <a href="https://showcase.iiif.io/" target="_blank">https://showcase.iiif.io/</a>
     </div>
   </div>
 </template>
@@ -37,16 +44,14 @@ export default class OpenSeadragonComponent extends Vue {
   private imageZoom: string = ''
 
   private mounted() {
-    console.info('openseadragon')
     const viewer: any = OpenSeadragon({
       id: 'contentDiv',
       prefixUrl: '/images/',
-      // tileSources: '/data/wide.dzi',
-      tileSources:
-        'http://openseadragon.github.io/example-images/duomo/duomo.dzi',
+      tileSources: '/data/wide.dzi',
+      // tileSources:
+      //   'http://openseadragon.github.io/example-images/duomo/duomo.dzi',
       showNavigator: true
     })
-    console.info(viewer)
     const self = this
     viewer.addHandler('canvas-click', (e: any) => {
       self.webPoint = e.position
@@ -54,9 +59,6 @@ export default class OpenSeadragonComponent extends Vue {
       self.imagePoint = viewer.viewport.viewportToImageCoordinates(
         self.viewportPoint
       )
-      console.info('webPoint: ', self.webPoint)
-      console.info('viewportPoint: ', self.viewportPoint)
-      console.info('imagePoint: ', self.imagePoint)
     })
 
     const updateZoom = () => {
@@ -64,8 +66,6 @@ export default class OpenSeadragonComponent extends Vue {
       const imageZoom = viewer.viewport.viewportToImageZoom(zoom)
       self.zoom = (Math.round(zoom * 100) / 100).toString()
       self.imageZoom = (Math.round(imageZoom * 100) / 100).toString()
-      console.info('Zoom: ', (Math.round(zoom * 100) / 100))
-      console.info('Image Zoom: ', (Math.round(imageZoom * 100) / 100))
     }
 
     viewer.addHandler('open', () => {
@@ -80,10 +80,6 @@ export default class OpenSeadragonComponent extends Vue {
           const zoom = viewer.viewport.getZoom(true)
           const imageZoom = viewer.viewport.viewportToImageZoom(zoom)
 
-          console.info('Web: ', self.webPoint.toString())
-          console.info('Viewport: ', self.viewportPoint.toString())
-          console.info('Image: ', self.imagePoint.toString())
-
           updateZoom()
         }
       })
@@ -97,7 +93,8 @@ export default class OpenSeadragonComponent extends Vue {
 </script>
 <style scoped lang="scss">
 .openseadragon1 {
-  width: 800px;
+  border: 1px solid #eee;
+  width: 100%;
   height: 600px;
 }
 </style>
