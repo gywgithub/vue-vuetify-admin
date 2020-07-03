@@ -47,9 +47,9 @@ export default class OpenSeadragonComponent extends Vue {
     const viewer: any = OpenSeadragon({
       id: 'contentDiv',
       prefixUrl: '/images/',
-      // tileSources: '/data/wide.dzi',
-      tileSources:
-        'http://openseadragon.github.io/example-images/duomo/duomo.dzi',
+      tileSources: '/data/wide.dzi',
+      // tileSources:
+      //   'https://openseadragon.github.io/example-images/duomo/duomo.dzi',
       showNavigator: true
     })
     const self = this
