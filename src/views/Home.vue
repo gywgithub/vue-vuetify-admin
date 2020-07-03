@@ -193,8 +193,7 @@ export default class Home extends Vue {
       icon: 'mdi-alpha-s-box-outline',
       title: 'Schema',
       children: [
-        { title: 'JSON Schema', path: '/basic/hello' },
-        { title: 'Vue Schema', path: '/basic/hello' }
+        { title: 'Vuetify JSON Schema', path: '/schema/vuetifyjsonschema' }
       ],
       appendIcon: 'mdi-chevron-down'
     }

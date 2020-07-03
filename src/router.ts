@@ -124,6 +124,18 @@ const router = new Router({
       ]
     },
     {
+      path: '/schema',
+      name: 'schema',
+      component: Home,
+      children: [
+        {
+          path: '/schema/vuetifyjsonschema',
+          name: 'vuetifyjsonschema',
+          component: () => import('./components/Schema/VuetifyJSONSchema.vue')
+        }
+      ]
+    },
+    {
       path: '*',
       name: 'notfound',
       component: () => import('./views/NotFound.vue')

@@ -4,12 +4,12 @@ self.__precacheManifest = [
     "url": "/vue-vuetify-admin/js/about.62ad7745.js"
   },
   {
-    "revision": "aabe37c2eca52c75c02c",
-    "url": "/vue-vuetify-admin/css/app.f15e51ce.css"
+    "revision": "07392126033d012596b6",
+    "url": "/vue-vuetify-admin/css/app.25e07b27.css"
   },
   {
-    "revision": "aabe37c2eca52c75c02c",
-    "url": "/vue-vuetify-admin/js/app.425d5f0d.js"
+    "revision": "07392126033d012596b6",
+    "url": "/vue-vuetify-admin/js/app.44be37f5.js"
   },
   {
     "revision": "0d8dd717e7ab0af6cfe2",
@@ -62,6 +62,14 @@ self.__precacheManifest = [
   {
     "revision": "d1bf045a5f1335440a80",
     "url": "/vue-vuetify-admin/js/chunk-30fb4f44.2817e393.js"
+  },
+  {
+    "revision": "d2ca6ffa6ebaef14f4ec",
+    "url": "/vue-vuetify-admin/css/chunk-37ee4bd6.32c4e969.css"
+  },
+  {
+    "revision": "d2ca6ffa6ebaef14f4ec",
+    "url": "/vue-vuetify-admin/js/chunk-37ee4bd6.39e75b2b.js"
   },
   {
     "revision": "06e0016e286d5e3e37ed",
@@ -164,7 +172,7 @@ self.__precacheManifest = [
     "url": "/vue-vuetify-admin/img/v-alt.668cf772.svg"
   },
   {
-    "revision": "cd1324df038ff52da126b55943a6671a",
+    "revision": "2df863e8c2ed6dd6334f503a7f183e03",
     "url": "/vue-vuetify-admin/index.html"
   },
   {
@@ -188,16 +196,16 @@ self.__precacheManifest = [
     "url": "/vue-vuetify-admin/data/wide_files/4/0_0.jpg"
   },
   {
-    "revision": "028be45b124ac9177b06d995771f4ee5",
-    "url": "/vue-vuetify-admin/data/wide_files/5/0_0.jpg"
-  },
-  {
     "revision": "39f87ec3506b5894e2e0629ea8fbcdf8",
     "url": "/vue-vuetify-admin/data/wide_files/6/0_0.jpg"
   },
   {
     "revision": "d7ccec4f18fae96efd58b0ecfb35eb45",
     "url": "/vue-vuetify-admin/data/wide_files/7/0_0.jpg"
+  },
+  {
+    "revision": "028be45b124ac9177b06d995771f4ee5",
+    "url": "/vue-vuetify-admin/data/wide_files/5/0_0.jpg"
   },
   {
     "revision": "92972f9c0deeb8f3df99fc8cbf56fef0",
@@ -248,24 +256,24 @@ self.__precacheManifest = [
     "url": "/vue-vuetify-admin/images/fullpage_pressed.png"
   },
   {
-    "revision": "52688ff690266b2055752e3aa91f9009",
-    "url": "/vue-vuetify-admin/images/fullpage_rest.png"
-  },
-  {
     "revision": "d14125142ef3694d56fd8a29fa32e2c6",
     "url": "/vue-vuetify-admin/images/home_grouphover.png"
+  },
+  {
+    "revision": "52688ff690266b2055752e3aa91f9009",
+    "url": "/vue-vuetify-admin/images/fullpage_rest.png"
   },
   {
     "revision": "af78a3af12bcf393b01f74f9b3e37a6a",
     "url": "/vue-vuetify-admin/images/home_hover.png"
   },
   {
-    "revision": "34fcccb901abeecf9731594b4ca70887",
-    "url": "/vue-vuetify-admin/images/home_pressed.png"
-  },
-  {
     "revision": "8d9fa38f7e0cd6d66f7c6927095e67a4",
     "url": "/vue-vuetify-admin/images/home_rest.png"
+  },
+  {
+    "revision": "34fcccb901abeecf9731594b4ca70887",
+    "url": "/vue-vuetify-admin/images/home_pressed.png"
   },
   {
     "revision": "5f8e933291cf779d715ded0ab4759692",
@@ -284,24 +292,24 @@ self.__precacheManifest = [
     "url": "/vue-vuetify-admin/images/next_rest.png"
   },
   {
-    "revision": "b2eb667c796530057e17ec05556c8a30",
-    "url": "/vue-vuetify-admin/images/previous_hover.png"
-  },
-  {
     "revision": "830a1f39be3cadaabedda812424ec763",
     "url": "/vue-vuetify-admin/images/previous_grouphover.png"
   },
   {
-    "revision": "7b852cf8cc419742f33c0796a375c790",
-    "url": "/vue-vuetify-admin/images/previous_rest.png"
+    "revision": "b2eb667c796530057e17ec05556c8a30",
+    "url": "/vue-vuetify-admin/images/previous_hover.png"
+  },
+  {
+    "revision": "0478bc0721361e245bc6ae7b80d07bb2",
+    "url": "/vue-vuetify-admin/images/previous_pressed.png"
   },
   {
     "revision": "803fa7192e5aa0bdb9dea5f78db5705a",
     "url": "/vue-vuetify-admin/images/rotateleft_grouphover.png"
   },
   {
-    "revision": "0478bc0721361e245bc6ae7b80d07bb2",
-    "url": "/vue-vuetify-admin/images/previous_pressed.png"
+    "revision": "7b852cf8cc419742f33c0796a375c790",
+    "url": "/vue-vuetify-admin/images/previous_rest.png"
   },
   {
     "revision": "f34fb64dfbb2bfdd2e0d54478ec8e7cc",
@@ -336,14 +344,6 @@ self.__precacheManifest = [
     "url": "/vue-vuetify-admin/images/zoomin_grouphover.png"
   },
   {
-    "revision": "6c78c2bc7bea7254506283208b553bb8",
-    "url": "/vue-vuetify-admin/images/zoomin_hover.png"
-  },
-  {
-    "revision": "92c4eed280c1bed37c9fba0aae7cca88",
-    "url": "/vue-vuetify-admin/images/zoomin_rest.png"
-  },
-  {
     "revision": "5b21ffaa3340353be073ecedad1d5d0a",
     "url": "/vue-vuetify-admin/images/zoomin_pressed.png"
   },
@@ -352,12 +352,20 @@ self.__precacheManifest = [
     "url": "/vue-vuetify-admin/images/zoomout_grouphover.png"
   },
   {
+    "revision": "92c4eed280c1bed37c9fba0aae7cca88",
+    "url": "/vue-vuetify-admin/images/zoomin_rest.png"
+  },
+  {
     "revision": "016da063e45add4f7f353eb87f2de5d7",
     "url": "/vue-vuetify-admin/images/zoomout_hover.png"
   },
   {
     "revision": "c6327813723b52b9eabc1952626c99df",
     "url": "/vue-vuetify-admin/images/zoomout_pressed.png"
+  },
+  {
+    "revision": "6c78c2bc7bea7254506283208b553bb8",
+    "url": "/vue-vuetify-admin/images/zoomin_hover.png"
   },
   {
     "revision": "1750b0b6fb8f23fb343a3bd595741cbd",
@@ -380,12 +388,12 @@ self.__precacheManifest = [
     "url": "/vue-vuetify-admin/data/wide_files/11/0_1.jpg"
   },
   {
-    "revision": "d1a07f20b930ea4bafa90819fa68af7e",
-    "url": "/vue-vuetify-admin/data/wide_files/11/1_0.jpg"
-  },
-  {
     "revision": "fd47f73945e4760b27b6794a93fc17e0",
     "url": "/vue-vuetify-admin/data/wide_files/11/1_1.jpg"
+  },
+  {
+    "revision": "d1a07f20b930ea4bafa90819fa68af7e",
+    "url": "/vue-vuetify-admin/data/wide_files/11/1_0.jpg"
   },
   {
     "revision": "ba54ac3af211c1ef70a0b6e7d975b338",
@@ -420,12 +428,12 @@ self.__precacheManifest = [
     "url": "/vue-vuetify-admin/data/wide_files/11/5_1.jpg"
   },
   {
-    "revision": "e016aaf023725653ec8a37fd3ea20f3f",
-    "url": "/vue-vuetify-admin/data/wide_files/11/6_0.jpg"
-  },
-  {
     "revision": "e7f8e57abecc2e076191359510139eed",
     "url": "/vue-vuetify-admin/data/wide_files/11/6_1.jpg"
+  },
+  {
+    "revision": "e016aaf023725653ec8a37fd3ea20f3f",
+    "url": "/vue-vuetify-admin/data/wide_files/11/6_0.jpg"
   },
   {
     "revision": "b65ab7e8f7af687d3065e1691dbbf79f",
@@ -444,12 +452,12 @@ self.__precacheManifest = [
     "url": "/vue-vuetify-admin/data/wide_files/9/1_0.jpg"
   },
   {
-    "revision": "0b62d45d708930e635a5566fc2926b64",
-    "url": "/vue-vuetify-admin/data/wide_files/10/0_0.jpg"
-  },
-  {
     "revision": "e153eedc239ac786f7dbecdaee97a8a0",
     "url": "/vue-vuetify-admin/data/wide_files/10/1_0.jpg"
+  },
+  {
+    "revision": "0b62d45d708930e635a5566fc2926b64",
+    "url": "/vue-vuetify-admin/data/wide_files/10/0_0.jpg"
   },
   {
     "revision": "c35f1a5fe8bb3979d807b12cd665be40",
