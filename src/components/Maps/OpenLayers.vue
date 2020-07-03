@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div id="map" class="map1"></div>
+    <div id="map" class="map"></div>
     <v-select
       class="mt-4"
       dense
@@ -72,9 +72,4 @@ export default class Openlayers extends Vue {
 }
 </script>
 <style scoped lang="scss">
-.map1 {
-  border: 1px solid #eee;
-  width: 100%;
-  height: 600px;
-}
 </style>

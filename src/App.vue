@@ -18,6 +18,11 @@ import Alert from '@/components/Alert.vue'
 export default class extends Vue {}
 </script>
 <style lang="scss">
+@mixin width-border {
+  width: 100%;
+  border: 1px solid #eee;
+}
+
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -27,8 +32,6 @@ export default class extends Vue {}
 .nothing {
   margin-top: 25vh;
   color: #80868b;
-  cursor: default;
-  font-family: 'Google Sans',Roboto,Arial,sans-serif;
   font-size: 1.4rem;
   font-weight: 400;
   line-height: 1.75rem;
@@ -56,7 +59,11 @@ export default class extends Vue {}
 }
 
 video {
-  width: 100%;
-  border: 1px solid #eee;
+  @include width-border;
+}
+
+.map {
+  @include width-border;
+  height: 600px;
 }
 </style>

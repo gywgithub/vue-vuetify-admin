@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div id="contentDiv" class="openseadragon1"></div>
+    <div id="contentDiv" class="map"></div>
     <v-row>
       <v-col cols="12" sm="4">
         <h3>Canvas Click</h3>
@@ -47,9 +47,9 @@ export default class OpenSeadragonComponent extends Vue {
     const viewer: any = OpenSeadragon({
       id: 'contentDiv',
       prefixUrl: '/images/',
-      tileSources: '/data/wide.dzi',
-      // tileSources:
-      //   'http://openseadragon.github.io/example-images/duomo/duomo.dzi',
+      // tileSources: '/data/wide.dzi',
+      tileSources:
+        'http://openseadragon.github.io/example-images/duomo/duomo.dzi',
       showNavigator: true
     })
     const self = this
@@ -92,9 +92,4 @@ export default class OpenSeadragonComponent extends Vue {
 }
 </script>
 <style scoped lang="scss">
-.openseadragon1 {
-  border: 1px solid #eee;
-  width: 100%;
-  height: 600px;
-}
 </style>

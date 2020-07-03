@@ -117,9 +117,9 @@ const router = new Router({
           component: () => import('./components/Maps/OpenSeadragon.vue')
         },
         {
-          path: '/basic/leaflet',
+          path: '/maps/leaflet',
           name: 'leaflet',
-          component: () => import('./components/Hello2.vue')
+          component: () => import('./components/Maps/Leaflet.vue')
         }
       ]
     },
