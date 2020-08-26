@@ -63,6 +63,18 @@ const router = new Router({
       ]
     },
     {
+      path: '/markdown',
+      name: 'markdown',
+      component: Home,
+      children: [
+        {
+          path: '/markdown/showdown',
+          name: 'showdown',
+          component: () => import('./components/Markdown/Showdown.vue')
+        }
+      ]
+    },
+    {
       path: '/icons',
       name: 'icons',
       component: Home,

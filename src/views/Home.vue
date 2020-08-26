@@ -196,6 +196,14 @@ export default class Home extends Vue {
         { title: 'Vuetify JSON Schema', path: '/schema/vuetifyjsonschema' }
       ],
       appendIcon: 'mdi-chevron-down'
+    },
+    {
+      icon: 'mdi-alpha-m-box-outline',
+      title: 'Markdown',
+      children: [
+        { title: 'showdownjs', path: '/markdown/showdown' }
+      ],
+      appendIcon: 'mdi-chevron-down'
     }
   ]
   private userInfo: any = {

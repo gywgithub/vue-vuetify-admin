@@ -1,6 +1,6 @@
 # vue-vuetify-admin
 
-vue-vuetify-admin is background management system based on Vue, Typescript and Vuetify.
+vue-vuetify-admin is background management system based on `Vue`, `Typescript` and `Vuetify`.
 
 ## Online Preview
 
