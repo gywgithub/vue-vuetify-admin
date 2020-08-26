@@ -83,11 +83,11 @@
           </v-list>
         </v-menu>
       </v-app-bar>
-      <v-content>
+      <v-main>
         <v-container fluid>
           <router-view></router-view>
         </v-container>
-      </v-content>
+      </v-main>
       <v-dialog v-model="dialog" width="500">
         <v-card>
           <v-card-title primary-title>Vue Vuetify Admin</v-card-title>
