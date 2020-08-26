@@ -4,24 +4,24 @@ self.__precacheManifest = [
     "url": "/vue-vuetify-admin/js/about.962b3c7e.js"
   },
   {
-    "revision": "899b5a80eb19168cb0cc",
-    "url": "/vue-vuetify-admin/css/app.a656228d.css"
+    "revision": "7a125c1850685c2c01b1",
+    "url": "/vue-vuetify-admin/css/app.667e70b3.css"
   },
   {
-    "revision": "899b5a80eb19168cb0cc",
-    "url": "/vue-vuetify-admin/js/app.d3c1e8bf.js"
+    "revision": "7a125c1850685c2c01b1",
+    "url": "/vue-vuetify-admin/js/app.5c421e8d.js"
   },
   {
     "revision": "a63a2e6705c687afad05",
     "url": "/vue-vuetify-admin/js/chunk-0b44a4d5.32806d8a.js"
   },
   {
-    "revision": "f77629a720a9c8e99cc6",
-    "url": "/vue-vuetify-admin/css/chunk-120eb7f8.2dc98fdb.css"
+    "revision": "f29c82280915a6da951e",
+    "url": "/vue-vuetify-admin/css/chunk-120eb7f8.b3582e6e.css"
   },
   {
-    "revision": "f77629a720a9c8e99cc6",
-    "url": "/vue-vuetify-admin/js/chunk-120eb7f8.72e2ca7a.js"
+    "revision": "f29c82280915a6da951e",
+    "url": "/vue-vuetify-admin/js/chunk-120eb7f8.100493cc.js"
   },
   {
     "revision": "f48ecaa96f9c78f18a6a",
@@ -180,7 +180,7 @@ self.__precacheManifest = [
     "url": "/vue-vuetify-admin/img/v-alt.668cf772.svg"
   },
   {
-    "revision": "0a7776134ca48fe96e52a3e20e8917e9",
+    "revision": "fdbda1d5576f4f03adf282fcf840dd7e",
     "url": "/vue-vuetify-admin/index.html"
   },
   {
@@ -200,36 +200,36 @@ self.__precacheManifest = [
     "url": "/vue-vuetify-admin/data/wide_files/3/0_0.jpg"
   },
   {
-    "revision": "428bb4ce1d7daa5db92b11eea7d6230e",
-    "url": "/vue-vuetify-admin/data/wide_files/4/0_0.jpg"
-  },
-  {
     "revision": "028be45b124ac9177b06d995771f4ee5",
     "url": "/vue-vuetify-admin/data/wide_files/5/0_0.jpg"
+  },
+  {
+    "revision": "428bb4ce1d7daa5db92b11eea7d6230e",
+    "url": "/vue-vuetify-admin/data/wide_files/4/0_0.jpg"
   },
   {
     "revision": "39f87ec3506b5894e2e0629ea8fbcdf8",
     "url": "/vue-vuetify-admin/data/wide_files/6/0_0.jpg"
   },
   {
-    "revision": "92972f9c0deeb8f3df99fc8cbf56fef0",
-    "url": "/vue-vuetify-admin/data/wide.dzi"
-  },
-  {
     "revision": "d7ccec4f18fae96efd58b0ecfb35eb45",
     "url": "/vue-vuetify-admin/data/wide_files/7/0_0.jpg"
+  },
+  {
+    "revision": "92972f9c0deeb8f3df99fc8cbf56fef0",
+    "url": "/vue-vuetify-admin/data/wide.dzi"
   },
   {
     "revision": "71845fb2fc9a756e824778d101b06157",
     "url": "/vue-vuetify-admin/images/button_grouphover.png"
   },
   {
-    "revision": "520d9665fb306f55bbf589cd94a12dee",
-    "url": "/vue-vuetify-admin/images/button_pressed.png"
-  },
-  {
     "revision": "219ca15281bf30ca42fc9b041baa0f81",
     "url": "/vue-vuetify-admin/images/button_hover.png"
+  },
+  {
+    "revision": "520d9665fb306f55bbf589cd94a12dee",
+    "url": "/vue-vuetify-admin/images/button_pressed.png"
   },
   {
     "revision": "6d65f1f8fcc0ef137c1a0b9226dc7147",
@@ -240,12 +240,16 @@ self.__precacheManifest = [
     "url": "/vue-vuetify-admin/images/flip_grouphover.png"
   },
   {
+    "revision": "5023e50d2cfd174f86d600825823321c",
+    "url": "/vue-vuetify-admin/images/flip_pressed.png"
+  },
+  {
     "revision": "1d151fdb16a178907d72b409c04603a6",
     "url": "/vue-vuetify-admin/images/flip_hover.png"
   },
   {
-    "revision": "5023e50d2cfd174f86d600825823321c",
-    "url": "/vue-vuetify-admin/images/flip_pressed.png"
+    "revision": "7f9c40c57f9f4be36aa1d5d22497f71f",
+    "url": "/vue-vuetify-admin/images/flip_rest.png"
   },
   {
     "revision": "42e9c79dc79375d102153858e669bd30",
@@ -262,10 +266,6 @@ self.__precacheManifest = [
   {
     "revision": "52688ff690266b2055752e3aa91f9009",
     "url": "/vue-vuetify-admin/images/fullpage_rest.png"
-  },
-  {
-    "revision": "7f9c40c57f9f4be36aa1d5d22497f71f",
-    "url": "/vue-vuetify-admin/images/flip_rest.png"
   },
   {
     "revision": "d14125142ef3694d56fd8a29fa32e2c6",
@@ -316,28 +316,28 @@ self.__precacheManifest = [
     "url": "/vue-vuetify-admin/images/previous_rest.png"
   },
   {
+    "revision": "803fa7192e5aa0bdb9dea5f78db5705a",
+    "url": "/vue-vuetify-admin/images/rotateleft_grouphover.png"
+  },
+  {
     "revision": "f34fb64dfbb2bfdd2e0d54478ec8e7cc",
     "url": "/vue-vuetify-admin/images/rotateleft_hover.png"
   },
   {
-    "revision": "803fa7192e5aa0bdb9dea5f78db5705a",
-    "url": "/vue-vuetify-admin/images/rotateleft_grouphover.png"
+    "revision": "b08af14c739a8482ddc495184adb21c3",
+    "url": "/vue-vuetify-admin/images/rotateleft_pressed.png"
   },
   {
     "revision": "65336ac83e6674247de68e1363a916a0",
     "url": "/vue-vuetify-admin/images/rotateleft_rest.png"
   },
   {
-    "revision": "1ac9f6bd7fd35cfe81abe8ec516a7ad0",
-    "url": "/vue-vuetify-admin/images/rotateright_grouphover.png"
-  },
-  {
     "revision": "7a66a59675febabbe9b4d30f0b1a0aeb",
     "url": "/vue-vuetify-admin/images/rotateright_hover.png"
   },
   {
-    "revision": "b08af14c739a8482ddc495184adb21c3",
-    "url": "/vue-vuetify-admin/images/rotateleft_pressed.png"
+    "revision": "1ac9f6bd7fd35cfe81abe8ec516a7ad0",
+    "url": "/vue-vuetify-admin/images/rotateright_grouphover.png"
   },
   {
     "revision": "d7168de399c639756fad56a7b877938a",
@@ -388,12 +388,16 @@ self.__precacheManifest = [
     "url": "/vue-vuetify-admin/data/wide_files/8/0_0.jpg"
   },
   {
-    "revision": "d1a07f20b930ea4bafa90819fa68af7e",
-    "url": "/vue-vuetify-admin/data/wide_files/11/1_0.jpg"
+    "revision": "8b0e751e39e0905df535c0af8e6792a6",
+    "url": "/vue-vuetify-admin/data/wide_files/11/0_0.jpg"
   },
   {
     "revision": "172c24cda2b8890f3c8f47a8de11f6ed",
     "url": "/vue-vuetify-admin/data/wide_files/11/0_1.jpg"
+  },
+  {
+    "revision": "d1a07f20b930ea4bafa90819fa68af7e",
+    "url": "/vue-vuetify-admin/data/wide_files/11/1_0.jpg"
   },
   {
     "revision": "fd47f73945e4760b27b6794a93fc17e0",
@@ -404,28 +408,24 @@ self.__precacheManifest = [
     "url": "/vue-vuetify-admin/data/wide_files/11/2_0.jpg"
   },
   {
+    "revision": "256dadcde5f4584226c900c43327f791",
+    "url": "/vue-vuetify-admin/data/wide_files/11/2_1.jpg"
+  },
+  {
     "revision": "254a2e108062819020f96bb149420fd5",
     "url": "/vue-vuetify-admin/data/wide_files/11/3_0.jpg"
   },
   {
-    "revision": "256dadcde5f4584226c900c43327f791",
-    "url": "/vue-vuetify-admin/data/wide_files/11/2_1.jpg"
+    "revision": "b53062015131f95e79632f5bb5840a93",
+    "url": "/vue-vuetify-admin/data/wide_files/11/4_0.jpg"
   },
   {
     "revision": "bff57524345964089421f4cf5f6c50da",
     "url": "/vue-vuetify-admin/data/wide_files/11/3_1.jpg"
   },
   {
-    "revision": "8b0e751e39e0905df535c0af8e6792a6",
-    "url": "/vue-vuetify-admin/data/wide_files/11/0_0.jpg"
-  },
-  {
     "revision": "c9eebc60764542630c33ad7130ce57f3",
     "url": "/vue-vuetify-admin/data/wide_files/11/4_1.jpg"
-  },
-  {
-    "revision": "b53062015131f95e79632f5bb5840a93",
-    "url": "/vue-vuetify-admin/data/wide_files/11/4_0.jpg"
   },
   {
     "revision": "84c95caeaf0bd761dd5dacf92bf2c226",
@@ -452,20 +452,16 @@ self.__precacheManifest = [
     "url": "/vue-vuetify-admin/data/wide_files/11/7_1.jpg"
   },
   {
-    "revision": "4c9200a742a0052c276bfc09ab2eaa1e",
-    "url": "/vue-vuetify-admin/data/wide_files/9/1_0.jpg"
-  },
-  {
     "revision": "cc5191fecaee3f52edf28e917cae2b2a",
     "url": "/vue-vuetify-admin/data/wide_files/9/0_0.jpg"
   },
   {
-    "revision": "0b62d45d708930e635a5566fc2926b64",
-    "url": "/vue-vuetify-admin/data/wide_files/10/0_0.jpg"
+    "revision": "4c9200a742a0052c276bfc09ab2eaa1e",
+    "url": "/vue-vuetify-admin/data/wide_files/9/1_0.jpg"
   },
   {
-    "revision": "e3b30aef2c97d2a2742cee0628b654eb",
-    "url": "/vue-vuetify-admin/data/wide_files/10/3_0.jpg"
+    "revision": "0b62d45d708930e635a5566fc2926b64",
+    "url": "/vue-vuetify-admin/data/wide_files/10/0_0.jpg"
   },
   {
     "revision": "e153eedc239ac786f7dbecdaee97a8a0",
@@ -474,6 +470,10 @@ self.__precacheManifest = [
   {
     "revision": "c35f1a5fe8bb3979d807b12cd665be40",
     "url": "/vue-vuetify-admin/data/wide_files/10/2_0.jpg"
+  },
+  {
+    "revision": "e3b30aef2c97d2a2742cee0628b654eb",
+    "url": "/vue-vuetify-admin/data/wide_files/10/3_0.jpg"
   },
   {
     "revision": "580163273c29dd16297e2c5ddae7f982",
