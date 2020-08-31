@@ -1,10 +1,10 @@
-English | [简体中文](./README.zh-CN.md)
+简体中文 | [English](./README.md)
 
 # vue-vuetify-admin
 
-[vue-vuetify-admin](https://github.com/gywgithub/vue-vuetify-admin) is background management system based on `Vue`, `Typescript` and `Vuetify`.
+[vue-vuetify-admin](https://github.com/gywgithub/vue-vuetify-admin) 是一个基于 `Vue`, `Typescript` and `Vuetify` 实现的一个后台管理系统.
 
-## Online Preview
+## 在线预览
 
 https://gywgithub.github.io/vue-vuetify-admin/
 
