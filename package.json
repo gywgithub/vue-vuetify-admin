@@ -5,7 +5,7 @@
   "author": "YuanWei GUO",
   "email": "qingyi_w@outlook.com",
   "scripts": {
-    "dev": "vue-cli-service serve",
+    "dev": "npm run lint & npm run serve",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
@@ -62,7 +62,7 @@
     "vega-typings": "^0.18.0",
     "vue-axios": "^2.1.5",
     "vue-template-compiler": "^2.6.10",
-    "vuetify": "^2.2.21"
+    "vuetify": "^2.3.18"
   },
   "config": {
     "commitizen": {

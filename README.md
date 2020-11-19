@@ -13,6 +13,11 @@ https://gywgithub.github.io/vue-vuetify-admin/
 npm install
 ```
 
+### npm run lint & npm run serve
+```
+npm run dev
+```
+
 ### Compiles and hot-reloads for development
 ```
 npm run serve

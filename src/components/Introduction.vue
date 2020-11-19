@@ -10,7 +10,7 @@
           <v-icon left>mdi-vuejs</v-icon>Vue: v2.6.10
         </v-chip>
         <v-chip class="ma-2" color="primary" outlined>
-          <v-icon left>mdi-vuetify</v-icon>Vuetify: v2.2.21
+          <v-icon left>mdi-vuetify</v-icon>Vuetify: v2.3.18
         </v-chip>
         <v-chip class="ma-2" color="primary" outlined>
           <v-icon left>mdi-language-typescript</v-icon>Typescript: v3.4.3
