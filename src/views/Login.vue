@@ -2,7 +2,7 @@
   <div class="main" v-on:keyup.enter="signIn">
     <v-container fluid fill-height>
       <v-layout align-center justify-center>
-        <v-flex xs12 sm6 md4 lg3>
+        <v-flex xs12 sm6 md5 lg3>
           <v-card class="z-index-2">
             <LogoImage />
             <v-card-text class="card-text-padding">
