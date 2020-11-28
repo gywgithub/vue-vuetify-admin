@@ -1,6 +1,8 @@
+English | [简体中文](./README.zh-CN.md)
+
 # vue-vuetify-admin
 
-vue-vuetify-admin is background management system based on Vue, Typescript and Vuetify.
+[vue-vuetify-admin](https://github.com/gywgithub/vue-vuetify-admin) is background management system based on `Vue`, `Typescript` and `Vuetify`.
 
 ## Online Preview
 
@@ -9,6 +11,11 @@ https://gywgithub.github.io/vue-vuetify-admin/
 ## Project setup
 ```
 npm install
+```
+
+### npm run lint & npm run serve
+```
+npm run dev
 ```
 
 ### Compiles and hot-reloads for development

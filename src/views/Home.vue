@@ -83,11 +83,11 @@
           </v-list>
         </v-menu>
       </v-app-bar>
-      <v-content>
+      <v-main>
         <v-container fluid>
           <router-view></router-view>
         </v-container>
-      </v-content>
+      </v-main>
       <v-dialog v-model="dialog" width="500">
         <v-card>
           <v-card-title primary-title>Vue Vuetify Admin</v-card-title>
@@ -194,6 +194,14 @@ export default class Home extends Vue {
       title: 'Schema',
       children: [
         { title: 'Vuetify JSON Schema', path: '/schema/vuetifyjsonschema' }
+      ],
+      appendIcon: 'mdi-chevron-down'
+    },
+    {
+      icon: 'mdi-alpha-m-box-outline',
+      title: 'Markdown',
+      children: [
+        { title: 'showdownjs', path: '/markdown/showdown' }
       ],
       appendIcon: 'mdi-chevron-down'
     }
