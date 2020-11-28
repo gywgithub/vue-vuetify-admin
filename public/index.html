@@ -8,6 +8,31 @@
     <title>vue-vuetify-admin</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/@mdi/font@5.x/css/materialdesignicons.min.css" rel="stylesheet">
+    <!-- Get user IP and country -->
+    <script>
+      // JavaScript standard built-in object
+      const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone
+      console.log(Intl.DateTimeFormat().resolvedOptions())
+      console.log(timeZone)
+      if (timeZone === 'Asia/Shanghai') {
+        console.log('china')
+      }
+
+      // qq api callback function
+      function f(res) {
+        console.log(res)
+        if (res.result.ad_info.nation === '中国') {
+          console.log('china')
+        } else {
+          console.log(res.result.ad_info.nation)
+        }
+      }
+    </script>
+    <script charset="utf-8" src="https://apis.map.qq.com/ws/location/v1/ip?key=MOJBZ-2IPCG-V22QU-I4MN6-3BBA2-5XB7F&callback=f&output=jsonp"></script>
+    <script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
+    <script>
+      console.log(returnCitySN['cname'] + ' ' + returnCitySN['cid'] + ' ' + returnCitySN['cip']);
+    </script>
   </head>
   <body>
     <noscript>
