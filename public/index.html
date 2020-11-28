@@ -15,12 +15,12 @@
         if (res.result.ad_info.nation === '中国') {
           console.log('china')
         } else {
-          console.log(res.result.ad_info.nation)
+          console.log(res.result.ad_info)
         }
       }
     </script>
     <script charset="utf-8" src="https://apis.map.qq.com/ws/location/v1/ip?key=MOJBZ-2IPCG-V22QU-I4MN6-3BBA2-5XB7F&callback=f&output=jsonp"></script>
-    <script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
+    <script src="https://pv.sohu.com/cityjson?ie=utf-8"></script>
     <script>
       console.log(returnCitySN['cname'] + ' ' + returnCitySN['cid'] + ' ' + returnCitySN['cip']);
     </script>
