@@ -1,2 +1,2 @@
 declare module '@koumoul/vjsf'
-declare module "*.md"
+declare module '*.md'
