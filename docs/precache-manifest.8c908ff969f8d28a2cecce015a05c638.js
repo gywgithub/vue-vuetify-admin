@@ -292,6 +292,10 @@ self.__precacheManifest = [
     "url": "/vue-vuetify-admin/data/wide_files/11/7_0.jpg"
   },
   {
+    "revision": "39f87ec3506b5894e2e0629ea8fbcdf8",
+    "url": "/vue-vuetify-admin/data/wide_files/6/0_0.jpg"
+  },
+  {
     "revision": "028be45b124ac9177b06d995771f4ee5",
     "url": "/vue-vuetify-admin/data/wide_files/5/0_0.jpg"
   },
@@ -324,6 +328,10 @@ self.__precacheManifest = [
     "url": "/vue-vuetify-admin/images/button_hover.png"
   },
   {
+    "revision": "42e9c79dc79375d102153858e669bd30",
+    "url": "/vue-vuetify-admin/images/fullpage_grouphover.png"
+  },
+  {
     "revision": "07cf5529f84839834d6b56b239d4a9ba",
     "url": "/vue-vuetify-admin/images/flip_grouphover.png"
   },
@@ -334,6 +342,14 @@ self.__precacheManifest = [
   {
     "revision": "4f2a6dd2d0d4ffdf350ef253d17e45b0",
     "url": "/vue-vuetify-admin/images/fullpage_pressed.png"
+  },
+  {
+    "revision": "520d9665fb306f55bbf589cd94a12dee",
+    "url": "/vue-vuetify-admin/images/button_pressed.png"
+  },
+  {
+    "revision": "42e9c79dc79375d102153858e669bd30",
+    "url": "/vue-vuetify-admin/images/fullpage_grouphover.png"
   },
   {
     "revision": "6d65f1f8fcc0ef137c1a0b9226dc7147",
@@ -430,6 +446,10 @@ self.__precacheManifest = [
   {
     "revision": "6c78c2bc7bea7254506283208b553bb8",
     "url": "/vue-vuetify-admin/images/zoomin_hover.png"
+  },
+  {
+    "revision": "6a4823da6ccb5a7d4d7a2dde4b19d5e6",
+    "url": "/vue-vuetify-admin/images/rotateright_rest.png"
   },
   {
     "revision": "1ac9f6bd7fd35cfe81abe8ec516a7ad0",
