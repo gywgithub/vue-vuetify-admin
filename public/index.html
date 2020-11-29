@@ -10,6 +10,15 @@
     <link href="https://cdn.jsdelivr.net/npm/@mdi/font@5.x/css/materialdesignicons.min.css" rel="stylesheet">
     <!-- Get user IP and country -->
     <script>
+      // JavaScript standard built-in object
+      const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone
+      console.log(Intl.DateTimeFormat().resolvedOptions())
+      console.log(timeZone)
+      if (timeZone === 'Asia/Shanghai') {
+        console.log('china')
+      }
+
+      // qq api callback function
       function f(res) {
         console.log(res)
         if (res.result.ad_info.nation === '中国') {
