@@ -148,6 +148,18 @@ const router = new Router({
       ]
     },
     {
+      path: '/highlight',
+      name: 'highlight',
+      component: Home,
+      children: [
+        {
+          path: '/highlight/prism',
+          name: 'prism',
+          component: () => import('./components/Highlight/Prism.vue')
+        }
+      ]
+    },
+    {
       path: '*',
       name: 'notfound',
       component: () => import('./views/NotFound.vue')

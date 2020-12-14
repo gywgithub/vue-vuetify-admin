@@ -204,6 +204,14 @@ export default class Home extends Vue {
         { title: 'showdownjs', path: '/markdown/showdown' }
       ],
       appendIcon: 'mdi-chevron-down'
+    },
+    {
+      icon: 'mdi-alpha-h-box-outline',
+      title: 'Highlight',
+      children: [
+        { title: 'prism', path: '/highlight/prism' }
+      ],
+      appendIcon: 'mdi-chevron-down'
     }
   ]
   private userInfo: any = {
