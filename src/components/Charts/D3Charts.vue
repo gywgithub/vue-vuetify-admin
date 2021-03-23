@@ -21,7 +21,7 @@ export default class D3 extends Vue {
     const width = 350
     const barHeight = 26
 
-    const x = d3
+    const x: any = d3
       .scaleLinear()
       .domain([0, d3.max(data) as any])
       .range([0, width])
