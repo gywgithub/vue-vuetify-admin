@@ -42,6 +42,12 @@
           <span class="hidden-sm-and-down">Vue Vuetify Admin</span>
         </v-toolbar-title>
         <v-spacer />
+        <v-btn icon v-if="!fullScreenFlag" @click="requestFullscreen">
+          <v-icon>mdi-fullscreen</v-icon>
+        </v-btn>
+        <v-btn icon v-else @click="exitFullScreen">
+          <v-icon>mdi-fullscreen-exit</v-icon>
+        </v-btn>
         <v-btn icon @click="changeTheme">
           <v-icon v-if="!dark">mdi-brightness-7</v-icon>
           <v-icon v-else>mdi-brightness-4</v-icon>
@@ -124,11 +130,12 @@ export default class Home extends Vue {
   private dialog: boolean = false
   private modalDialog: boolean = false
   private dark: boolean = false
-  private drawer: any = null
+  private drawer: boolean = true
+  private fullScreenFlag: boolean = false
 
   private itemActive: number = 0
   private subItemActive: number = 0
-  private items: any[] = [
+  private items: any = [
     {
       icon: 'mdi-alpha-i-box-outline',
       title: 'Introduction',
@@ -214,7 +221,7 @@ export default class Home extends Vue {
       appendIcon: 'mdi-chevron-down'
     }
   ]
-  private userInfo: any = {
+  private userInfo: object = {
     username: 'username',
     avatar: '/img/avatar.png'
   }
@@ -256,11 +263,46 @@ export default class Home extends Vue {
     ) {
       this.userInfo = JSON.parse(String(sessionStorage.getItem('userInfo')))
     }
+
+    const self = this
+    document.addEventListener('fullscreenchange', () => {
+      self.fullScreenFlag = !self.fullScreenFlag
+    })
   }
 
   private beforeDestroy() {
     sessionStorage.removeItem('subItemActive')
     sessionStorage.removeItem('itemActive')
+  }
+
+  private requestFullscreen() {
+    const docElm: any = document.documentElement
+    if (docElm.requestFullscreen) {
+      docElm.requestFullscreen()
+    } else if (docElm.msRequestFullscreen) {
+      docElm.msRequestFullscreen()
+    } else if (docElm.mozRequestFullScreen) {
+      docElm.mozRequestFullScreen()
+    } else if (docElm.webkitRequestFullScreen) {
+      docElm.webkitRequestFullScreen()
+    }
+  }
+
+  private exitFullScreen() {
+    const docWithBrowsersExitFunctions: any = document as Document & {
+      mozExitFullScreen(): Promise<void>;
+      webkitExitFullscreen(): Promise<void>;
+      msExitFullscreen(): Promise<void>;
+    }
+    if (docWithBrowsersExitFunctions.exitFullscreen) {
+      docWithBrowsersExitFunctions.exitFullscreen()
+    } else if (docWithBrowsersExitFunctions.msExitFullscreen) {
+      docWithBrowsersExitFunctions.msExitFullscreen()
+    } else if (docWithBrowsersExitFunctions.mozExitFullScreen) {
+      docWithBrowsersExitFunctions.mozExitFullScreen()
+    } else if (docWithBrowsersExitFunctions.webkitExitFullScreen) {
+      docWithBrowsersExitFunctions.webkitExitFullScreen()
+    }
   }
 
   private openTab() {
