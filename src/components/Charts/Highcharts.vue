@@ -48,6 +48,9 @@ export default class ECharts extends Vue {
 
     // 甘特图
     const options2: any = {
+      credits: {
+        enabled: false
+      },
       chart: {
         type: 'xrange'
       },
@@ -62,6 +65,7 @@ export default class ECharts extends Vue {
         reversed: true
       },
       series: [{
+        showInLegend: false,
         name: '项目1',
         pointWidth: 20,
         data: [{
