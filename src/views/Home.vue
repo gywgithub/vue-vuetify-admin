@@ -182,7 +182,8 @@ export default class Home extends Vue {
       children: [
         { title: 'ECharts', path: '/charts/echarts' },
         { title: 'Vega Charts', path: '/charts/vega-charts' },
-        { title: 'D3 Charts', path: '/charts/d3-charts' }
+        { title: 'D3 Charts', path: '/charts/d3-charts' },
+        { title: 'Highcharts', path: '/charts/high-charts' }
       ],
       appendIcon: 'mdi-chevron-down'
     },

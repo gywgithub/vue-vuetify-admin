@@ -110,6 +110,11 @@ const router = new Router({
           path: '/charts/d3-charts',
           name: 'd3-charts',
           component: () => import('./components/Charts/D3Charts.vue')
+        },
+        {
+          path: '/charts/high-charts',
+          name: 'd3-charts',
+          component: () => import('./components/Charts/Highcharts.vue')
         }
       ]
     },
