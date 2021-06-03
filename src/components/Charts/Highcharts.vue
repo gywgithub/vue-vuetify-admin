@@ -55,14 +55,17 @@ export default class ECharts extends Vue {
         type: 'xrange'
       },
       xAxis: {
-        type: 'datetime'
+        type: 'datetime',
+        min: Date.UTC(2014, 10, 21, 6, 0, 0),
+        max: Date.UTC(2014, 10, 21, 22, 0, 0)
       },
       yAxis: {
         title: {
           text: 'Y Title'
         },
-        categories: ['原型', '开发', '测试'],
-        reversed: true
+        categories: ['原型', '开发', '测试', '设计', '运维', '产品', '运营'],
+        reversed: true,
+        max: 6
       },
       series: [{
         showInLegend: false,
@@ -71,11 +74,27 @@ export default class ECharts extends Vue {
         data: [{
           x: Date.UTC(2014, 10, 21, 8, 30, 0),
           x2: Date.UTC(2014, 10, 21, 8, 50, 5),
+          y: 6
+        }, {
+          x: Date.UTC(2014, 10, 21, 8, 30, 0),
+          x2: Date.UTC(2014, 10, 21, 8, 50, 5),
+          y: 4
+        }, {
+          x: Date.UTC(2014, 10, 21, 12, 30, 0),
+          x2: Date.UTC(2014, 10, 21, 12, 50, 5),
           y: 0
         }, {
           x: Date.UTC(2014, 10, 21, 8, 40, 0),
           x2: Date.UTC(2014, 10, 21, 8, 41, 10),
           y: 1
+        }, {
+          x: Date.UTC(2014, 10, 21, 8, 40, 0),
+          x2: Date.UTC(2014, 10, 21, 8, 41, 10),
+          y: 3
+        }, {
+          x: Date.UTC(2014, 10, 21, 8, 46, 0),
+          x2: Date.UTC(2014, 10, 21, 8, 51, 10),
+          y: 3
         }, {
           x: Date.UTC(2014, 10, 21, 18, 20, 0),
           x2: Date.UTC(2014, 10, 21, 19, 43, 50),
