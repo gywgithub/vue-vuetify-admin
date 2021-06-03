@@ -67,6 +67,12 @@ export default class ECharts extends Vue {
         reversed: true,
         max: 6
       },
+      tooltip: {
+        useHTML: true,
+        headerFormat: '<b>{series.name}</b><table>',
+        pointFormat: '<tr><td>名称：</td><td><span>{point.content.name}</span></td></tr><tr><td>内容：</td><td>{point.content.text}</td></tr><tr><td>时间：</td><td>{point.content.time}</td></tr>',
+        footerFormat: '</table>'
+      },
       series: [{
         showInLegend: false,
         name: '项目1',
@@ -74,7 +80,12 @@ export default class ECharts extends Vue {
         data: [{
           x: Date.UTC(2014, 10, 21, 8, 30, 0),
           x2: Date.UTC(2014, 10, 21, 8, 50, 5),
-          y: 6
+          y: 6,
+          content: {
+            name: '开发部',
+            text: '原型讨论',
+            time: '2021/6/3 11:49'
+          }
         }, {
           x: Date.UTC(2014, 10, 21, 8, 30, 0),
           x2: Date.UTC(2014, 10, 21, 8, 50, 5),
@@ -82,7 +93,12 @@ export default class ECharts extends Vue {
         }, {
           x: Date.UTC(2014, 10, 21, 12, 30, 0),
           x2: Date.UTC(2014, 10, 21, 12, 50, 5),
-          y: 0
+          y: 0,
+          content: {
+            name: '运营部',
+            text: '产品运营',
+            time: '2021/6/3 12:00'
+          }
         }, {
           x: Date.UTC(2014, 10, 21, 8, 40, 0),
           x2: Date.UTC(2014, 10, 21, 8, 41, 10),
