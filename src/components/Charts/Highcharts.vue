@@ -55,9 +55,10 @@ export default class ECharts extends Vue {
         type: 'xrange'
       },
       xAxis: {
-        type: 'datetime',
-        min: Date.UTC(2014, 10, 21, 6, 0, 0),
-        max: Date.UTC(2014, 10, 21, 22, 0, 0)
+        type: 'datetime'
+        // ,
+        // min: Date.UTC(2014, 10, 21, 6, 0, 0),
+        // max: Date.UTC(2014, 10, 21, 22, 0, 0)
       },
       yAxis: {
         title: {
@@ -130,7 +131,21 @@ export default class ECharts extends Vue {
         pointInterval: 60
       }]
     }
-    Highcharts.chart('container2', options2)
+    const chart2: any = Highcharts.chart('container2', options2)
+    setTimeout(() => {
+      chart2.update({
+        yAxis: {
+          categories: ['原型', '开发', '测试', '设计', '运维', '产品', '运营', '市场', '创意'],
+          max: 8
+        },
+        xAxis: {
+          // type: 'datetime'
+          // ,
+          min: Date.UTC(2014, 10, 21, 6, 0, 0),
+          max: Date.UTC(2014, 10, 21, 22, 0, 0)
+        }
+      })
+    }, 1500)
 
     // 甘特图2
     const options3: any = {

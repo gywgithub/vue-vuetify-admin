@@ -121,6 +121,94 @@
 import { Component, Vue } from 'vue-property-decorator'
 import jsonConfig from '../../package.json'
 
+const menuItems = [
+  {
+    icon: 'mdi-alpha-i-box-outline',
+    title: 'Introduction',
+    path: '/home/introduction',
+    appendIcon: null,
+    active: true
+  },
+  {
+    icon: 'mdi-alpha-g-box-outline',
+    title: 'Guide',
+    path: '/home/guide',
+    appendIcon: null
+  },
+  {
+    icon: 'mdi-alpha-u-box-outline',
+    title: 'Users',
+    path: '/home/users',
+    appendIcon: null
+  },
+  {
+    icon: 'mdi-alpha-d-box-outline',
+    title: 'D3',
+    path: '/home/d3',
+    appendIcon: null
+  },
+  {
+    icon: 'mdi-alpha-q-box-outline',
+    title: 'Quill',
+    path: '/home/quill',
+    appendIcon: null
+  },
+  {
+    icon: 'mdi-alpha-i-box-outline',
+    title: 'Icons',
+    children: [
+      { title: 'iconfont', path: '/icons/iconfont' },
+      { title: 'materialdesignicons', path: '/icons/materialdesignicons' }
+    ],
+    appendIcon: 'mdi-chevron-down'
+  },
+  {
+    icon: 'mdi-alpha-c-box-outline',
+    title: 'Charts',
+    children: [
+      { title: 'ECharts', path: '/charts/echarts' },
+      { title: 'Vega Charts', path: '/charts/vega-charts' },
+      { title: 'D3 Charts', path: '/charts/d3-charts' },
+      { title: 'Highcharts', path: '/charts/high-charts' }
+    ],
+    appendIcon: 'mdi-chevron-down'
+  },
+  {
+    icon: 'mdi-alpha-m-box-outline',
+    title: 'Maps',
+    children: [
+      { title: 'openlayers', path: '/maps/openlayers' },
+      { title: 'openseadragon', path: '/maps/openseadragon' },
+      { title: 'leaflet', path: '/maps/leaflet' }
+    ],
+    appendIcon: 'mdi-chevron-down'
+  },
+  {
+    icon: 'mdi-alpha-s-box-outline',
+    title: 'Schema',
+    children: [
+      { title: 'Vuetify JSON Schema', path: '/schema/vuetifyjsonschema' }
+    ],
+    appendIcon: 'mdi-chevron-down'
+  },
+  {
+    icon: 'mdi-alpha-m-box-outline',
+    title: 'Markdown',
+    children: [
+      { title: 'showdownjs', path: '/markdown/showdown' }
+    ],
+    appendIcon: 'mdi-chevron-down'
+  },
+  {
+    icon: 'mdi-alpha-h-box-outline',
+    title: 'Highlight',
+    children: [
+      { title: 'prism', path: '/highlight/prism' }
+    ],
+    appendIcon: 'mdi-chevron-down'
+  }
+]
+
 @Component({
   components: {}
 })
@@ -135,93 +223,7 @@ export default class Home extends Vue {
 
   private itemActive: number = 0
   private subItemActive: number = 0
-  private items: any = [
-    {
-      icon: 'mdi-alpha-i-box-outline',
-      title: 'Introduction',
-      path: '/home/introduction',
-      appendIcon: null,
-      active: true
-    },
-    {
-      icon: 'mdi-alpha-g-box-outline',
-      title: 'Guide',
-      path: '/home/guide',
-      appendIcon: null
-    },
-    {
-      icon: 'mdi-alpha-u-box-outline',
-      title: 'Users',
-      path: '/home/users',
-      appendIcon: null
-    },
-    {
-      icon: 'mdi-alpha-d-box-outline',
-      title: 'D3',
-      path: '/home/d3',
-      appendIcon: null
-    },
-    {
-      icon: 'mdi-alpha-q-box-outline',
-      title: 'Quill',
-      path: '/home/quill',
-      appendIcon: null
-    },
-    {
-      icon: 'mdi-alpha-i-box-outline',
-      title: 'Icons',
-      children: [
-        { title: 'iconfont', path: '/icons/iconfont' },
-        { title: 'materialdesignicons', path: '/icons/materialdesignicons' }
-      ],
-      appendIcon: 'mdi-chevron-down'
-    },
-    {
-      icon: 'mdi-alpha-c-box-outline',
-      title: 'Charts',
-      children: [
-        { title: 'ECharts', path: '/charts/echarts' },
-        { title: 'Vega Charts', path: '/charts/vega-charts' },
-        { title: 'D3 Charts', path: '/charts/d3-charts' },
-        { title: 'Highcharts', path: '/charts/high-charts' }
-      ],
-      appendIcon: 'mdi-chevron-down'
-    },
-    {
-      icon: 'mdi-alpha-m-box-outline',
-      title: 'Maps',
-      children: [
-        { title: 'openlayers', path: '/maps/openlayers' },
-        { title: 'openseadragon', path: '/maps/openseadragon' },
-        { title: 'leaflet', path: '/maps/leaflet' }
-      ],
-      appendIcon: 'mdi-chevron-down'
-    },
-    {
-      icon: 'mdi-alpha-s-box-outline',
-      title: 'Schema',
-      children: [
-        { title: 'Vuetify JSON Schema', path: '/schema/vuetifyjsonschema' }
-      ],
-      appendIcon: 'mdi-chevron-down'
-    },
-    {
-      icon: 'mdi-alpha-m-box-outline',
-      title: 'Markdown',
-      children: [
-        { title: 'showdownjs', path: '/markdown/showdown' }
-      ],
-      appendIcon: 'mdi-chevron-down'
-    },
-    {
-      icon: 'mdi-alpha-h-box-outline',
-      title: 'Highlight',
-      children: [
-        { title: 'prism', path: '/highlight/prism' }
-      ],
-      appendIcon: 'mdi-chevron-down'
-    }
-  ]
+  private items = menuItems
   private userInfo: object = {
     username: 'username',
     avatar: '/img/avatar.png'
