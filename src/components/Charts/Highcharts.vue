@@ -36,13 +36,17 @@ export default class ECharts extends Vue {
           text: '吃水果个数' // y 轴标题
         }
       },
-      series: [{ // 数据列
-        name: '小明', // 数据列名
-        data: [1, 0, 4] // 数据
-      }, {
-        name: '小红',
-        data: [5, 7, 3]
-      }]
+      series: [
+        {
+          // 数据列
+          name: '小明', // 数据列名
+          data: [1, 0, 4] // 数据
+        },
+        {
+          name: '小红',
+          data: [5, 7, 3]
+        }
+      ]
     }
     Highcharts.chart('container1', options)
 
@@ -71,71 +75,94 @@ export default class ECharts extends Vue {
       tooltip: {
         useHTML: true,
         headerFormat: '<b>{series.name}</b><table>',
-        pointFormat: '<tr><td>名称：</td><td><span>{point.content.name}</span></td></tr><tr><td>内容：</td><td>{point.content.text}</td></tr><tr><td>时间：</td><td>{point.content.time}</td></tr>',
+        pointFormat:
+          '<tr><td>名称：</td><td><span>{point.content.name}</span></td></tr><tr><td>内容：</td><td>{point.content.text}</td></tr><tr><td>时间：</td><td>{point.content.time}</td></tr>',
         footerFormat: '</table>'
       },
-      series: [{
-        showInLegend: false,
-        name: '项目1',
-        pointWidth: 20,
-        data: [{
-          x: Date.UTC(2014, 10, 21, 8, 30, 0),
-          x2: Date.UTC(2014, 10, 21, 8, 50, 5),
-          y: 6,
-          content: {
-            name: '开发部',
-            text: '原型讨论',
-            time: '2021/6/3 11:49'
-          }
-        }, {
-          x: Date.UTC(2014, 10, 21, 8, 30, 0),
-          x2: Date.UTC(2014, 10, 21, 8, 50, 5),
-          y: 4
-        }, {
-          x: Date.UTC(2014, 10, 21, 12, 30, 0),
-          x2: Date.UTC(2014, 10, 21, 12, 50, 5),
-          y: 0,
-          content: {
-            name: '运营部',
-            text: '产品运营',
-            time: '2021/6/3 12:00'
-          }
-        }, {
-          x: Date.UTC(2014, 10, 21, 8, 40, 0),
-          x2: Date.UTC(2014, 10, 21, 8, 41, 10),
-          y: 1
-        }, {
-          x: Date.UTC(2014, 10, 21, 8, 40, 0),
-          x2: Date.UTC(2014, 10, 21, 8, 41, 10),
-          y: 3
-        }, {
-          x: Date.UTC(2014, 10, 21, 8, 46, 0),
-          x2: Date.UTC(2014, 10, 21, 8, 51, 10),
-          y: 3
-        }, {
-          x: Date.UTC(2014, 10, 21, 18, 20, 0),
-          x2: Date.UTC(2014, 10, 21, 19, 43, 50),
-          y: 2
-        }, {
-          x: Date.UTC(2014, 10, 21, 15, 4, 24),
-          x2: Date.UTC(2014, 10, 21, 15, 53, 36),
-          y: 1
-        }, {
-          x: Date.UTC(2014, 10, 21, 19, 45, 30),
-          x2: Date.UTC(2014, 10, 21, 19, 56, 50),
-          y: 2
-        }],
-        dataLabels: {
-          enabled: false
-        },
-        pointInterval: 60
-      }]
+      series: [
+        {
+          showInLegend: false,
+          name: '项目1',
+          pointWidth: 20,
+          data: [
+            {
+              x: Date.UTC(2014, 10, 21, 8, 30, 0),
+              x2: Date.UTC(2014, 10, 21, 8, 50, 5),
+              y: 6,
+              content: {
+                name: '开发部',
+                text: '原型讨论',
+                time: '2021/6/3 11:49'
+              }
+            },
+            {
+              x: Date.UTC(2014, 10, 21, 8, 30, 0),
+              x2: Date.UTC(2014, 10, 21, 8, 50, 5),
+              y: 4
+            },
+            {
+              x: Date.UTC(2014, 10, 21, 12, 30, 0),
+              x2: Date.UTC(2014, 10, 21, 12, 50, 5),
+              y: 0,
+              content: {
+                name: '运营部',
+                text: '产品运营',
+                time: '2021/6/3 12:00'
+              }
+            },
+            {
+              x: Date.UTC(2014, 10, 21, 8, 40, 0),
+              x2: Date.UTC(2014, 10, 21, 8, 41, 10),
+              y: 1
+            },
+            {
+              x: Date.UTC(2014, 10, 21, 8, 40, 0),
+              x2: Date.UTC(2014, 10, 21, 8, 41, 10),
+              y: 3
+            },
+            {
+              x: Date.UTC(2014, 10, 21, 8, 46, 0),
+              x2: Date.UTC(2014, 10, 21, 8, 51, 10),
+              y: 3
+            },
+            {
+              x: Date.UTC(2014, 10, 21, 18, 20, 0),
+              x2: Date.UTC(2014, 10, 21, 19, 43, 50),
+              y: 2
+            },
+            {
+              x: Date.UTC(2014, 10, 21, 15, 4, 24),
+              x2: Date.UTC(2014, 10, 21, 15, 53, 36),
+              y: 1
+            },
+            {
+              x: Date.UTC(2014, 10, 21, 19, 45, 30),
+              x2: Date.UTC(2014, 10, 21, 19, 56, 50),
+              y: 2
+            }
+          ],
+          dataLabels: {
+            enabled: false
+          },
+          pointInterval: 60
+        }
+      ]
     }
     const chart2: any = Highcharts.chart('container2', options2)
     setTimeout(() => {
       chart2.update({
         yAxis: {
-          categories: ['原型', '开发', '测试', '设计', '运维', '产品', '运营', '市场', '创意'],
+          categories: [
+            '原型',
+            '开发',
+            '测试',
+            '设计',
+            '运维',
+            '产品',
+            '运营',
+            '市场',
+            '创意'
+          ],
           max: 8
         },
         xAxis: {
@@ -173,38 +200,46 @@ export default class ECharts extends Vue {
           day: '%Y/%m/%d'
         }
       },
-      series: [{
-        name: '项目1',
-        // pointPadding: 0,
-        // groupPadding: 0,
-        borderColor: 'gray',
-        pointWidth: 20,
-        data: [{
-          x: Date.UTC(2014, 10, 21),
-          x2: Date.UTC(2014, 11, 2),
-          y: 0,
-          partialFill: 0.25
-        }, {
-          x: Date.UTC(2014, 11, 2),
-          x2: Date.UTC(2014, 11, 5),
-          y: 1
-        }, {
-          x: Date.UTC(2014, 11, 8),
-          x2: Date.UTC(2014, 11, 9),
-          y: 2
-        }, {
-          x: Date.UTC(2014, 11, 9),
-          x2: Date.UTC(2014, 11, 19),
-          y: 1
-        }, {
-          x: Date.UTC(2014, 11, 10),
-          x2: Date.UTC(2014, 11, 23),
-          y: 2
-        }],
-        dataLabels: {
-          enabled: true
+      series: [
+        {
+          name: '项目1',
+          // pointPadding: 0,
+          // groupPadding: 0,
+          borderColor: 'gray',
+          pointWidth: 20,
+          data: [
+            {
+              x: Date.UTC(2014, 10, 21),
+              x2: Date.UTC(2014, 11, 2),
+              y: 0,
+              partialFill: 0.25
+            },
+            {
+              x: Date.UTC(2014, 11, 2),
+              x2: Date.UTC(2014, 11, 5),
+              y: 1
+            },
+            {
+              x: Date.UTC(2014, 11, 8),
+              x2: Date.UTC(2014, 11, 9),
+              y: 2
+            },
+            {
+              x: Date.UTC(2014, 11, 9),
+              x2: Date.UTC(2014, 11, 19),
+              y: 1
+            },
+            {
+              x: Date.UTC(2014, 11, 10),
+              x2: Date.UTC(2014, 11, 23),
+              y: 2
+            }
+          ],
+          dataLabels: {
+            enabled: true
+          }
         }
-      }]
+      ]
     }
     Highcharts.chart('container3', options3)
   }

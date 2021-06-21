@@ -2,7 +2,7 @@
   "name": "vue-vuetify-admin",
   "version": "0.1.0",
   "private": true,
-  "author": "YuanWei GUO",
+  "author": "Sabo",
   "email": "qingyi_w@outlook.com",
   "scripts": {
     "dev": "npm run lint & npm run serve",
