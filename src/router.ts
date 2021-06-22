@@ -18,11 +18,11 @@ const router = new Router({
       name: 'home',
       component: Home,
       children: [
-        {
-          path: '/home/users',
-          name: 'users',
-          component: () => import('./views/Users.vue')
-        },
+        // {
+        //   path: '/home/users',
+        //   name: 'users',
+        //   component: () => import('./views/Users.vue')
+        // },
         {
           path: '/home/introduction',
           name: 'introduction',
@@ -42,6 +42,23 @@ const router = new Router({
           path: '/home/quill',
           name: 'quill',
           component: () => import('./components/Quill.vue')
+        }
+      ]
+    },
+    {
+      path: '/table',
+      name: 'table',
+      component: Home,
+      children: [
+        {
+          path: '/table/users',
+          name: 'users',
+          component: () => import('./views/Users.vue')
+        },
+        {
+          path: '/table/simple-table',
+          name: 'simpleTables',
+          component: () => import('./components/Tables/SimpleTables.vue')
         }
       ]
     },

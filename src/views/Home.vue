@@ -1,7 +1,12 @@
 <template>
   <div class="home">
     <v-app>
-      <v-navigation-drawer v-model="drawer" :clipped="$vuetify.breakpoint.lgAndUp" app width="280">
+      <v-navigation-drawer
+        v-model="drawer"
+        :clipped="$vuetify.breakpoint.lgAndUp"
+        app
+        width="280"
+      >
         <v-divider></v-divider>
         <v-list>
           <v-list-group
@@ -9,7 +14,7 @@
             :key="key"
             v-model="item.active"
             :append-icon="item.appendIcon"
-            @click="itemClick(item,key)"
+            @click="itemClick(item, key)"
           >
             <template v-slot:activator>
               <v-list-item-icon>
@@ -19,7 +24,11 @@
                 <v-list-item-title v-text="item.title"></v-list-item-title>
               </v-list-item-content>
             </template>
-            <v-list-item-group v-if="item.children" color="primary" v-model="subItemActive">
+            <v-list-item-group
+              v-if="item.children"
+              color="primary"
+              v-model="subItemActive"
+            >
               <v-list-item
                 v-for="(subItem, k) in item.children"
                 :key="k"
@@ -36,7 +45,12 @@
         </v-list>
       </v-navigation-drawer>
 
-      <v-app-bar :clipped-left="$vuetify.breakpoint.lgAndUp" app color="primary" dark>
+      <v-app-bar
+        :clipped-left="$vuetify.breakpoint.lgAndUp"
+        app
+        color="primary"
+        dark
+      >
         <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
         <v-toolbar-title style="width: 300px" class="ml-0 pl-4">
           <span class="hidden-sm-and-down">Vue Vuetify Admin</span>
@@ -62,7 +76,10 @@
           <template v-slot:activator="{ on }">
             <v-btn icon v-on="on">
               <v-avatar size="32">
-                <img :src="`${publicPath}` + userInfo.avatar" :alt="userInfo.nickname" />
+                <img
+                  :src="`${publicPath}` + userInfo.avatar"
+                  :alt="userInfo.nickname"
+                />
               </v-avatar>
             </v-btn>
           </template>
@@ -74,7 +91,7 @@
                   <v-icon>mdi-account-outline</v-icon>
                 </v-list-item-action>
                 <v-list-item-content>
-                  <v-list-item-title>{{userInfo.username}}</v-list-item-title>
+                  <v-list-item-title>{{ userInfo.username }}</v-list-item-title>
                 </v-list-item-content>
               </v-list-item>
               <v-list-item @click.stop="modalDialog = true">
@@ -97,18 +114,22 @@
       <v-dialog v-model="dialog" width="500">
         <v-card>
           <v-card-title primary-title>Vue Vuetify Admin</v-card-title>
-          <v-card-text>Version: v{{version}}</v-card-text>
-          <v-card-text>Author: YuanWei Guo</v-card-text>
+          <v-card-text>Version: v{{ version }}</v-card-text>
+          <v-card-text>Author: Sabo</v-card-text>
           <v-card-text>Email: qingyi_w@outlook.com</v-card-text>
         </v-card>
       </v-dialog>
       <v-dialog v-model="modalDialog" max-width="290">
         <v-card>
           <v-card-title class="headline">Tips</v-card-title>
-          <v-card-text class="subtitle-1 text-align-left">Are you sure you want to log out?</v-card-text>
+          <v-card-text class="subtitle-1 text-align-left"
+            >Are you sure you want to log out?</v-card-text
+          >
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn color="primary" text @click="modalDialog = false">cannel</v-btn>
+            <v-btn color="primary" text @click="modalDialog = false"
+              >cannel</v-btn
+            >
             <v-btn color="error" text @click="logout">sure</v-btn>
           </v-card-actions>
         </v-card>
@@ -136,12 +157,6 @@ const menuItems = [
     appendIcon: null
   },
   {
-    icon: 'mdi-alpha-u-box-outline',
-    title: 'Users',
-    path: '/home/users',
-    appendIcon: null
-  },
-  {
     icon: 'mdi-alpha-d-box-outline',
     title: 'D3',
     path: '/home/d3',
@@ -152,6 +167,15 @@ const menuItems = [
     title: 'Quill',
     path: '/home/quill',
     appendIcon: null
+  },
+  {
+    icon: 'mdi-alpha-t-box-outline',
+    title: 'Table',
+    children: [
+      { title: 'users', path: '/table/users' },
+      { title: 'simple tables', path: '/table/simple-table' }
+    ],
+    appendIcon: 'mdi-chevron-down'
   },
   {
     icon: 'mdi-alpha-i-box-outline',
@@ -194,17 +218,13 @@ const menuItems = [
   {
     icon: 'mdi-alpha-m-box-outline',
     title: 'Markdown',
-    children: [
-      { title: 'showdownjs', path: '/markdown/showdown' }
-    ],
+    children: [{ title: 'showdownjs', path: '/markdown/showdown' }],
     appendIcon: 'mdi-chevron-down'
   },
   {
     icon: 'mdi-alpha-h-box-outline',
     title: 'Highlight',
-    children: [
-      { title: 'prism', path: '/highlight/prism' }
-    ],
+    children: [{ title: 'prism', path: '/highlight/prism' }],
     appendIcon: 'mdi-chevron-down'
   }
 ]
@@ -244,9 +264,9 @@ export default class Home extends Vue {
       this.dark = true
     }
     if (this.$route.path === '/home') {
-      this.$router.push('/home/introduction').catch(err => {}) // tslint:disable-line
+      this.$router.push('/home/introduction').catch((err) => {}) // tslint:disable-line
     } else {
-      this.$router.push(this.$route.path).catch(err => {}) // tslint:disable-line
+      this.$router.push(this.$route.path).catch((err) => {}) // tslint:disable-line
 
       if (sessionStorage.getItem('itemActive')) {
         this.items[0].active = false
@@ -293,9 +313,9 @@ export default class Home extends Vue {
 
   private exitFullScreen() {
     const docWithBrowsersExitFunctions: any = document as Document & {
-      mozExitFullScreen(): Promise<void>;
-      webkitExitFullscreen(): Promise<void>;
-      msExitFullscreen(): Promise<void>;
+      mozExitFullScreen(): Promise<void>
+      webkitExitFullscreen(): Promise<void>
+      msExitFullscreen(): Promise<void>
     }
     if (docWithBrowsersExitFunctions.exitFullscreen) {
       docWithBrowsersExitFunctions.exitFullscreen()
@@ -320,17 +340,17 @@ export default class Home extends Vue {
     this.subItemActive = -1
     sessionStorage.setItem('itemActive', key)
     if (item.path !== '') {
-      this.$router.push(item.path).catch(err => {}) // tslint:disable-line
+      this.$router.push(item.path).catch((err) => {}) // tslint:disable-line
     }
   }
 
   private subItemClick(item: any, key: string) {
     sessionStorage.setItem('subItemActive', key)
-    this.$router.push(item.path).catch(err => {}) // tslint:disable-line
+    this.$router.push(item.path).catch((err) => {}) // tslint:disable-line
   }
 
   private goHome() {
-    this.$router.push('/Home').catch(err => {}) // tslint:disable-line
+    this.$router.push('/Home').catch((err) => {}) // tslint:disable-line
   }
 
   private changeTheme() {
