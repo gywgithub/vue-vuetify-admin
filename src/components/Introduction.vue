@@ -7,13 +7,13 @@
       </p>
       <p>
         <v-chip class="ma-2" color="primary" outlined>
-          <v-icon left>mdi-vuejs</v-icon>Vue: v2.6.10
+          <v-icon left>mdi-vuejs</v-icon>Vue: {{vueVersion}}
         </v-chip>
         <v-chip class="ma-2" color="primary" outlined>
-          <v-icon left>mdi-vuetify</v-icon>Vuetify: v2.3.18
+          <v-icon left>mdi-vuetify</v-icon>Vuetify: {{vuetifyVersion}}
         </v-chip>
         <v-chip class="ma-2" color="primary" outlined>
-          <v-icon left>mdi-language-typescript</v-icon>Typescript: v3.4.3
+          <v-icon left>mdi-language-typescript</v-icon>Typescript: {{typescriptVersion}}
         </v-chip>
       </p>
     </div>
@@ -22,6 +22,7 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 import LogoImage from '@/components/LogoImage.vue'
+import packageJsonData from '../../package.json'
 
 @Component({
   components: {
@@ -29,6 +30,17 @@ import LogoImage from '@/components/LogoImage.vue'
   }
 })
 export default class Introduction extends Vue {
+  private vueVersion = ''
+  private vuetifyVersion = ''
+  private typescriptVersion = ''
+
+  private mounted() {
+    console.dir(packageJsonData)
+    this.vueVersion = packageJsonData.dependencies.vue
+    this.vuetifyVersion = packageJsonData.devDependencies.vuetify
+    this.typescriptVersion = packageJsonData.devDependencies.typescript
+  }
+
   private openTab() {
     window.open('https://github.com/gywgithub/vue-vuetify-admin', '_blank')
   }

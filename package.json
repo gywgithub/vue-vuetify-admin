@@ -71,7 +71,7 @@
     "vue-axios": "^2.1.5",
     "vue-prism-editor": "^1.2.2",
     "vue-template-compiler": "^2.6.10",
-    "vuetify": "^2.3.18",
+    "vuetify": "^2.5.10",
     "xlsx": "^0.15.6"
   },
   "config": {

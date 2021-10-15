@@ -66,6 +66,9 @@
           <v-icon v-if="!dark">mdi-brightness-7</v-icon>
           <v-icon v-else>mdi-brightness-4</v-icon>
         </v-btn>
+        <v-btn icon>
+          <v-icon>mdi-translate</v-icon>
+        </v-btn>
         <v-btn icon @click="openTab">
           <v-icon size="28">mdi-github</v-icon>
         </v-btn>
@@ -140,7 +143,7 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import jsonConfig from '../../package.json'
+import packageJsonData from '../../package.json'
 
 const menuItems = [
   {
@@ -255,7 +258,7 @@ export default class Home extends Vue {
     } else {
       this.publicPath = '/vue-vuetify-admin'
     }
-    this.version = jsonConfig.version
+    this.version = packageJsonData.version
     if (
       localStorage.getItem('themeDark') &&
       localStorage.getItem('themeDark') === 'true'
