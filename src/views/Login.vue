@@ -117,7 +117,7 @@
             </div>
             <div>
               password:
-              <span class="subtitle-2 red--text text--lighten-1">admin123</span>
+              <span class="subtitle-2 red--text text--lighten-1">Admin_123</span>
             </div>
             <div class="body-1">OR</div>You can register a new user
           </div>
@@ -165,7 +165,7 @@ export default class SignIn extends Vue {
       sessionStorage.setItem('sheetFlag', '1')
       setTimeout(() => {
         this.sheet = false
-      }, 3000)
+      }, 5000)
     }
   }
 

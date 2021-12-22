@@ -29,7 +29,7 @@ const usersArr: any = arr
 usersArr.unshift({
   user_id: 1,
   username: 'admin',
-  password: 'admin123',
+  password: 'Admin_123',
   email: 'admin@qq.com',
   avatar: '/img/avatar.png',
   nickname: 'ADMIN',

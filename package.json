@@ -46,7 +46,7 @@
     "@vue/cli-plugin-unit-mocha": "^4.4.1",
     "@vue/cli-service": "^4.4.1",
     "@vue/test-utils": "1.0.0-beta.29",
-    "axios": "^0.19.2",
+    "axios": "^0.24.0",
     "babel-plugin-prismjs": "^2.0.1",
     "chai": "^4.1.2",
     "cz-conventional-changelog": "^3.1.0",
@@ -72,7 +72,7 @@
     "vue-prism-editor": "^1.2.2",
     "vue-template-compiler": "^2.6.10",
     "vuetify": "^2.5.10",
-    "xlsx": "^0.15.6"
+    "xlsx": "^0.17.4"
   },
   "config": {
     "commitizen": {
