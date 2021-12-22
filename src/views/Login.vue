@@ -214,6 +214,10 @@ export default class SignIn extends Vue {
         } else {
           console.warn('username or password incorrect')
           this.showMessage = true
+          setTimeout(() => {
+            this.btnDisabled = false
+            this.btnLoading = false
+          }, 1000)
         }
       })
     } else {
