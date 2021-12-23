@@ -365,7 +365,7 @@ export default class Home extends Vue {
   private logout() {
     sessionStorage.clear()
     localStorage.clear()
-    this.$router.push({ path: '/login' })
+    this.$router.replace({ path: '/login' })
   }
 }
 </script>

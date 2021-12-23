@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/vue-vuetify-admin/precache-manifest.9bdcf7458440e08ad09ecf1c706d0ee0.js"
+  "/vue-vuetify-admin/precache-manifest.a0e47d0019fa65f336835407420c9614.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "vue-vuetify-admin"});
