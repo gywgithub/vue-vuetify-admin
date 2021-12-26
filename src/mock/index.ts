@@ -163,17 +163,11 @@ Mock.mock('/api/v1/users', 'put', (option: any) => {
 
 Mock.mock('/api/v1/login', 'post', (option: any) => {
   const obj: any = JSON.parse(option.body)
-  let userIndex: number = -1
-  usersArr.forEach((item: any, index: number) => {
-    if (item.username === obj.username) {
-      userIndex = index
-      return false
-    }
-  })
-  if (usersArr[userIndex].password === obj.password) {
+  const result = usersArr.filter((item: any) => (item.username === obj.username && item.password === obj.password))
+  if (result.length > 0) {
     return {
       status: true,
-      data: usersArr[userIndex]
+      data: result[0]
     }
   } else {
     return { status: false }

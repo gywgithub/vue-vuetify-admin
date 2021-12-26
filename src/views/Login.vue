@@ -188,12 +188,17 @@ export default class SignIn extends Vue {
       console.info('validate true')
       this.btnDisabled = true
       this.btnLoading = true
+      console.info(this)
+      console.info(this.username)
+      console.info(this.password)
+      const {username, password} = this
+      console.info(username, password)
       this.axios({
         url: '/api/v1/login',
         method: 'POST',
         data: {
-          username: this.username,
-          password: this.password
+          username,
+          password
         }
       }).then((res: any) => {
         console.info(res)
