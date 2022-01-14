@@ -206,7 +206,8 @@ const menuItems = [
     children: [
       { title: 'openlayers', path: '/maps/openlayers' },
       { title: 'openseadragon', path: '/maps/openseadragon' },
-      { title: 'leaflet', path: '/maps/leaflet' }
+      { title: 'leaflet', path: '/maps/leaflet' },
+      { title: 'baidu map', path: '/maps/baidu-map' }
     ],
     appendIcon: 'mdi-chevron-down'
   },

@@ -159,6 +159,11 @@ const router = new Router({
           path: '/maps/leaflet',
           name: 'leaflet',
           component: () => import('./components/Maps/Leaflet.vue')
+        },
+        {
+          path: '/maps/baidu-map',
+          name: 'leaflet',
+          component: () => import('./components/Maps/BaiduMap.vue')
         }
       ]
     },
