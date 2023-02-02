@@ -1,5 +1,7 @@
 English | [简体中文](./README.zh-CN.md)
 
+[![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=gywgithub)](https://github.com/anuraghazra/github-readme-stats)
+
 # vue-vuetify-admin
 
 [vue-vuetify-admin](https://github.com/gywgithub/vue-vuetify-admin) is background management system based on `Vue`, `Typescript` and `Vuetify`.
