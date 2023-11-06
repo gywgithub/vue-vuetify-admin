@@ -194,7 +194,7 @@ const menuItems = [
     title: 'Charts',
     children: [
       { title: 'ECharts', path: '/charts/echarts' },
-      { title: 'Vega Charts', path: '/charts/vega-charts' },
+      // { title: 'Vega Charts', path: '/charts/vega-charts' },
       { title: 'D3 Charts', path: '/charts/d3-charts' },
       { title: 'Highcharts', path: '/charts/high-charts' }
     ],
@@ -207,6 +207,8 @@ const menuItems = [
       { title: 'openlayers', path: '/maps/openlayers' },
       { title: 'openseadragon', path: '/maps/openseadragon' },
       { title: 'leaflet', path: '/maps/leaflet' },
+      { title: 'leaflet-marker', path: '/maps/leaflet-marker' },
+      { title: 'leaflet-heat-map', path: '/maps/leaflet-heat-map' },
       { title: 'baidu map', path: '/maps/baidu-map' }
     ],
     appendIcon: 'mdi-chevron-down'
@@ -229,6 +231,12 @@ const menuItems = [
     icon: 'mdi-alpha-h-box-outline',
     title: 'Highlight',
     children: [{ title: 'prism', path: '/highlight/prism' }],
+    appendIcon: 'mdi-chevron-down'
+  },
+  {
+    icon: 'mdi-alpha-d-box-outline',
+    title: 'Drag',
+    children: [{ title: 'vue-draggable', path: '/drag/vue-draggable' }],
     appendIcon: 'mdi-chevron-down'
   }
 ]

@@ -161,6 +161,16 @@ const router = new Router({
           component: () => import('./components/Maps/Leaflet.vue')
         },
         {
+          path: '/maps/leaflet-marker',
+          name: 'leafletmarker',
+          component: () => import('./components/Maps/LeafletMarker.vue')
+        },
+        {
+          path: '/maps/leaflet-heat-map',
+          name: 'leafletheatmap',
+          component: () => import('./components/Maps/LeafletHeatMap.vue')
+        },
+        {
           path: '/maps/baidu-map',
           name: 'leaflet',
           component: () => import('./components/Maps/BaiduMap.vue')
@@ -188,6 +198,18 @@ const router = new Router({
           path: '/highlight/prism',
           name: 'prism',
           component: () => import('./components/Highlight/Prism.vue')
+        }
+      ]
+    },
+    {
+      path: '/drag',
+      name: 'drag',
+      component: Home,
+      children: [
+        {
+          path: '/drag/vue-draggable',
+          name: 'vue-draggable',
+          component: () => import('./components/Drag/VueDraggable.vue')
         }
       ]
     },

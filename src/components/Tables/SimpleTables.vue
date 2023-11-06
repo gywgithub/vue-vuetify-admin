@@ -57,7 +57,8 @@ export default class SimpleTables extends Vue {
   private desserts = tableData
 
   private exportExcel() {
-    const tHeader = ['name', 'calories']
+    // const tHeader = ['name', 'calories']
+    const tHeader = ['姓名', 'calories']
     const filterVal = ['name', 'calories']
     const data = formatJson(filterVal, this.desserts)
     exportJson2Excel(tHeader, data, 'table-list')

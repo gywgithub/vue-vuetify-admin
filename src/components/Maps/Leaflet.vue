@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div id="map" class="map"></div>
+    <div id="map" class="map" style="height: calc(100vh - 90px);"></div>
   </div>
 </template>
 <script lang="ts">
