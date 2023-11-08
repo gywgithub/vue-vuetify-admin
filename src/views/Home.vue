@@ -209,6 +209,7 @@ const menuItems = [
       { title: 'leaflet', path: '/maps/leaflet' },
       { title: 'leaflet-marker', path: '/maps/leaflet-marker' },
       { title: 'leaflet-heat-map', path: '/maps/leaflet-heat-map' },
+      { title: 'leaflet-heat-map-2', path: '/maps/leaflet-heat-map-2' },
       { title: 'baidu map', path: '/maps/baidu-map' }
     ],
     appendIcon: 'mdi-chevron-down'

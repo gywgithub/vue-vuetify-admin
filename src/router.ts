@@ -171,6 +171,11 @@ const router = new Router({
           component: () => import('./components/Maps/LeafletHeatMap.vue')
         },
         {
+          path: '/maps/leaflet-heat-map-2',
+          name: 'leafletheatmap2',
+          component: () => import('./components/Maps/LeafletHeatMap2.vue')
+        },
+        {
           path: '/maps/baidu-map',
           name: 'leaflet',
           component: () => import('./components/Maps/BaiduMap.vue')

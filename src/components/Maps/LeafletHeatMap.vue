@@ -45,6 +45,15 @@ export default class LeafletComponent extends Vue {
         if (draw) {
           heat.addLatLng(e.latlng)
         }
+      },
+      click(e) {
+        console.log('click: ', e)
+        draw = !draw
+        if (draw) {
+          console.log('绘制开始')
+        } else {
+          console.log('绘制结束')
+        }
       }
     })
   }
