@@ -31,12 +31,14 @@
       }
     </script>
     <script charset="utf-8" src="https://apis.map.qq.com/ws/location/v1/ip?key=MOJBZ-2IPCG-V22QU-I4MN6-3BBA2-5XB7F&callback=f&output=jsonp"></script>
-    <script src="https://pv.sohu.com/cityjson?ie=utf-8"></script>
+    <!-- <script src="https://pv.sohu.com/cityjson?ie=utf-8"></script> -->
     <script>
       console.log(navigator.userAgent)
       if (navigator.userAgent.indexOf('Chrome') !== -1) {
         console.info('--- suhu city api, not support Firefox browser ---')
-        console.log(returnCitySN['cname'] + ' ' + returnCitySN['cid'] + ' ' + returnCitySN['cip']);
+        // if (returnCitySN) {
+        //   console.log(returnCitySN['cname'] + ' ' + returnCitySN['cid'] + ' ' + returnCitySN['cip']);
+        // }
       }
     </script>
   </head>

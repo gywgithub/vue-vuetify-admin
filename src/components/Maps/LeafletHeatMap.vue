@@ -31,7 +31,6 @@ export default class LeafletComponent extends Vue {
     let newAddressPoints = addressPoints.map((p: any) => {
       return [p[0], p[1]]
     })
-    
     const heat = (<any>L).heatLayer(newAddressPoints).addTo(map)
     let draw = true
     map.on({
